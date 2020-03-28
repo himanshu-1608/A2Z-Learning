@@ -71,9 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
             String no = "nanchang";
             if( sb.toString().equals(no) ){
-                Intent it = new Intent(MainActivity.this , SideActivity.class);
-                it.putExtra("pehla","Signup email");
-                it.putExtra("doosra","Signup Password");
+                Intent it = new Intent(MainActivity.this , SignUpActivity.class);
                 startActivity(it);
             }
         } catch (FileNotFoundException e) {
