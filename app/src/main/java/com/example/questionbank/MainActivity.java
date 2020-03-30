@@ -19,46 +19,46 @@ import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String FILE_NAME = "password.txt";
+    private static final String FILE_NAME = "passcode.txt";
 
-    EditText et1,et2;
-    Button b;
-    TextView tv3;
+    EditText num1,num2;
+    Button add;
+    TextView result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        check();
+        if(!isLogged()){
+            Intent it = new Intent(MainActivity.this,SignUpActivity.class);
+            startActivity(it);
+        }
 
 //        Here starts the actual execution of main Activity . Above this is the code of login activity.
-        et1 = findViewById(R.id.et1);
-        et2 = findViewById(R.id.et2);
-        b   = findViewById(R.id.b1);
-        tv3 = findViewById(R.id.tv3);
+        num1   = findViewById(R.id.et1);
+        num2   = findViewById(R.id.et2);
+        add    = findViewById(R.id.b1);
+        result = findViewById(R.id.tv3);
 
         Intent aaya = getIntent();
         String one = aaya.getStringExtra("pehla");
         String two = aaya.getStringExtra("doosra");
-        et1.setText(one);
-        et2.setText(two);
+        num1.setText(one);
+        num2.setText(two);
 
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int i = Integer.parseInt(et1.getText().toString());
-                int j = Integer.parseInt(et2.getText().toString());
-                int k = i + j;
-                tv3.setText("Result is : " + k);
-                Toast.makeText(MainActivity.this, "Signed up for activity" + k , Toast.LENGTH_LONG).show();
-                Intent it = new Intent(MainActivity.this, SideActivity.class);
-                it.putExtra("pehla",et1.getText().toString());
-                it.putExtra("doosra",et2.getText().toString());
-                startActivity(it);
-            }
+        add.setOnClickListener(v -> {
+            int i = Integer.parseInt(num1.getText().toString());
+            int j = Integer.parseInt(num2.getText().toString());
+            int k = i + j;
+            result.setText("Result is : " + k);
+            Toast.makeText(MainActivity.this, "Added in main : " + k , Toast.LENGTH_LONG).show();
+            Intent it = new Intent(MainActivity.this, SideActivity.class);
+            it.putExtra("pehla",num1.getText().toString());
+            it.putExtra("doosra",num2.getText().toString());
+            startActivity(it);
         });
     }
 
-    private void check() {
+    private boolean isLogged() {
         FileInputStream fis = null;
         try {
             fis = openFileInput(FILE_NAME);
@@ -109,12 +109,5 @@ public class MainActivity extends AppCompatActivity {
             }
             check();
         }
-    }
-
-    public void doing(View V) {
-        int i = Integer.parseInt(et1.getText().toString());
-        int j = Integer.parseInt(et2.getText().toString());
-        int k = i + j;
-        tv3.setText("Result is : " + k);
     }
 }

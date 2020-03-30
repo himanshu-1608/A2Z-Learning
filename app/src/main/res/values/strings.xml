@@ -16,6 +16,17 @@
     <string name="sut14">Prefer not to say</string>
     <string name="sut15">Personal Score Evaluation</string>
     <string name="sut16">Watch</string>
+    <string name="sut17">Mobile Number</string>
+    <string name="sut18">10 - digit mobile no.</string>
     <string name="supp"><![CDATA[^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$]]></string>
     <string name="suep">[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+</string>
+    <string name="sunp">^[\\p{L} .\'-]+$</string>
+    <string name="sump">^[6-9]\\d{9}$</string>
+    <string name="mat1">First Number Main</string>
+    <string name="mat2">Second Number Main</string>
+    <string name="mat3">ADD</string>
+    <string name="mat4">Result is :</string>
+    <string name="mat5">num1</string>
+    <string name="mat6">num2</string>
+
 </resources>

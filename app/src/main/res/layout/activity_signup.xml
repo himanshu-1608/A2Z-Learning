@@ -6,21 +6,22 @@
     tools:context=".SignUpActivity"
     android:importantForAutofill="noExcludeDescendants">
 
-
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="-188dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
 
         <TextView
             android:id="@+id/tv1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40sp"
-            android:gravity="center_horizontal"
+            android:layout_marginTop="12sp"
+            android:gravity="center"
             android:text="@string/sut1"
             android:textSize="20sp" />
 
@@ -30,8 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#0000ff"
-            android:gravity="center_horizontal"
-            android:padding="2sp"
+            android:layout_marginTop="12sp"
+            android:gravity="center"
+            android:padding="2dp"
             android:paddingStart="15sp"
             android:paddingEnd="15sp"
             android:text="@string/sut15"
@@ -43,10 +45,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
-            android:layout_marginTop="20sp"
+            android:layout_marginTop="15sp"
             android:text="@string/sut2"
             android:textColor="#000099"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/et1"
@@ -64,7 +66,7 @@
             android:layout_marginStart="20sp"
             android:text="@string/sut11"
             android:textColor="#000099"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
 
         <RadioGroup
@@ -78,21 +80,20 @@
                 android:id="@+id/rb1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="0sp"
                 android:text="@string/sut12" />
 
             <RadioButton
                 android:id="@+id/rb2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
+                android:layout_marginStart="12sp"
                 android:text="@string/sut13" />
 
             <RadioButton
                 android:id="@+id/rb3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
+                android:layout_marginStart="12sp"
                 android:text="@string/sut14" />
 
         </RadioGroup>
@@ -102,29 +103,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="12sp"
             android:text="@string/sut4"
             android:textColor="#000099"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/et2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="20sp"
             android:layout_marginEnd="70dp"
             android:hint="@string/sut5"
             android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/tv10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="12sp"
+            android:text="@string/sut17"
+            android:textColor="#000099"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="70dp"
+            android:hint="@string/sut18"
+            android:inputType="phone" />
 
         <TextView
             android:id="@+id/tv4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="12sp"
             android:text="@string/sut6"
             android:textColor="#000099"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv5"
@@ -134,19 +154,19 @@
             android:layout_marginTop="7sp"
             android:text="@string/sut7"
             android:textColor="#ff0000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginStart="20sp">
 
             <EditText
                 android:id="@+id/et3"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:inputType="textPassword"
                 tools:ignore="LabelFor" />
 
@@ -164,10 +184,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="12sp"
             android:text="@string/sut8"
             android:textColor="#000099"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv7"
@@ -177,19 +197,19 @@
             android:layout_marginTop="7sp"
             android:text="@string/sut9"
             android:textColor="#ff0000"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginStart="20sp">
 
             <EditText
                 android:id="@+id/et4"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:inputType="textPassword"
                 tools:ignore="LabelFor" />
 
@@ -206,14 +226,20 @@
             android:id="@+id/subutt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="12sp"
             android:background="@color/colorPrimaryDark"
-            android:text="@string/sut10"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:paddingStart="40sp"
+            android:paddingEnd="40sp"
+            android:text="@string/sut10" />
 
-
+        <TextView
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

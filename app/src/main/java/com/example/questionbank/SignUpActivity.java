@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,8 +24,6 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//import static com.example.questionbank.R.string.sut12;
-//import static com.example.questionbank.R.string.sut13;
 import static java.util.regex.Pattern.compile;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -35,26 +32,28 @@ public class SignUpActivity extends AppCompatActivity {
     private static final String GENDER = "gender.txt";
     private static final String EMAIL = "email.txt";
     private static final String PASSCODE = "passcode.txt";
+    private static final String PHONENUM = "phone.txt";
+    private static final String LOGGED = "login.txt";
     TextView tv5,tv7;
     Button sign;
-    EditText name,mail,pass,cpass;
+    EditText name,mail,pass,cpass,mob;
     CheckBox cb1,cb2;
     RadioButton male,female,other;
     RadioGroup rg;
 
     @Override
     public void onBackPressed() {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
         builder.setTitle("Quit App")
+                .setCancelable(false)
                 .setMessage("Are You Sure to quit the app?")
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finishAffinity();
-                        System.out.println("Done");
-                    }
+                .setPositiveButton("Ok",(dialog, which) -> {
+                    finishAffinity();
+                    System.out.println("Exiting the app!!!");
                 })
                 .setNegativeButton("Cancel",null);
+
         AlertDialog alert = builder.create();
         alert.show();
     }
@@ -70,6 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
         mail = findViewById(R.id.et2);
         pass = findViewById(R.id.et3);
         cpass = findViewById(R.id.et4);
+        mob = findViewById(R.id.et5);
         cb1 = findViewById(R.id.cb1);
         cb2 = findViewById(R.id.cb2);
         male = findViewById(R.id.rb1);
@@ -88,6 +88,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+
         cb2.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(isChecked){
                 cpass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
@@ -97,16 +98,20 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+
         pass.setOnFocusChangeListener(  (v, hasFocus) -> tv5.setVisibility(View.VISIBLE)  );
 
+
         cpass.setOnFocusChangeListener( (v, hasFocus) -> tv7.setVisibility(View.VISIBLE) );
+
 
         sign.setOnClickListener((v)->{
             final String userName = name.getText().toString().trim();
             final String emailID = mail.getText().toString().trim();
             final String one = pass.getText().toString().trim();
             final String two = cpass.getText().toString().trim();
-            if(validate(userName,emailID,one,two)){
+            final String num = mob.getText().toString().trim();
+            if(validate(userName,emailID,one,two,num)){
                 System.out.println("Saving the signup details : ");
                 String Salute = "";
                 FileOutputStream fos = null;
@@ -182,27 +187,51 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     }
                 }
+                fos = null;
+                try {
+                    fos = openFileOutput(PHONENUM, MODE_PRIVATE);
+                    fos.write(num.getBytes());
+                    System.out.println("Phone No. : " + num);
+                } catch (IOException io) {
+                    io.printStackTrace();
+                } finally {
+                    if (fos != null) {
+                        try {
+                            fos.close();
+                        } catch (IOException io) {
+                            io.printStackTrace();
+                        }
+                    }
+                }
+                fos = null;
+                try {
+
+                    fos = openFileOutput(PHONENUM, MODE_PRIVATE);
+                    fos.write(num.getBytes());
+                    System.out.println("Phone No. : " + num);
+                } catch (IOException io) {
+                    io.printStackTrace();
+                } finally {
+                    if (fos != null) {
+                        try {
+                            fos.close();
+                        } catch (IOException io) {
+                            io.printStackTrace();
+                        }
+                    }
+                }
                 Toast.makeText(this,"Welcome , " + Salute + userName,Toast.LENGTH_LONG).show();
                 Intent it = new Intent(SignUpActivity.this , MainActivity.class);
                 startActivity(it);
             }
         });
     }
-    private boolean validate(@NonNull String userName,@NonNull String emailID,@NonNull String one,@NonNull String two) {
-        if(userName.isEmpty()) {
-            Toast.makeText(this,"Provide a username!!!",Toast.LENGTH_LONG).show();
+    private boolean validate(@NonNull String userName,@NonNull String emailID,@NonNull String one,@NonNull String two,@NonNull String num) {
+        if(!isvalidName(userName)) {
+            Toast.makeText(this,"Provide a valid username!!!",Toast.LENGTH_LONG).show();
             return false;
         }
-        if(TextUtils.isEmpty(emailID)) {
-            Toast.makeText(this,"Provide valid Email Address!!!",Toast.LENGTH_LONG).show();
-            return false;
-        }
-        String emailPattern = getString(R.string.suep);
-        if(!emailID.matches(emailPattern)) {
-            Toast.makeText(this,"Enter valid Email Address!!!",Toast.LENGTH_LONG).show();
-            return false;
-        }
-        if(!Patterns.EMAIL_ADDRESS.matcher(emailID).matches()) {
+        if(!isvalidEmail(emailID)){
             Toast.makeText(this,"Enter valid Email Address!!!",Toast.LENGTH_LONG).show();
             return false;
         }
@@ -222,9 +251,35 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(this,"Password and Confirm Password should be same!!!",Toast.LENGTH_LONG).show();
             return false;
         }
+        if(!isvalidPhoneNo(num)){
+            Toast.makeText(this,"Enter valid phone no.!!!",Toast.LENGTH_LONG).show();
+            return false;
+        }
         return true;
     }
-    public boolean isValidPassword(String password) {
+
+    private boolean isvalidPhoneNo(@NonNull String num) {
+        boolean ans = false;
+        if(num.length()==10) {
+            if(Pattern.matches(getString(R.string.sump),num)) {
+                ans=true;
+            }
+        }
+        return ans;
+    }
+
+    private boolean isvalidName(@NonNull String userName) {
+        boolean result = false;
+        if (!userName.isEmpty()) {
+            String regx = getString(R.string.sunp);
+            Pattern pattern = compile(regx, Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(userName);
+            result = matcher.find();
+        }
+        return result;
+    }
+
+    private boolean isValidPassword(@NonNull String password) {
         Pattern pattern;
         Matcher matcher;
         String PASSWORD_PATTERN = getString(R.string.supp);
@@ -232,37 +287,29 @@ public class SignUpActivity extends AppCompatActivity {
         matcher = pattern.matcher(password);
         return matcher.matches();
     }
+
+    private boolean isvalidEmail(@NonNull String email) {
+        if(TextUtils.isEmpty(email)) {
+            return false;
+        }
+        String emailPatterning = getString(R.string.suep);
+        if(!email.matches(emailPatterning)) {
+            return false;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            return false;
+        }
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        String emailPatternnew = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+\\.+[a-z]+";
+        String domain = email.substring(email.indexOf('@'));
+        String last   = domain.substring(domain.indexOf('.'));
+        //check for @domain.co.in or @domain.co.uk
+        if (!email.matches(emailPattern) || (last.length() ==3 || last.length() == 4)) {// check @domain.nl or @domain.com or @domain.org
+            return true;
+        }
+        else return email.matches(emailPatternnew) && last.length() == 6 && email.charAt(email.length() - 3) == '.';
+    }
 }
-//    private boolean validEmail(String email)
-//    {
-//        // TODO Auto-generated method stub
-//        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-//        String emailPatternnew = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+\\.+[a-z]+";
-//        String domain = email.substring(email.indexOf('@'), email.length());
-//        String last = domain.substring(domain.indexOf('.'),domain.length());
-//        if (email.matches(emailPattern) && (last.length() ==3 || last.length() == 4)) // check @domain.nl or @domain.com or @domain.org
-//        {
-//            return true;
-//        }
-//        else if(email.matches(emailPatternnew) && last.length() == 6 && email.charAt(email.length()-3)== '.') //check for @domain.co.in or @domain.co.uk
-//        {
-//            return true;
-//        }
-//        else
-//        {
-//            return false;
-//        }
-//    }
-
-
-
-
-
-
-
-
-
-
 
 
 
