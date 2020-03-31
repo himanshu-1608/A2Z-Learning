@@ -28,12 +28,7 @@ import static java.util.regex.Pattern.compile;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private static final String NAME = "username.txt";
-    private static final String GENDER = "gender.txt";
-    private static final String EMAIL = "email.txt";
-    private static final String PASSCODE = "passcode.txt";
-    private static final String PHONENUM = "phone.txt";
-    private static final String LOGGED = "login.txt";
+    private static final String DATA = "data.txt";
     TextView tv5,tv7;
     Button sign;
     EditText name,mail,pass,cpass,mob;
@@ -113,102 +108,41 @@ public class SignUpActivity extends AppCompatActivity {
             final String num = mob.getText().toString().trim();
             if(validate(userName,emailID,one,two,num)){
                 System.out.println("Saving the signup details : ");
-                String Salute = "";
-                FileOutputStream fos = null;
-                try {
-                    fos = openFileOutput(NAME, MODE_PRIVATE);
-                    fos.write(userName.getBytes());
-                    System.out.println("Username : " + userName);
-                } catch (IOException io) {
-                    io.printStackTrace();
-                } finally {
-                    if (fos != null) {
-                        try {
-                            fos.close();
-                        } catch (IOException io) {
-                            io.printStackTrace();
-                        }
-                    }
-                }
-                fos = null;
-                try {
-                    fos = openFileOutput(GENDER, MODE_PRIVATE);
-                    int select = rg.getCheckedRadioButtonId();
-                    RadioButton locate = rg.findViewById(select);
-                    switch (locate.getText().toString()) {
-                        case "Male"  :   Salute = "Mr.";
-                                        break;
-                        case "Female"  :   Salute = "Ms.";
-                                        break;
-                        default     :   break;
-                    }
-                    fos.write(Salute.getBytes());
-                    System.out.println("Salute : " + Salute);
-                } catch (IOException io) {
-                    io.printStackTrace();
-                } finally {
-                    if (fos != null) {
-                        try {
-                            fos.close();
-                        } catch (IOException io) {
-                            io.printStackTrace();
-                        }
-                    }
-                }
-                fos = null;
-                try {
-                    fos = openFileOutput(EMAIL, MODE_PRIVATE);
-                    fos.write(emailID.getBytes());
-                    System.out.println("Email ID : " + emailID);
-                } catch (IOException io) {
-                    io.printStackTrace();
-                } finally {
-                    if (fos != null) {
-                        try {
-                            fos.close();
-                        } catch (IOException io) {
-                            io.printStackTrace();
-                        }
-                    }
-                }
-                fos = null;
-                try {
-                    fos = openFileOutput(PASSCODE, MODE_PRIVATE);
-                    fos.write(one.getBytes());
-                    System.out.println("Passcode : " + one);
-                } catch (IOException io) {
-                    io.printStackTrace();
-                } finally {
-                    if (fos != null) {
-                        try {
-                            fos.close();
-                        } catch (IOException io) {
-                            io.printStackTrace();
-                        }
-                    }
-                }
-                fos = null;
-                try {
-                    fos = openFileOutput(PHONENUM, MODE_PRIVATE);
-                    fos.write(num.getBytes());
-                    System.out.println("Phone No. : " + num);
-                } catch (IOException io) {
-                    io.printStackTrace();
-                } finally {
-                    if (fos != null) {
-                        try {
-                            fos.close();
-                        } catch (IOException io) {
-                            io.printStackTrace();
-                        }
-                    }
-                }
-                fos = null;
-                try {
 
-                    fos = openFileOutput(PHONENUM, MODE_PRIVATE);
-                    fos.write(num.getBytes());
-                    System.out.println("Phone No. : " + num);
+
+                FileOutputStream fos = null;
+
+
+                String Salute = "";
+                int select = rg.getCheckedRadioButtonId();
+                RadioButton locate = rg.findViewById(select);
+                switch (locate.getText().toString()) {
+                    case "Male"  :   Salute = "Mr.";
+                        break;
+                    case "Female"  :   Salute = "Ms.";
+                        break;
+                    default     :   break;
+                }
+
+                String setter = "USERNAME:" +
+                        userName +
+                        "\n" +
+                        "SALUTE:" +
+                        Salute +
+                        "\n" +
+                        "EMAIL:" +
+                        emailID +
+                        "\n" +
+                        "MOBILE:" +
+                        num +
+                        "\n" +
+                        "PASSWORD:" +
+                        one +
+                        "\n";
+
+                try {
+                    fos = openFileOutput(DATA, MODE_PRIVATE);
+                    fos.write(setter.getBytes());
                 } catch (IOException io) {
                     io.printStackTrace();
                 } finally {

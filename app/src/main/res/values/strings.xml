@@ -28,5 +28,6 @@
     <string name="mat4">Result is :</string>
     <string name="mat5">num1</string>
     <string name="mat6">num2</string>
+    <string name="mat7">Result is : </string>
 
 </resources>
