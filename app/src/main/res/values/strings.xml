@@ -22,12 +22,6 @@
     <string name="suep">[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+</string>
     <string name="sunp">^[\\p{L} .\'-]+$</string>
     <string name="sump">^[6-9]\\d{9}$</string>
-    <string name="mat1">First Number Main</string>
-    <string name="mat2">Second Number Main</string>
-    <string name="mat3">ADD</string>
-    <string name="mat4">Result is :</string>
-    <string name="mat5">num1</string>
-    <string name="mat6">num2</string>
-    <string name="mat7">Result is : </string>
+    <string name="mat1">LEARN ANYTHING YOU LIKE</string>
 
 </resources>

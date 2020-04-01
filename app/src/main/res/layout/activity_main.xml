@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:importantForAutofill="noExcludeDescendants"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -11,75 +11,24 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_width="match_parent"
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:weightSum="3"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:text="@string/mat1"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"/>
 
-            <TextView
-                android:id="@+id/tv1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:layout_weight="1"
-                android:text="@string/mat1" />
-            <EditText
-                android:id="@+id/et1"
-                android:hint="@string/mat5"
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_width="match_parent"
+        <ListView
+            android:layout_marginTop="20dp"
+            android:id="@+id/lv1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:weightSum="3"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:layout_weight="1"
-                android:text="@string/mat2" />
-            <EditText
-                android:id="@+id/et2"
-                android:hint="@string/mat6"
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
-        </LinearLayout>
-            <Button
-                android:id="@+id/b1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginStart="150dp"
-                android:text="@string/mat3" />
-
-            <TextView
-                android:id="@+id/tv3"
-                android:textSize="20sp"
-                android:layout_marginTop="50sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/mat4" />
-
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

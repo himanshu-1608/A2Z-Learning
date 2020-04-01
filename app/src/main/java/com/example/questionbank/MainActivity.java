@@ -2,79 +2,64 @@ package com.example.questionbank;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Arrays;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String FILE_NAME = "data.txt";
+    @Override
+    public void onBackPressed() {
 
-    EditText num1,num2;
-    Button add;
-    TextView result;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Quit App")
+                .setCancelable(false)
+                .setMessage("Are You Sure to quit the app?")
+                .setPositiveButton("Ok",(dialog, which) -> {
+                    finishAffinity();
+                    System.out.println("Exiting the app!!!");
+                })
+                .setNegativeButton("Cancel",null);
+
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
+
+    private static final String FILE_NAME = "data.txt";
+    ListView lv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(!isLogged()){
-            Intent it = new Intent(MainActivity.this,SignUpActivity.class);
+        if (!isLogged()) {
+            Intent it = new Intent(MainActivity.this, SignUpActivity.class);
             startActivity(it);
         }
 
-//        Here starts the actual execution of main Activity . Above this is the code of login activity.
-        num1   = findViewById(R.id.et1);
-        num2   = findViewById(R.id.et2);
-        add    = findViewById(R.id.b1);
-        result = findViewById(R.id.tv3);
+        lv = findViewById(R.id.lv1);
 
-        FileInputStream fis;
-        try {
-            fis = openFileInput(FILE_NAME);
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            StringBuilder out = new StringBuilder();
-            String text;
-            while ((text = br.readLine()) != null) {
-                out.append(text);
-            }
-            num1.setText(out);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String[] vals = {"JEE Mains","C++ Basics","LLM Entrance"};
 
+        ArrayAdapter arrayadapter = new ArrayAdapter<>(this,R.layout.simple_list1, Arrays.asList(vals));
 
+        lv.setAdapter(arrayadapter);
 
-        add.setOnClickListener(v -> {
-            try{
-                long i = Integer.parseInt(num1.getText().toString());
-                long j = Integer.parseInt(num2.getText().toString());
-                long k = i + j;
-                StringBuilder sb = new StringBuilder();
-                sb.append(getString(R.string.mat7));
-                sb.append(k);
-                result.setText(sb);
-                Toast.makeText(MainActivity.this, "Added in main : " + k , Toast.LENGTH_LONG).show();
-                Intent it = new Intent(MainActivity.this, SideActivity.class);
-                it.putExtra("pehla",num1.getText().toString());
-                it.putExtra("doosra",num2.getText().toString());
-                startActivity(it);
-            } catch(NumberFormatException nfe){
-                Toast.makeText(this,"Enter a Valid Number Please",Toast.LENGTH_SHORT).show();
-            }
+        lv.setOnItemClickListener((parent, view, position, id) -> {
+
+            Toast.makeText(this,"Checked : " + vals[position] , Toast.LENGTH_LONG).show();
+            Intent it = new Intent(this, SideActivity.class);
+            startActivity(it);
         });
     }
-
     private boolean isLogged() {
         File file = new File(getApplicationContext().getFilesDir(),FILE_NAME);
         return file.exists();
