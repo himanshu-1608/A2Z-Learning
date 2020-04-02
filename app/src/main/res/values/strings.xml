@@ -23,5 +23,8 @@
     <string name="sunp">^[\\p{L} .\'-]+$</string>
     <string name="sump">^[6-9]\\d{9}$</string>
     <string name="mat1">LEARN ANYTHING YOU LIKE</string>
+    <string name="CppJavaOpen">Open</string>
+    <string name="CppJavaClose">Close</string>
+
 
 </resources>
