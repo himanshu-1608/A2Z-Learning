@@ -8,7 +8,113 @@
     android:layout_height="match_parent"
     tools:context=".CppBasics"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:weightSum="9"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/tv11"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="15sp"
+            android:textSize="50sp"
+            android:textAlignment="center"
+            android:text="View Code" />
+
+        <TextView
+            android:id="@+id/tv12"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.4"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15sp"
+            android:layout_marginHorizontal="15sp"
+            android:text="This contains code for all the basic programs needed for dynamic programming . There is a list of programs there you can check"/>
+
+        <Button
+            android:id="@+id/b13"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15sp"
+            android:paddingHorizontal="20sp"
+            android:textColor="#ffffff"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="10dp"
+            android:layout_weight="0.6"
+            android:text="View DP Codes" />
+
+        <TextView
+            android:id="@+id/tv21"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="15sp"
+            android:textSize="50sp"
+            android:textAlignment="center"
+            android:text="Watch Videos" />
+
+        <TextView
+            android:id="@+id/tv22"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.4"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15sp"
+            android:layout_marginHorizontal="15sp"
+            android:text="Related videos for the basic algorithms of dynamic programming."/>
+
+        <Button
+            android:id="@+id/b23"
+            android:layout_width="wrap_content"
+            android:paddingHorizontal="20sp"
+            android:textColor="#ffffff"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="10dp"
+            android:layout_weight="0.6"
+            android:text="View DP Codes" />
+
+        <TextView
+            android:id="@+id/tv31"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="15sp"
+            android:textSize="25sp"
+            android:textAlignment="center"
+            android:text="Test Series on DP Implementation" />
+
+        <TextView
+            android:id="@+id/tv32"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.4"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="15sp"
+            android:text="This contains code for all the basic programs needed for dynamin programming . There is a list of programs there you can check"/>
+
+        <Button
+            android:id="@+id/b33"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15sp"
+            android:paddingHorizontal="20sp"
+            android:textColor="#ffffff"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="10dp"
+            android:layout_weight="0.6"
+            android:text="View DP Codes" />
+
+    </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

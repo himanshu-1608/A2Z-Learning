@@ -1,13 +1,13 @@
 package com.example.questionbank;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -17,6 +17,7 @@ public class CppBasics extends AppCompatActivity {
 
     DrawerLayout d1;
     ActionBarDrawerToggle abdt;
+    NavigationView nav_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +29,9 @@ public class CppBasics extends AppCompatActivity {
         abdt.setDrawerIndicatorEnabled(true);
         d1.addDrawerListener(abdt);
         abdt.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        NavigationView nav_view = findViewById(R.id.nav_view);
+        nav_view = findViewById(R.id.nav_view);
         nav_view.setNavigationItemSelectedListener(menuItem -> {
             int id =  menuItem.getItemId();
             if(id == R.id.profile) {
