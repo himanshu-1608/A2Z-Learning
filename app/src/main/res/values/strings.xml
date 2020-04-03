@@ -25,6 +25,17 @@
     <string name="mat1">LEARN ANYTHING YOU LIKE</string>
     <string name="CppJavaOpen">Open</string>
     <string name="CppJavaClose">Close</string>
+    <string name="cppt1">View Codes</string>
+    <string name="cppt2">This section contains codes for all the basic programs needed for dynamic programming.</string>
+    <string name="cppt3">View DP Codes</string>
+    <string name="cppt4">Watch Videos</string>
+    <string name="cppt5">Related videos for the basic algorithms of dynamic programming.</string>
+    <string name="cppt6">Watch Videos</string>
+    <string name="cppt7">Test Series</string>
+    <string name="cppt8">Here you can give tests on various topics of DP . The test are on the basis of 2 types : Full DP Test (all topics merged) or you can give test on separate topics.</string>
+    <string name="cppt9">Give Tests</string>
+    <string name="cppcodet1">Longest Common Subsequence</string>
+    <string name="cppcodet2">0-1 KnapSack Problem</string>
 
 
 </resources>
