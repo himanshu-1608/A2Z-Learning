@@ -36,6 +36,8 @@
     <string name="cppt9">Give Tests</string>
     <string name="cppcodet1">Longest Common Subsequence</string>
     <string name="cppcodet2">0-1 KnapSack Problem</string>
+    <string name="cppvideot1">Youtube Tutorial</string>
+    <string name="cppvideot2">Source : geekforgeeks.org</string>
 
 
 </resources>
