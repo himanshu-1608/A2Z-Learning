@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         String[] vals = {"JEE Mains","C++ Basics","LLM Entrance"};
 
         final ArrayList<Class> intents = new ArrayList<>();
-        intents.add( JeeMains.class );
+        intents.add( SideActivity.class );
         intents.add( CppBasics.class );
         intents.add( UpscGs.class );
 /*

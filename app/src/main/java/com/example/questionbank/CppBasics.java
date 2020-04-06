@@ -65,7 +65,7 @@ public class CppBasics extends AppCompatActivity {
             startActivity(i2);
         });
         b3.setOnClickListener(v -> {
-            Intent i3 = new Intent(this,CppCodes.class);
+            Intent i3 = new Intent(this,CppTests.class);
             startActivity(i3);
         });
     }
