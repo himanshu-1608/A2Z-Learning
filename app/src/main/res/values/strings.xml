@@ -41,6 +41,13 @@
     <string name="tlt1">START THE TEST</string>
     <string name="tlt2">Time Left :</string>
     <string name="tlt3">End test</string>
+    <string name="tests11">Test 1</string>
+    <string name="tests12">Test 2</string>
+    <string name="tests13">Test 3</string>
+    <string name="cpptests1">TEST TYPE</string>
+    <string name="cpptests2">Full Length Test(ALL TOPICS)</string>
+    <string name="cpptests3">Dynamic Programming</string>
+    <string name="cpptests4">OOPS ( Object-Oriented )</string>
 
 
 </resources>

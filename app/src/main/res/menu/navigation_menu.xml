@@ -10,14 +10,27 @@
     </item>
     <item
         android:id="@+id/settings"
-        android:title="Settings"
-        android:icon="@drawable/ic_settings_black_24dp">
+        android:title="Courses"
+        android:icon="@drawable/ic_courses_24dp">
+
+    </item>
+    <item
+        android:id="@+id/scoreinfo"
+        android:title="Personal Score Evaluation"
+        android:icon="@drawable/ic_performance_eval">
+
+    </item>
+    <item
+        android:id="@+id/profile"
+        android:title="My Profile"
+        android:icon="@drawable/ic_account_circle_black_24dp">
 
     </item>
     <item
         android:id="@+id/devinfo"
-        android:title="Developer"
-        android:icon="@drawable/ic_code_black_24dp">
+        android:title="About Us"
+        android:icon="@drawable/ic_dev_info">
 
     </item>
+
 </menu>

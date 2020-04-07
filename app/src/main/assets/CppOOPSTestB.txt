@@ -1,0 +1,24 @@
+Which of the following concepts means determining at runtime what method to invoke?
+Which of the following term is used for a function defined inside a class?
+Which of the following concept of oops allows compiler to insert arguments in a function call if it is not specified?
+Which of the following cannot be friend?
+Data hiding
+Dynamic Typing
+Dynamic binding
+Dynamic loading
+Member Variable
+Member function
+Class function
+Classic function
+Call by value
+Call by reference
+Default arguments
+Call by pointer
+Function
+Class
+Operator function
+Object
+3
+2
+3
+2

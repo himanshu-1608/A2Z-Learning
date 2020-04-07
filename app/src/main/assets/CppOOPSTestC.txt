@@ -1,0 +1,24 @@
+Which of the following concepts of OOPS means exposing only necessary information to client?
+Why reference is not same as a pointer?
+cout is a/an ____?
+How many types of polymorphisms are supported by C++?
+Encapsulation
+Abstraction
+Data hiding
+Data binding
+A reference can never be null.
+A reference once established cannot be changed.
+Reference doesn't need an explicit dereferencing mechanism.
+All of the above.
+object
+operator
+function
+macro
+1
+2
+3
+4
+3
+4
+1
+2

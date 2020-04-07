@@ -1,5 +1,6 @@
 package com.example.questionbank;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -10,9 +11,8 @@ import androidx.appcompat.app.AlertDialog;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Random;
 
-public class CppFullLength extends TestLayout {
+public class TestHandler extends TestLayout {
 
     View test;
     long timeofExercise;
@@ -42,16 +42,16 @@ public class CppFullLength extends TestLayout {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cpp_full_length);
+        setContentView(R.layout.activity_test_handler);
+        Intent it = getIntent();
+        String filename = it.getStringExtra("filename");
         test = findViewById(R.id.inflated_test);
         queCount = 4;
         teststate = false;
         timeofExercise = 300000;
         StartActivities(test,queCount,timeofExercise);
         allGone();
-        String[] choseTest = new String[] {"CppFullTestA.txt","CppFullTestB.txt","CppFullTestC.txt"};
-        int idx = new Random().nextInt(choseTest.length);
-        String random = (choseTest[idx]);
+
         startup.setOnClickListener(v -> {
             startup.setVisibility(View.GONE);
             endTest.setVisibility(View.VISIBLE);
@@ -59,7 +59,8 @@ public class CppFullLength extends TestLayout {
             StringBuilder rawText = new StringBuilder();
             BufferedReader reader = null;
             try {
-                reader = new BufferedReader(new InputStreamReader(getAssets().open(random)));
+                assert filename != null;
+                reader = new BufferedReader(new InputStreamReader(getAssets().open(filename)));
                 String mLine;
                 while((mLine = reader.readLine())!= null){
                     rawText.append(mLine);
@@ -118,4 +119,5 @@ public class CppFullLength extends TestLayout {
         TimeText += seconds;
         timeText.setText(TimeText);
     }
+
 }

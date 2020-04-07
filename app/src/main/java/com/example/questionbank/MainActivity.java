@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         nav_view.setNavigationItemSelectedListener(menuItem -> {
             int id =  menuItem.getItemId();
             if(id == R.id.profile) {
-                Toast.makeText(this,"Profile",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MainActivity.this,MyProfile.class));
             }
             else if(id == R.id.settings) {
                 Toast.makeText(this,"Settings",Toast.LENGTH_LONG).show();

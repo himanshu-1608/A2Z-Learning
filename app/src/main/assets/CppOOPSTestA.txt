@@ -1,0 +1,24 @@
+Which of the following type of class allows only one object of it to be created?
+Which of the following is not a type of constructor?
+Which of the following statements is correct?
+Which of the following is not the member of class?
+Virtual class
+Abstract class
+Singleton class
+Friend class
+Copy constructor
+Friend constructor
+Default constructor
+Parameterized constructor
+Base class pointer cannot point to derived class.
+Derived class pointer cannot point to base class.
+Pointer to derived class cannot be created.
+Pointer to base class cannot be created.
+Static function
+Friend function
+Const function
+Virtual function
+3
+2
+2
+2

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.questionbank">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -12,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestLayout"/>
+        <activity android:name=".MyProfile"></activity>
+        <activity android:name=".TestHandler" />
+        <activity android:name=".TestLayout" />
         <activity android:name=".CppFullLength" />
         <activity android:name=".CppTests" />
         <activity android:name=".CppVideos" />
