@@ -24,12 +24,7 @@ public class CppTests extends AppCompatActivity {
         });
 
         b2.setOnClickListener(v -> {
-            startActivity(new Intent(this,CppBasics.class));
+            startActivity(new Intent(this,TestLayout.class));
         });
-
-        b3.setOnClickListener(v -> {
-            startActivity(new Intent(this,CppBasics.class));
-        });
-
     }
 }

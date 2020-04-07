@@ -1,0 +1,24 @@
+Which of the following is/are property/properties of a dynamic programming problem?
+In dynamic programming, the technique of storing the previously calculated values is called ___?
+When a top-down approach of dynamic programming is applied to a problem, it usually ___?
+Which of the following problems is NOT solved using dynamic programming?
+Optimal substructure
+Overlapping subproblems
+Greedy approach
+Both optimal substructure and overlapping subproblems
+Saving value property
+Storing value property
+Memoization
+Mapping
+Decreases both, the time complexity and the space complexity
+Decreases the time complexity and increases the space complexity
+Increases the time complexity and decreases the space complexity
+Increases both, the time complexity and the space complexity
+0/1 knapsack problem
+Matrix chain multiplication problem
+Edit distance problem
+Fractional knapsack problem
+4
+3
+2
+4

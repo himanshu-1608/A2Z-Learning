@@ -38,6 +38,9 @@
     <string name="cppcodet2">0-1 KnapSack Problem</string>
     <string name="cppvideot1">Youtube Tutorial</string>
     <string name="cppvideot2">Source : geekforgeeks.org</string>
+    <string name="tlt1">START THE TEST</string>
+    <string name="tlt2">Time Left :</string>
+    <string name="tlt3">End test</string>
 
 
 </resources>

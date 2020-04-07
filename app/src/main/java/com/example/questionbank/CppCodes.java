@@ -33,6 +33,7 @@ public class CppCodes extends AppCompatActivity {
             while((mLine = reader.readLine()) != null) {
                 text.append(mLine);
                 text.append("\n");
+
             }
         } catch (IOException e) {
             Toast.makeText(getApplicationContext(),"Error reading file : LCSCode!", Toast.LENGTH_LONG).show();

@@ -1,0 +1,24 @@
+Which is private member functions access scope?
+Which member can never be accessed by inherited classes?
+Which error will be produced if private members are accessed?
+Can main() function be made private?
+Member functions which can only be used within the class
+Member functions which can used outside the class
+Member functions which are accessible in derived class
+Member functions which can’t be accessed inside the class
+Public member function
+Private member function
+Protected member function
+All can be accessed
+Can’t access private message
+Code unreachable
+Core dumped
+Bad code
+Yes, always
+Yes, if program doesn’t contain any classes
+No, because main function is user defined
+No, never
+1
+2
+1
+4

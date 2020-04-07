@@ -1,0 +1,24 @@
+What is the size of empty class?
+What is abstract class?
+When Virtual Table is created?
+What is the result of : cout<<-1-1-1;
+0
+1
+2
+4
+A class with abstract keyword
+A class with no functions in it
+A class with atleast one pure virtual function
+Empty Class
+Every Class has VTable
+Class inherited from other Class
+When a Class Overrides the function of Base class
+Class has atleast one Virtual Function
+Compilation Error
+0
+3
+-3
+2
+3
+4
+4

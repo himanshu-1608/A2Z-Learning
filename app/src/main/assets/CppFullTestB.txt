@@ -1,0 +1,24 @@
+How to stop Name Mangling in C++?
+Which of the following is Memory Leak detection tool?
+Exceptions are Caught at ?
+When can we have two classes with same name?
+It is not possible
+It is possible only with C code
+By using extern "C" keyword
+By Converting C++ code to C
+GC++
+KDevelop
+GIT
+Valgrind
+Compilation Time
+Run Time
+Linking Time
+No
+We cant have
+In different work space
+Can have but in different file
+We can have in any scenario
+3
+4
+2
+2

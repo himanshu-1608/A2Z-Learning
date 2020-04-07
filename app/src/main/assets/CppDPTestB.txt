@@ -1,0 +1,24 @@
+We use dynamic programming approach when __ ?
+Kadane algorithm is used to find:
+Four matrices M1, M2, M3 and M4 of dimensions pxq, qxr, rxs and sxt respectively can be multiplied is several ways with different number of total scalar multiplications. For example, when multiplied as ((M1 X M2) X (M3 X M4)), the total number of multiplications is pqr + rst + prt. When multiplied as (((M1 X M2) X M3) X M4), the total number of scalar multiplications is pqr + prs + pst. If p = 10, q = 100, r = 20, s = 5 and t = 80, then the number of scalar multiplications needed is ?
+Consider two strings A = "qpqrr" and B = "pqprqrp". Let x be the length of the longest common subsequence (not necessarily contiguous) between A and B and let y be the number of such longest common subsequences between A and B. Then x + 10y = ?
+We need an optimal solution
+The solution has optimal substructure
+The given problem can be reduced to the 3-SAT problem
+It's faster than Greed
+Maximum sum subsequence in an array
+Maximum sum subarray in an array
+Maximum product subsequence in an array
+Maximum product subarray in an array
+248000
+44000
+19000
+25000
+33
+23
+43
+34
+2
+2
+3
+4
