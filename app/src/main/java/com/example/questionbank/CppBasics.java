@@ -43,10 +43,10 @@ public class CppBasics extends AppCompatActivity {
                 case R.id.profile :
                     Toast.makeText(this,"Profile",Toast.LENGTH_SHORT).show();
                     break;
-                case R.id.settings :
+                case R.id.devinfo :
                     Toast.makeText(this,"Settings",Toast.LENGTH_SHORT).show();
                     break;
-                case R.id.devinfo :
+                case R.id.faq :
                     Toast.makeText(this,"Developer Page",Toast.LENGTH_SHORT).show();
                     break;
                 default : return true;

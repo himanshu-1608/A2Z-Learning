@@ -1,5 +1,6 @@
 package com.example.questionbank;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -125,52 +126,52 @@ public class TestLayout extends AppCompatActivity {
                 checker = '1';
                 if(checker == charArr1[i]) {
                     Score++;
-                    locate.setBackgroundResource(R.drawable.truecolorback);
+                    locate.setBackgroundColor(Color.parseColor("#d4edda"));
                 } else {
-                    locate.setBackgroundResource(R.drawable.falsecolorback);
+                    locate.setBackgroundColor(Color.parseColor("#ffcccc"));
                 }
             }
             if (locate == check[i][1]) {
                 checker = '2';
                 if(checker == charArr1[i]) {
                     Score++;
-                    locate.setBackgroundResource(R.drawable.truecolorback);
+                    locate.setBackgroundColor(Color.parseColor("#d4edda"));
                 } else {
-                    locate.setBackgroundResource(R.drawable.falsecolorback);
+                    locate.setBackgroundColor(Color.parseColor("#ffcccc"));
                 }
             }
             if (locate == check[i][2]) {
                 checker = '3';
                 if(checker == charArr1[i]) {
                     Score++;
-                    locate.setBackgroundResource(R.drawable.truecolorback);
+                    locate.setBackgroundColor(Color.parseColor("#d4edda"));
                 } else {
-                    locate.setBackgroundResource(R.drawable.falsecolorback);
+                    locate.setBackgroundColor(Color.parseColor("#ffcccc"));
                 }
             }
             if (locate == check[i][3]) {
                 checker = '4';
                 if(checker == charArr1[i]) {
                     Score++;
-                    locate.setBackgroundResource(R.drawable.truecolorback);
+                    locate.setBackgroundColor(Color.parseColor("#d4edda"));
                 } else {
-                    locate.setBackgroundResource(R.drawable.falsecolorback);
+                    locate.setBackgroundColor(Color.parseColor("#ffcccc"));
                 }
             }
 
         }
         for(int i = 0 ; i < queCount ; i++ ) {
             if (charArr1[i] == '1') {
-                check[i][0].setBackgroundResource(R.drawable.truecolorback);
+                check[i][0].setBackgroundColor(Color.parseColor("#d4edda"));
             }
-            if (charArr1[i] == '2') {
-                check[i][1].setBackgroundResource(R.drawable.truecolorback);
+            else if (charArr1[i] == '2') {
+                check[i][1].setBackgroundColor(Color.parseColor("#d4edda"));
             }
-            if (charArr1[i] == '3') {
-                check[i][2].setBackgroundResource(R.drawable.truecolorback);
+            else if (charArr1[i] == '3') {
+                check[i][2].setBackgroundColor(Color.parseColor("#d4edda"));
             }
-            if (charArr1[i] == '4') {
-                check[i][3].setBackgroundResource(R.drawable.truecolorback);
+            else if (charArr1[i] == '4') {
+                check[i][3].setBackgroundColor(Color.parseColor("#d4edda"));
             }
 
         }

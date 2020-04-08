@@ -4,33 +4,38 @@
 
     <item
         android:id="@+id/profile"
-        android:title="My Profile"
-        android:icon="@drawable/ic_account_circle_black_24dp">
-
+        android:title="@string/navmenut1"
+        android:icon="@drawable/accountimage">
     </item>
+
     <item
-        android:id="@+id/settings"
-        android:title="Courses"
-        android:icon="@drawable/ic_courses_24dp">
-
+        android:id="@+id/courses"
+        android:title="@string/navmenut2"
+        android:icon="@drawable/courseimage">
     </item>
+
     <item
         android:id="@+id/scoreinfo"
-        android:title="Personal Score Evaluation"
-        android:icon="@drawable/ic_performance_eval">
-
+        android:title="@string/navmenut3"
+        android:icon="@drawable/perf_eval">
     </item>
-    <item
-        android:id="@+id/profile"
-        android:title="My Profile"
-        android:icon="@drawable/ic_account_circle_black_24dp">
 
-    </item>
     <item
         android:id="@+id/devinfo"
-        android:title="About Us"
+        android:title="@string/navmenut4"
         android:icon="@drawable/ic_dev_info">
+    </item>
 
+    <item
+        android:id="@+id/helpsupport"
+        android:title="@string/navmenut5"
+        android:icon="@drawable/help_support">
+    </item>
+
+    <item
+        android:id="@+id/faq"
+        android:title="@string/navmenut6"
+        android:icon="@drawable/faq">
     </item>
 
 </menu>

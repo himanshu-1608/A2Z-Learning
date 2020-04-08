@@ -1,9 +1,5 @@
 package com.example.questionbank;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,6 +14,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -237,48 +237,9 @@ public class SignUpActivity extends AppCompatActivity {
         String emailPatternnew = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+\\.+[a-z]+";
         String domain = email.substring(email.indexOf('@'));
         String last   = domain.substring(domain.indexOf('.'));
-        //check for @domain.co.in or @domain.co.uk
-        if (!email.matches(emailPattern) || (last.length() ==3 || last.length() == 4)) {// check @domain.nl or @domain.com or @domain.org
+        if (!email.matches(emailPattern) || (last.length() ==3 || last.length() == 4)) {
             return true;
         }
         else return email.matches(emailPatternnew) && last.length() == 6 && email.charAt(email.length() - 3) == '.';
     }
 }
-
-
-
-//set dialog message
-//        alertDialogBuilder
-//        .setMessage("your message")
-//        .setCancelable(false)
-//        .setPositiveButton("YES"),
-//        new DialogInterface.OnClickListener() {
-//public void onClick(DialogInterface dialog,
-//        int id) {
-//        // what to do if YES is tapped
-//        finishAffinity();
-//        System.exit(0);
-//        }
-//        })
-//
-//        .setNeutralButton("CANCEL"),
-//        new DialogInterface.OnClickListener() {
-//public void onClick(DialogInterface dialog,
-//        int id) {
-//        // code to do on CANCEL tapped
-//        dialog.cancel();
-//        }
-//        })
-//
-//        .setNegativeButton("NO"),
-//        new DialogInterface.OnClickListener() {
-//public void onClick(DialogInterface dialog,
-//        int id) {
-//        // code to do on NO tapped
-//        dialog.cancel();
-//        }
-//        });
-//
-//        AlertDialog alertDialog = alertDialogBuilder.create();
-//
-//        alertDialog.show();

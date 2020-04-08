@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/d1"
+    android:layout_height="match_parent"
+    tools:context=".CoursesActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Course List"
+            android:textSize="20sp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:paddingVertical="30dp"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="@drawable/course_style">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:src="@drawable/jee_mains"/>
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JEE Mains"
+                android:textSize="25sp"/>
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:paddingVertical="30dp"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="@drawable/course_style">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:src="@drawable/cpp"/>
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CPP Programming"
+                android:textSize="25sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingVertical="30dp"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="@drawable/course_style">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:src="@drawable/upscicon"/>
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UPSC GS"
+                android:textSize="25sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/navigation_header"
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_menu"
+        android:id="@+id/nav_view"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

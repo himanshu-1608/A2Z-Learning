@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
             if(id == R.id.profile) {
                 startActivity(new Intent(MainActivity.this,MyProfile.class));
             }
-            else if(id == R.id.settings) {
-                Toast.makeText(this,"Settings",Toast.LENGTH_LONG).show();
+            else if(id == R.id.courses) {
+                startActivity(new Intent(MainActivity.this,CoursesActivity.class));
             }
             else if(id == R.id.devinfo) {
                 Toast.makeText(this,"Developer Information",Toast.LENGTH_LONG).show();

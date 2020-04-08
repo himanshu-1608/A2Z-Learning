@@ -7,6 +7,12 @@
     tools:context=".MyProfile"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_width="190dp"
+        android:layout_gravity="center"
+        android:layout_height="150dp"
+        android:src="@drawable/accountimage"/>
     <LinearLayout
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
@@ -16,23 +22,100 @@
         <TextView
             android:id="@+id/tv1"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:layout_height="50sp"
             android:text="Name"
             android:gravity="center"
-            style="@style/Widget.MaterialComponents.Button"
-            android:textSize="20sp"
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:gravity="start"
-            android:layout_marginStart="20dp"
-            android:text="Himanshu Yadav"/>
+            style="@style/TextAppearance.AppCompat"
+            android:textSize="15sp"/>
 
+        <EditText
+            android:id="@+id/nameval"
+            android:layout_width="0dp"
+            android:layout_weight="3.1"
+            android:layout_height="50sp"
+            android:textSize="20sp"
+            android:outlineProvider="none"
+            android:gravity="center_vertical"/>
+
+        <Button
+            android:id="@+id/nameedit"
+            android:layout_width="30dp"
+            android:layout_weight="0.2"
+            android:layout_height="40dp"
+            android:scaleY="0.6"
+            android:scaleX="0.6"
+            android:background="@drawable/edit"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:gravity="center"
+            style="@style/Widget.MaterialComponents.Button"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/emailval"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:outlineProvider="none"
+            android:gravity="center_vertical"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Mobile"
+            android:gravity="center"
+            style="@style/Widget.MaterialComponents.Button"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/mobval"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:outlineProvider="none"
+            android:gravity="center_vertical"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/changepass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        style="@style/Widget.MaterialComponents.Button"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

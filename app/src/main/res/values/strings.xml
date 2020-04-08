@@ -48,6 +48,13 @@
     <string name="cpptests2">Full Length Test(ALL TOPICS)</string>
     <string name="cpptests3">Dynamic Programming</string>
     <string name="cpptests4">OOPS ( Object-Oriented )</string>
+    <string name="navmenut1">My Profile</string>
+    <string name="navmenut2">Courses</string>
+    <string name="navmenut3">Personal Score Evaluation</string>
+    <string name="navmenut4">About Us</string>
+    <string name="navmenut5">Help and Support</string>
+    <string name="navmenut6">FAQ</string>
+    <string name="passswordchangert1">Change Password</string>
 
 
 </resources>
