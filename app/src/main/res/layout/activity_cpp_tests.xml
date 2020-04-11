@@ -19,13 +19,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="3">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="200dp"
             android:weightSum="5"
             android:orientation="vertical">
 
@@ -40,42 +38,49 @@
                 android:layout_gravity="center_horizontal"
                 tools:ignore="NestedWeights" />
 
-            <Button
-                android:id="@+id/b11"
+            <LinearLayout
+                android:id="@+id/l1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/tests11"
-                android:backgroundTint="#b3d9ff"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_weight="3"
+                android:weightSum="3"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/b11"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/tests11"
+                    android:backgroundTint="#b3d9ff"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"/>
 
-            <Button
-                android:id="@+id/b12"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/tests12"
-                android:backgroundTint="#b3d9ff"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"/>
+                <Button
+                    android:id="@+id/b12"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/tests12"
+                    android:backgroundTint="#b3d9ff"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"/>
 
-            <Button
-                android:id="@+id/b13"
-                android:layout_width="match_parent"
-                android:backgroundTint="#b3d9ff"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/tests13"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"/>
+                <Button
+                    android:id="@+id/b13"
+                    android:layout_width="match_parent"
+                    android:backgroundTint="#b3d9ff"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/tests13"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"/>
 
+            </LinearLayout>
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="200dp"
             android:weightSum="5"
             android:orientation="vertical">
 
@@ -89,7 +94,12 @@
                 android:backgroundTint="#b3ff99"
                 android:layout_gravity="center_horizontal"
                 tools:ignore="NestedWeights" />
-
+            <LinearLayout
+                android:id="@+id/l2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
             <Button
                 android:id="@+id/b21"
                 android:backgroundTint="#b3d9ff"
@@ -119,16 +129,14 @@
                 android:text="@string/tests13"
                 android:gravity="center"
                 android:layout_gravity="center_horizontal"/>
-
+            </LinearLayout>
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="200dp"
             android:weightSum="5"
             android:orientation="vertical">
-
             <Button
                 android:id="@+id/b3"
                 android:layout_width="match_parent"
@@ -139,6 +147,13 @@
                 android:backgroundTint="#eb99ff"
                 android:layout_gravity="center_horizontal"
                 tools:ignore="NestedWeights" />
+
+            <LinearLayout
+                android:id="@+id/l3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
 
             <Button
                 android:id="@+id/b31"
@@ -170,6 +185,7 @@
                 android:gravity="center"
                 android:layout_gravity="center_horizontal"/>
 
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -6,7 +6,7 @@
     <string name="sut4">Email ID</string>
     <string name="sut5">example123@gmail.com</string>
     <string name="sut6">Password</string>
-    <string name="sut7">* Create a strong password</string>
+    <string name="sut7">* Create a strong password\nMinimum 1 Uppercase,1 Lowercase,1 Symbol,1 Digit</string>
     <string name="sut8">Confirm Password</string>
     <string name="sut9">* Passwords must match</string>
     <string name="sut10">Sign Up</string>
@@ -27,17 +27,15 @@
     <string name="CppJavaClose">Close</string>
     <string name="cppt1">View Codes</string>
     <string name="cppt2">This section contains codes for all the basic programs needed for dynamic programming.</string>
-    <string name="cppt3">View DP Codes</string>
-    <string name="cppt4">Watch Videos</string>
-    <string name="cppt5">Related videos for the basic algorithms of dynamic programming.</string>
-    <string name="cppt6">Watch Videos</string>
-    <string name="cppt7">Test Series</string>
-    <string name="cppt8">Here you can give tests on various topics of DP . The test are on the basis of 2 types : Full DP Test (all topics merged) or you can give test on separate topics.</string>
-    <string name="cppt9">Give Tests</string>
+    <string name="cppt3">Watch Videos</string>
+    <string name="cppt4">Videos for the basic algorithms of dynamic programming.</string>
+    <string name="cppt5">Test Series</string>
+    <string name="cppt6">-- Full Length Test\n-- Topic - Wise</string>
     <string name="cppcodet1">Longest Common Subsequence</string>
-    <string name="cppcodet2">0-1 KnapSack Problem</string>
-    <string name="cppvideot1">Youtube Tutorial</string>
+    <string name="cppcodet2">Fractional KnapSack Problem</string>
+    <string name="cppvideot1">Object Oriented Design &amp; Design Patterns</string>
     <string name="cppvideot2">Source : geekforgeeks.org</string>
+    <string name="cppvideot3">A* Algorithm</string>
     <string name="tlt1">START THE TEST</string>
     <string name="tlt2">Time Left :</string>
     <string name="tlt3">End test</string>
@@ -55,6 +53,11 @@
     <string name="navmenut5">Help and Support</string>
     <string name="navmenut6">FAQ</string>
     <string name="passswordchangert1">Change Password</string>
+    <string name="aut1">Developed by\nHimanshu Yadav</string>
+    <string name="aut2">Project Source Code available at following link :</string>
+    <string name="aut3">https://github.com/himanshu-1608/Question-Bank</string>
+    <string name="aut4">-- Questions in the app are limited as this is a demo app. In further updates, we will work on it\'s question quantity and quality.</string>
+    <string name="aut5">-- All Errors and Bugs can be informed to the developer at ydv1608@gmail.com or on the above GitHub Link. Reviews are necessary for the development of app.</string>
 
 
 </resources>

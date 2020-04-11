@@ -17,7 +17,7 @@ public class TestHandler extends TestLayout {
     View test;
     long timeofExercise;
     Boolean teststate;
-
+    String filename,cont,filesent;
     @Override
     public void onBackPressed() {
         if(teststate) {
@@ -44,7 +44,9 @@ public class TestHandler extends TestLayout {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_handler);
         Intent it = getIntent();
-        String filename = it.getStringExtra("filename");
+        filename = it.getStringExtra("filename");
+        assert filename != null;
+        filesent =filename.substring(0,filename.length()-4);
         test = findViewById(R.id.inflated_test);
         queCount = 4;
         teststate = false;
@@ -84,7 +86,7 @@ public class TestHandler extends TestLayout {
 
         endTest.setOnClickListener(v -> {
             teststate = false;
-            showResults();
+            showResults(filesent);
             timer.cancel();
             endTest.setVisibility(View.GONE);
         });
@@ -101,7 +103,7 @@ public class TestHandler extends TestLayout {
 
             @Override
             public void onFinish() {
-                showResults();
+                showResults(filesent);
                 teststate = false;
                 endTest.setVisibility(View.GONE);
                 timer.cancel();

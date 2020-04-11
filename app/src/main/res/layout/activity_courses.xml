@@ -25,6 +25,7 @@
             android:gravity="center"/>
 
         <LinearLayout
+            android:id="@+id/c1"
             android:paddingVertical="30dp"
             android:gravity="center"
             android:layout_marginTop="50dp"
@@ -49,6 +50,7 @@
         </LinearLayout>
         
         <LinearLayout
+            android:id="@+id/c2"
             android:paddingVertical="30dp"
             android:gravity="center"
             android:layout_marginTop="50dp"
@@ -73,6 +75,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/c3"
             android:paddingVertical="30dp"
             android:gravity="center"
             android:layout_marginTop="50dp"

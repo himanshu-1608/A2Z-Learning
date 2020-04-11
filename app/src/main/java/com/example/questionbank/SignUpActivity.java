@@ -8,7 +8,6 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -32,7 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
     TextView tv5,tv7;
     Button sign;
     EditText name,mail,pass,cpass,mob;
-    CheckBox cb1,cb2;
+    Button eye1,eye2;
     RadioButton male,female,other;
     RadioGroup rg;
 
@@ -65,40 +64,50 @@ public class SignUpActivity extends AppCompatActivity {
         pass = findViewById(R.id.et3);
         cpass = findViewById(R.id.et4);
         mob = findViewById(R.id.et5);
-        cb1 = findViewById(R.id.cb1);
-        cb2 = findViewById(R.id.cb2);
+        eye1 = findViewById(R.id.eye1);
+        eye2 = findViewById(R.id.eye2);
         male = findViewById(R.id.rb1);
         female = findViewById(R.id.rb2);
         other = findViewById(R.id.rb3);
         rg = findViewById(R.id.rg);
+        final Boolean[] e = {false,false};
 
 
-
-        cb1.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(isChecked){
+        eye1.setOnClickListener(v -> {
+            if(!e[0]) {
                 pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            }
-            else{
+                e[0] = true;
+            } else {
                 pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                e[0] = false;
             }
         });
 
-
-        cb2.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(isChecked){
+        eye2.setOnClickListener(v -> {
+            if(!e[1]) {
                 cpass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            }
-            else{
+                e[1] = true;
+            } else {
                 cpass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                e[1] = false;
             }
         });
 
+        pass.setOnFocusChangeListener((v, hasFocus) -> {
+            if(hasFocus) {
+                tv5.setVisibility(View.VISIBLE);
+            } else {
+                tv5.setVisibility(View.GONE);
+            }
+        });
 
-        pass.setOnFocusChangeListener(  (v, hasFocus) -> tv5.setVisibility(View.VISIBLE)  );
-
-
-        cpass.setOnFocusChangeListener( (v, hasFocus) -> tv7.setVisibility(View.VISIBLE) );
-
+        cpass.setOnFocusChangeListener((v, hasFocus) -> {
+            if(hasFocus) {
+                tv7.setVisibility(View.VISIBLE);
+            } else {
+                tv7.setVisibility(View.GONE);
+            }
+        });
 
         sign.setOnClickListener((v)->{
             final String userName = name.getText().toString().trim();

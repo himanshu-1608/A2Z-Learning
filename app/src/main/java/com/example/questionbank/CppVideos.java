@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CppVideos extends AppCompatActivity {
 
-    Button b1,b2;
+    Button b1,b2,b3,b4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,15 +18,21 @@ public class CppVideos extends AppCompatActivity {
 
         b1 = findViewById(R.id.b11);
         b2 = findViewById(R.id.b12);
-        b1.setOnClickListener(v -> {
-            Uri webpage = Uri.parse("https://www.youtube.com/watch?v=HgUOWB0StNE");
-            Intent webIntent = new Intent(Intent.ACTION_VIEW,webpage);
-            startActivity(webIntent);
-        });
-        b2.setOnClickListener(v -> {
-            Uri webpage = Uri.parse("https://www.youtube.com/watch?v=nLmhmB6NzcM");
-            Intent webIntent = new Intent(Intent.ACTION_VIEW,webpage);
-            startActivity(webIntent);
-        });
+        b3 = findViewById(R.id.b13);
+        b4 = findViewById(R.id.b14);
+        final Button[] bgrp = new Button[]{b1,b2,b3,b4};
+
+        final String[] linklist = new String[]{"HgUOWB0StNE","m1p-eWxrt6g","AopCPq2cZlA","vP5TkF0xJgI"};
+
+        for(int i = 0 ; i < bgrp.length ; i++) {
+            int finalI = i;
+            bgrp[i].setOnClickListener(v -> {
+                String str = "https://www.youtube.com/watch?v=" + linklist[finalI];
+                Uri webpage = Uri.parse(str);
+                Intent webIntent = new Intent(Intent.ACTION_VIEW,webpage);
+                startActivity(webIntent);
+            });
+        }
+
     }
 }

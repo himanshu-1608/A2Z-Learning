@@ -71,7 +71,7 @@
             android:layout_weight="3"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginStart="10dp"
             android:outlineProvider="none"
             android:gravity="center_vertical"/>

@@ -15,7 +15,7 @@
     </item>
 
     <item
-        android:id="@+id/scoreinfo"
+        android:id="@+id/perf_eval"
         android:title="@string/navmenut3"
         android:icon="@drawable/perf_eval">
     </item>

@@ -3,7 +3,7 @@ package com.example.questionbank;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,7 +20,7 @@ public class CppBasics extends AppCompatActivity {
     DrawerLayout d1;
     ActionBarDrawerToggle abdt;
     NavigationView nav_view;
-    Button b1,b2,b3;
+    LinearLayout l1,l2,l3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,18 +53,18 @@ public class CppBasics extends AppCompatActivity {
             }
             return true;
         });
-        b1 = findViewById(R.id.b13);
-        b2 = findViewById(R.id.b23);
-        b3 = findViewById(R.id.b33);
-        b1.setOnClickListener(v -> {
+        l1 = findViewById(R.id.l1);
+        l2 = findViewById(R.id.l2);
+        l3 = findViewById(R.id.l3);
+        l1.setOnClickListener(v -> {
             Intent i1 = new Intent(this,CppCodes.class);
             startActivity(i1);
         });
-        b2.setOnClickListener(v -> {
+        l2.setOnClickListener(v -> {
             Intent i2 = new Intent(this,CppVideos.class);
             startActivity(i2);
         });
-        b3.setOnClickListener(v -> {
+        l3.setOnClickListener(v -> {
             Intent i3 = new Intent(this,CppTests.class);
             startActivity(i3);
         });

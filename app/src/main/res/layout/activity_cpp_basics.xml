@@ -13,107 +13,131 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="10dp"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv11"
+            <LinearLayout
+                android:id="@+id/l1"
+                android:background="@color/trueColor"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="15sp"
-                android:textSize="30sp"
-                android:layout_gravity="center_horizontal"
-                android:textAlignment="center"
-                android:text="@string/cppt1" />
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv12"
+                <ImageView
+                    android:layout_marginStart="5dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/codes"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="#000000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="@string/cppt1" />
+
+                    <TextView
+                        android:textColor="#000000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/cppt2"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/l2"
+                android:layout_marginTop="20dp"
+                android:background="@color/trueColor"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5sp"
-                android:layout_marginHorizontal="15sp"
-                android:text="@string/cppt2"/>
-            <Button
-                android:id="@+id/b13"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="15sp"
-                android:paddingHorizontal="20sp"
-                android:textColor="#ffffff"
-                android:backgroundTint="#0000ff"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content"
-                android:text="@string/cppt3" />
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv21"
+                <ImageView
+                    android:layout_marginStart="5dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/youtubeicon"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="#000000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="@string/cppt3" />
+
+                    <TextView
+                        android:textColor="#000000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/cppt4"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/l3"
+                android:layout_marginTop="20dp"
+                android:background="@color/trueColor"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:textSize="50sp"
-                android:layout_marginVertical="10dp"
-                android:layout_gravity="center_horizontal"
-                android:textAlignment="center"
-                android:text="@string/cppt4" />
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv22"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginHorizontal="15sp"
-                android:text="@string/cppt5"/>
+                <ImageView
+                    android:layout_marginStart="5dp"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/test"/>
 
-            <Button
-                android:id="@+id/b23"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="15sp"
-                android:paddingHorizontal="20sp"
-                android:textColor="#ffffff"
-                android:backgroundTint="#0000ff"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content"
-                android:text="@string/cppt6"/>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tv31"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginVertical="10dp"
-                android:textSize="50sp"
-                android:textAlignment="center"
-                android:text="@string/cppt7" />
+                    <TextView
+                        android:textColor="#000000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="@string/cppt5" />
 
-            <TextView
-                android:id="@+id/tv32"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginHorizontal="15sp"
-                android:text="@string/cppt8"/>
+                    <TextView
+                        android:textColor="#000000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/cppt6"/>
 
-            <Button
-                android:id="@+id/b33"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="15sp"
-                android:paddingHorizontal="20sp"
-                android:textColor="#ffffff"
-                android:backgroundTint="#0000ff"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content"
-                android:text="@string/cppt9" />
+                </LinearLayout>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="30dp"
-                android:visibility="invisible"/>
+            </LinearLayout>
 
         </LinearLayout>
 

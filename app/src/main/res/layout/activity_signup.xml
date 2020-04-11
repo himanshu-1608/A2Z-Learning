@@ -171,12 +171,12 @@
                     android:inputType="textPassword"
                     tools:ignore="LabelFor" />
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cb1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/sut16"/>
+                <Button
+                    android:id="@+id/eye1"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="27dp"
+                    android:layout_height="22dp"
+                    android:background="@drawable/passcodeshow"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -214,12 +214,12 @@
                     android:inputType="textPassword"
                     tools:ignore="LabelFor" />
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cb2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/sut16"/>
+                <Button
+                    android:id="@+id/eye2"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="27dp"
+                    android:layout_height="22dp"
+                    android:background="@drawable/passcodeshow"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -11,8 +11,18 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class TestLayout extends AppCompatActivity {
 
+    private final static String Total = "total.txt";
+    private final static String Correct = "correct.txt";
+    private final static String TestName = "testname.txt";
     int queCount;
     CountDownTimer timer;
     long timeLeft;
@@ -24,7 +34,7 @@ public class TestLayout extends AppCompatActivity {
     TextView[] qlist;
     Button startup,endTest;
     TextView no_of_ques,timeText,Result;
-    String ans="";
+    String ans="",tot,cor,nam;
     int CorrectAnswers;
 
     @Override
@@ -113,7 +123,7 @@ public class TestLayout extends AppCompatActivity {
             q.setVisibility(View.VISIBLE);
         }
     }
-    protected void showResults(){
+    protected void showResults(String filename){
         int Score = 0;
         char checker;
         no_of_ques.setVisibility(View.GONE);
@@ -181,6 +191,152 @@ public class TestLayout extends AppCompatActivity {
         CorrectAnswers = Score;
         Result.setText("Total No. of Questions : "+queCount+"\n"+"Your correct answers : "+CorrectAnswers);
         Result.setVisibility(View.VISIBLE);
+        updatePerformance(filename);
+    }
+
+    private void updatePerformance(String filename) {
+        String puttotal,putcorrect,putname;
+        if (!exists()) {
+            puttotal = "1\n";
+            putcorrect = ""+CorrectAnswers;
+            putname = filename+"\n";
+            FileOutputStream fos1 = null,fos2 = null,fos3 = null;
+            try {
+                fos1 = openFileOutput(Total, MODE_PRIVATE);
+                fos2 = openFileOutput(Correct, MODE_PRIVATE);
+                fos3 = openFileOutput(TestName, MODE_PRIVATE);
+                fos1.write(puttotal.getBytes());
+                fos2.write(putcorrect.getBytes());
+                fos3.write(putname.getBytes());
+            } catch (IOException io) {
+                io.printStackTrace();
+            } finally {
+                if (fos1 != null) {
+                    try {
+                        fos1.close();
+                    } catch (IOException io) {
+                        io.printStackTrace();
+                    }
+                }
+                if (fos2 != null) {
+                    try {
+                        fos2.close();
+                    } catch (IOException io) {
+                        io.printStackTrace();
+                    }
+                }
+                if (fos3 != null) {
+                    try {
+                        fos3.close();
+                    } catch (IOException io) {
+                        io.printStackTrace();
+                    }
+                }
+            }
+        } else {
+            FileInputStream fis1 = null,fis2 = null,fis3 = null;
+            try {
+                fis1 = openFileInput(Total);
+                fis2 = openFileInput(Correct);
+                fis3 = openFileInput(TestName);
+                InputStreamReader isr1 = new InputStreamReader(fis1);
+                InputStreamReader isr2 = new InputStreamReader(fis2);
+                InputStreamReader isr3 = new InputStreamReader(fis3);
+                BufferedReader br1 = new BufferedReader(isr1);
+                BufferedReader br2 = new BufferedReader(isr2);
+                BufferedReader br3 = new BufferedReader(isr3);
+                StringBuilder sb1 = new StringBuilder();
+                StringBuilder sb2 = new StringBuilder();
+                StringBuilder sb3 = new StringBuilder();
+                String t1,t2,t3;
+                while ((t1 = br1.readLine()) != null) {
+                    sb1.append(t1);
+                    sb1.append("qq");
+                }
+                while ((t2 = br2.readLine()) != null) {
+                    sb2.append(t2);
+                    sb2.append("qq");
+                }
+                while ((t3 = br3.readLine()) != null) {
+                    sb3.append(t3);
+                    sb3.append("\n");
+                }
+                int l1,l2;
+                l1 = sb1.indexOf("qq");
+                l2 = sb2.indexOf("qq");
+                tot = sb1.substring(0,l1);
+                cor = sb2.substring(0,l2);
+                nam = sb3.toString();
+                l1 = Integer.parseInt(tot);
+                l1 += 1;
+                tot = ""+ l1;
+                cor += CorrectAnswers;
+                nam += filename+"\n";
+            } catch (IOException e) {
+                System.out.println("Error Reading File");
+                e.printStackTrace();
+            } finally {
+                if (fis1 != null) {
+                    try {
+                        fis1.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (fis2 != null) {
+                    try {
+                        fis2.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (fis3 != null) {
+                    try {
+                        fis3.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            FileOutputStream fos1 = null,fos2 = null,fos3 = null;
+            try {
+                fos1 = openFileOutput(Total, MODE_PRIVATE);
+                fos1.write(tot.getBytes());
+                fos2 = openFileOutput(Correct, MODE_PRIVATE);
+                fos2.write(cor.getBytes());
+                fos3 = openFileOutput(TestName, MODE_PRIVATE);
+                fos3.write(nam.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (fos1 != null) {
+                    try {
+                        fos1.close();
+                    } catch (IOException io) {
+                        io.printStackTrace();
+                    }
+                }
+                if (fos2 != null) {
+                    try {
+                        fos2.close();
+                    } catch (IOException io) {
+                        io.printStackTrace();
+                    }
+                }
+                if (fos3 != null) {
+                    try {
+                        fos3.close();
+                    } catch (IOException io) {
+                        io.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean exists() {
+        File file = new File(getApplicationContext().getFilesDir(),Total);
+        return file.exists();
     }
 
     private void updateText() {
