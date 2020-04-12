@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
@@ -23,11 +23,21 @@ public class CppBasics extends AppCompatActivity {
     LinearLayout l1,l2,l3;
 
     @Override
+    public void onBackPressed() {
+        if(d1.isDrawerOpen(GravityCompat.START)){
+            d1.closeDrawer(GravityCompat.START);
+        }else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cpp_basics);
 
         //SET DRAWER
+        nav_view = findViewById(R.id.nav_view);
         d1 = findViewById(R.id.d1);
         abdt = new ActionBarDrawerToggle(this,d1,R.string.CppJavaOpen,R.string.CppJavaClose);
         abdt.setDrawerIndicatorEnabled(true);
@@ -35,21 +45,22 @@ public class CppBasics extends AppCompatActivity {
         abdt.syncState();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        nav_view = findViewById(R.id.nav_view);
+
         nav_view.setNavigationItemSelectedListener(menuItem -> {
             int id =  menuItem.getItemId();
-
-            switch(id) {
-                case R.id.profile :
-                    Toast.makeText(this,"Profile",Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.devinfo :
-                    Toast.makeText(this,"Settings",Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.faq :
-                    Toast.makeText(this,"Developer Page",Toast.LENGTH_SHORT).show();
-                    break;
-                default : return true;
+            d1.closeDrawer(GravityCompat.START);
+            if(id == R.id.profile) {
+                startActivity(new Intent(CppBasics.this,MyProfile.class));
+            } else if(id == R.id.courses) {
+                super.onBackPressed();
+            } else if(id == R.id.perf_eval) {
+                startActivity(new Intent(CppBasics.this,PerformanceEvaluation.class));
+            } else if(id == R.id.devinfo) {
+                startActivity(new Intent(CppBasics.this,AboutUs.class));
+            } else if(id == R.id.helpsupport) {
+                startActivity(new Intent(CppBasics.this,HelpandSupport.class));
+            } else if(id == R.id.faq) {
+                startActivity(new Intent(CppBasics.this,Faq.class));
             }
             return true;
         });

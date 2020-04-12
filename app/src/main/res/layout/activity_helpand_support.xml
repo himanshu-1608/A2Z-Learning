@@ -4,14 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpscGs">
+    tools:context=".HelpandSupport">
 
-    <Button
-        android:id="@+id/downbut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UPSC GS"
-        android:textSize="50sp"
-        tools:layout_editor_absoluteX="87dp"
-        tools:layout_editor_absoluteY="219dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

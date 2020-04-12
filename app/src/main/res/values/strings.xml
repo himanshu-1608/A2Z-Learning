@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Question Bank</string>
+    <string name="app_name">All In One Study</string>
     <string name="sut1">Sign Up for free\nto avail</string>
     <string name="sut2">Name</string>
     <string name="sut3">First and Last Name</string>
@@ -57,7 +57,7 @@
     <string name="aut2">Project Source Code available at following link :</string>
     <string name="aut3">https://github.com/himanshu-1608/Question-Bank</string>
     <string name="aut4">-- Questions in the app are limited as this is a demo app. In further updates, we will work on it\'s question quantity and quality.</string>
-    <string name="aut5">-- All Errors and Bugs can be informed to the developer at ydv1608@gmail.com or on the above GitHub Link. Reviews are necessary for the development of app.</string>
-
+    <string name="aut5">-- All Errors and Bugs can be informed to the developer at <a color='#0099ff' href="mailto:ydv1608@gmail.com?subject=Report Bug in Question-Bank App">ydv1608@gmail.com</a> or on the above <a color='#0099ff' href="https://github.com/himanshu-1608/Question-Bank">GitHub Link</a>. Reviews are necessary for the development of app.</string>
+    <string name="aut6">-- You could also mail us at <font color='#ff0000'><a color='#000000' href="mailto:ydv1608@gmail.com?subject=Add suggestions">ydv1608@gmail.com</a></font> to suggest different topics which we should add in our app in later releases. Our <a color='#0099ff' href="http://www.iitb.ac.in/en/information-faculty">Technical Team</a>(with 10+ years of experience) will work hard to prepare you on that topic by providing all the latest questions and study material on the topic.</string>
 
 </resources>

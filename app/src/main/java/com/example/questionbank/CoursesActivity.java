@@ -47,6 +47,22 @@ public class CoursesActivity extends AppCompatActivity {
         abdt.syncState();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
+        nav_view.setNavigationItemSelectedListener(menuItem -> {
+            int id =  menuItem.getItemId();
+            d1.closeDrawer(GravityCompat.START);
+            if(id == R.id.profile) {
+                startActivity(new Intent(CoursesActivity.this,MyProfile.class));
+            } else if(id == R.id.perf_eval) {
+                startActivity(new Intent(CoursesActivity.this,PerformanceEvaluation.class));
+            } else if(id == R.id.devinfo) {
+                startActivity(new Intent(CoursesActivity.this,AboutUs.class));
+            } else if(id == R.id.helpsupport) {
+                startActivity(new Intent(CoursesActivity.this,HelpandSupport.class));
+            } else if(id == R.id.faq) {
+                startActivity(new Intent(CoursesActivity.this,Faq.class));
+            }
+            return true;
+        });
 
         c1.setOnClickListener(v -> {
             startActivity(new Intent(CoursesActivity.this,JeeMains.class));

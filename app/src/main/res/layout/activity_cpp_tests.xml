@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,183 +13,187 @@
         android:textSize="20sp"
         style="@style/TextAppearance.AppCompat.Button"
         android:text="@string/cpptests1"
-        android:layout_marginVertical="15dp"
         android:layout_gravity="center_horizontal"
         android:gravity="center"/>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:weightSum="5"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/b1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:text="@string/cpptests2"
-                android:backgroundTint="#ffff80"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"
-                tools:ignore="NestedWeights" />
-
             <LinearLayout
-                android:id="@+id/l1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3"
-                android:weightSum="3"
+                android:layout_height="150dp"
+                android:weightSum="5"
                 android:orientation="vertical">
+
                 <Button
-                    android:id="@+id/b11"
+                    android:id="@+id/b1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:text="@string/cpptests2"
+                    android:backgroundTint="#ffff80"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    tools:ignore="NestedWeights" />
+
+                <LinearLayout
+                    android:id="@+id/l1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:weightSum="3"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/b11"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/tests11"
+                        android:backgroundTint="#b3d9ff"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <Button
+                        android:id="@+id/b12"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/tests12"
+                        android:backgroundTint="#b3d9ff"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <Button
+                        android:id="@+id/b13"
+                        android:layout_width="0dp"
+                        android:backgroundTint="#b3d9ff"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/tests13"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:weightSum="5"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/b2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:text="@string/cpptests3"
+                    android:gravity="center"
+                    android:backgroundTint="#b3ff99"
+                    android:layout_gravity="center_horizontal"
+                    tools:ignore="NestedWeights" />
+                <LinearLayout
+                    android:id="@+id/l2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+                <Button
+                    android:id="@+id/b21"
+                    android:backgroundTint="#b3d9ff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/tests11"
-                    android:backgroundTint="#b3d9ff"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"/>
 
                 <Button
-                    android:id="@+id/b12"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:id="@+id/b22"
+                    android:backgroundTint="#b3d9ff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/tests12"
-                    android:backgroundTint="#b3d9ff"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"/>
 
                 <Button
-                    android:id="@+id/b13"
-                    android:layout_width="match_parent"
+                    android:id="@+id/b23"
                     android:backgroundTint="#b3d9ff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/tests13"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:weightSum="5"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/b3"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:text="@string/cpptests4"
+                    android:gravity="center"
+                    android:backgroundTint="#eb99ff"
+                    android:layout_gravity="center_horizontal"
+                    tools:ignore="NestedWeights" />
+
+                <LinearLayout
+                    android:id="@+id/l3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/b31"
+                    android:backgroundTint="#b3d9ff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/tests11"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"/>
+
+                <Button
+                    android:id="@+id/b32"
+                    android:backgroundTint="#b3d9ff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/tests12"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"/>
+
+                <Button
+                    android:id="@+id/b33"
+                    android:backgroundTint="#b3d9ff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/tests13"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"/>
 
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:weightSum="5"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/b2"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:text="@string/cpptests3"
-                android:gravity="center"
-                android:backgroundTint="#b3ff99"
-                android:layout_gravity="center_horizontal"
-                tools:ignore="NestedWeights" />
-            <LinearLayout
-                android:id="@+id/l2"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3"
-                android:orientation="vertical">
-            <Button
-                android:id="@+id/b21"
-                android:backgroundTint="#b3d9ff"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/tests11"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"/>
-
-            <Button
-                android:id="@+id/b22"
-                android:backgroundTint="#b3d9ff"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/tests12"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"/>
-
-            <Button
-                android:id="@+id/b23"
-                android:backgroundTint="#b3d9ff"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/tests13"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"/>
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:weightSum="5"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/b3"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:text="@string/cpptests4"
-                android:gravity="center"
-                android:backgroundTint="#eb99ff"
-                android:layout_gravity="center_horizontal"
-                tools:ignore="NestedWeights" />
-
-            <LinearLayout
-                android:id="@+id/l3"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3"
-                android:orientation="vertical">
-
-            <Button
-                android:id="@+id/b31"
-                android:backgroundTint="#b3d9ff"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/tests11"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"/>
-
-            <Button
-                android:id="@+id/b32"
-                android:backgroundTint="#b3d9ff"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/tests12"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"/>
-
-            <Button
-                android:id="@+id/b33"
-                android:backgroundTint="#b3d9ff"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/tests13"
-                android:gravity="center"
-                android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
-
+    </ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

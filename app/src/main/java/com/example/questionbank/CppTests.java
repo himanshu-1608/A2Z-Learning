@@ -55,7 +55,7 @@ public class CppTests extends AppCompatActivity {
             }
         });
         Button[] butgrp = new Button[] {b11,b12,b13,b21,b22,b23,b31,b32,b33};
-        final String[] strgrp = new String[]{"CppFullTestA.txt","CppFullTestB.txt","CppFullTestC.txt","CppDPTestA.txt","CppDPTestB.txt","CppDPTestC.txt","CppOOPSTestA.txt","CppOOPSTestB.txt","CppOOPSTestC.txt"};
+        final String[] strgrp = new String[]{"CppFullTest1.txt","CppFullTest2.txt","CppFullTest3.txt","CppDPTest1.txt","CppDPTest2.txt","CppDPTest3.txt","CppOOPSTest1.txt","CppOOPSTest2.txt","CppOOPSTest3.txt"};
         for(int i = 0 ; i < 9 ; i++ ) {
             int finalI = i;
             butgrp[i].setOnClickListener(v -> {
@@ -117,52 +117,7 @@ public class CppTests extends AppCompatActivity {
         l3gone();
     }
 
-
-/*
-    private void showallA() {
-        b11.setVisibility(View.VISIBLE);
-        b12.setVisibility(View.VISIBLE);
-        b13.setVisibility(View.VISIBLE);
-        removeallB();
-        bon = false;
-        removeallC();
-        con = false;
-        l2.setVisibility(View.GONE);
-    }
-    private void removeallA() {
-        b11.setVisibility(View.GONE);
-        b12.setVisibility(View.GONE);
-        b13.setVisibility(View.GONE);
-    }
-    private void showallB() {
-        b21.setVisibility(View.VISIBLE);
-        b22.setVisibility(View.VISIBLE);
-        b23.setVisibility(View.VISIBLE);
-        removeallA();
-        aon = false;
-        removeallC();
-        con = false;
-    }
-    private void removeallB() {
-        b21.setVisibility(View.GONE);
-        b22.setVisibility(View.GONE);
-        b23.setVisibility(View.GONE);
-    }
-    private void showallC() {
-        b31.setVisibility(View.VISIBLE);
-        b32.setVisibility(View.VISIBLE);
-        b33.setVisibility(View.VISIBLE);
-        removeallA();
-        aon = false;
-        removeallB();
-        bon = false;
-    }
-    private void removeallC() {
-        b31.setVisibility(View.GONE);
-        b32.setVisibility(View.GONE);
-        b33.setVisibility(View.GONE);
-    }
- */   private void work() {
+    private void work() {
         b1  = findViewById(R.id.b1);
         b2  = findViewById(R.id.b2);
         b3  = findViewById(R.id.b3);

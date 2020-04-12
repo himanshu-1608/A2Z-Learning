@@ -72,47 +72,20 @@ public class MainActivity extends AppCompatActivity {
             d1.closeDrawer(GravityCompat.START);
             if(id == R.id.profile) {
                 startActivity(new Intent(MainActivity.this,MyProfile.class));
-            }
-            else if(id == R.id.courses) {
+            } else if(id == R.id.courses) {
                 startActivity(new Intent(MainActivity.this,CoursesActivity.class));
-            }
-            else if(id == R.id.devinfo) {
-                startActivity(new Intent(MainActivity.this,AboutUs.class));
-            }
-            else if(id == R.id.perf_eval) {
+            } else if(id == R.id.perf_eval) {
                 startActivity(new Intent(MainActivity.this,PerformanceEvaluation.class));
-            }
-     /*       else if(id == R.id.helpsupport) {
+            } else if(id == R.id.devinfo) {
+                startActivity(new Intent(MainActivity.this,AboutUs.class));
+            } else if(id == R.id.helpsupport) {
                 startActivity(new Intent(MainActivity.this,HelpandSupport.class));
-            }
-            else if(id == R.id.faq) {
+            } else if(id == R.id.faq) {
                 startActivity(new Intent(MainActivity.this,Faq.class));
             }
-     */       return true;
+            return true;
         });
 
-
-       /* String[] vals = {"JEE Mains","C++ Basics","LLM Entrance"};
-
-        final ArrayList<Class> intents = new ArrayList<>();
-        intents.add( SideActivity.class );
-        intents.add( CppBasics.class );
-        intents.add( UpscGs.class );
-*//*
-        Intent it1 = new Intent(this, JeeMains.class);
-        Intent it2 = new Intent(this, CppBasics.class);
-        Intent it3 = new Intent(this, UpscGs.class);
-        Intent[] intentlist = {it1 , it2 , it3 };
-*//*
-        ArrayAdapter arrayadapter = new ArrayAdapter<>(this,R.layout.simple_list1, Arrays.asList(vals));
-        lvmain.setAdapter(arrayadapter);
-        lvmain.setOnItemClickListener((parent, view, position, id) -> {
-
-            Intent listIntent = new Intent(getApplicationContext(), intents.get(position));
-            startActivity(listIntent);
-
-        });
-*/
     }
 
     private boolean isLogged() {

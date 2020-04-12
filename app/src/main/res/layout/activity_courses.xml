@@ -20,15 +20,15 @@
             android:layout_height="wrap_content"
             android:text="Course List"
             android:textSize="20sp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:gravity="center"/>
 
         <LinearLayout
             android:id="@+id/c1"
-            android:paddingVertical="30dp"
+            android:paddingVertical="10dp"
             android:gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginHorizontal="20dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -45,15 +45,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="JEE Mains"
-                android:textSize="25sp"/>
+                android:textSize="22sp"/>
 
         </LinearLayout>
         
         <LinearLayout
             android:id="@+id/c2"
-            android:paddingVertical="30dp"
+            android:paddingVertical="10dp"
             android:gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginHorizontal="20dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -70,15 +70,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CPP Programming"
-                android:textSize="25sp"/>
+                android:textSize="22sp"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/c3"
-            android:paddingVertical="30dp"
+            android:paddingVertical="10dp"
             android:gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginHorizontal="20dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -95,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="UPSC GS"
-                android:textSize="25sp"/>
+                android:textSize="22sp"/>
 
         </LinearLayout>
 

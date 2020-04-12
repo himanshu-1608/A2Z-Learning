@@ -4,12 +4,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class UpscGs extends AppCompatActivity {
-
+public class JeeCodes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_upsc_gs);
+        setContentView(R.layout.activity_jee_codes);
     }
 }
