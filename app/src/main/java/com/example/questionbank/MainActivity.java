@@ -15,7 +15,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -56,12 +55,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        if (!isLogged()) {
-            Intent it = new Intent(MainActivity.this, SignUpActivity.class);
-            startActivity(it);
-        }
 
         namevala = findViewById(R.id.name);
         nav_view = findViewById(R.id.nav_view);
@@ -108,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             out = sb;
             int lastind = out.indexOf("qqAB");
             String namestring = out.substring(9, lastind);
-            namevala.setText("Heyyy " + namestring + "!");
+            namevala.setText("Hey " + namestring + "!");
         } catch (IOException e) {
             System.out.println("Error Reading File");
             e.printStackTrace();
@@ -122,21 +115,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
-
-
-
-
-
-
-
     }
 
-    private boolean isLogged() {
-        File file = new File(getApplicationContext().getFilesDir(),FILE_NAME);
-        return file.exists();
-
-    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

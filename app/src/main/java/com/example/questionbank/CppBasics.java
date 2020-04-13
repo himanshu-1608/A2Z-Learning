@@ -35,7 +35,9 @@ public class CppBasics extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cpp_basics);
-
+        l1 = findViewById(R.id.l1);
+        l2 = findViewById(R.id.lwatch2);
+        l3 = findViewById(R.id.l3);
         //SET DRAWER
         nav_view = findViewById(R.id.nav_view);
         d1 = findViewById(R.id.d1);
@@ -44,7 +46,6 @@ public class CppBasics extends AppCompatActivity {
         d1.addDrawerListener(abdt);
         abdt.syncState();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
 
         nav_view.setNavigationItemSelectedListener(menuItem -> {
             int id =  menuItem.getItemId();
@@ -64,25 +65,14 @@ public class CppBasics extends AppCompatActivity {
             }
             return true;
         });
-        l1 = findViewById(R.id.l1);
-        l2 = findViewById(R.id.l2);
-        l3 = findViewById(R.id.l3);
-        l1.setOnClickListener(v -> {
-            Intent i1 = new Intent(this,CppCodes.class);
-            startActivity(i1);
-        });
-        l2.setOnClickListener(v -> {
-            Intent i2 = new Intent(this,CppVideos.class);
-            startActivity(i2);
-        });
-        l3.setOnClickListener(v -> {
-            Intent i3 = new Intent(this,CppTests.class);
-            startActivity(i3);
-        });
+        l1.setOnClickListener(v -> startActivity(new Intent(CppBasics.this,CppCodes.class)));
+        l2.setOnClickListener(v -> startActivity(new Intent(CppBasics.this,CppVideos.class)));
+        l3.setOnClickListener(v -> startActivity(new Intent(CppBasics.this,CppTests.class)));
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
+
 }

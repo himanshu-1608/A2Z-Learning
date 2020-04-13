@@ -44,8 +44,6 @@ public class UpscGs extends AppCompatActivity {
         d1.addDrawerListener(abdt);
         abdt.syncState();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
-
         nav_view.setNavigationItemSelectedListener(menuItem -> {
             int id =  menuItem.getItemId();
             d1.closeDrawer(GravityCompat.START);
@@ -67,21 +65,10 @@ public class UpscGs extends AppCompatActivity {
         l1 = findViewById(R.id.l1);
         l2 = findViewById(R.id.l2);
         l3 = findViewById(R.id.l3);
-        l1.setOnClickListener(v -> {
-            Intent i1 = new Intent(this,UpscCodes.class);
-            startActivity(i1);
-        });
-        l2.setOnClickListener(v -> {
-            Intent i2 = new Intent(this,UpscVideos.class);
-            startActivity(i2);
-        });
-        l3.setOnClickListener(v -> {
-            Intent i3 = new Intent(this,UpscTests.class);
-            startActivity(i3);
-        });
-
+        l1.setOnClickListener(v -> startActivity(new Intent(UpscGs.this,UpscCodes.class)));
+        l2.setOnClickListener(v -> startActivity(new Intent(UpscGs.this,UpscVideos.class)));
+        l3.setOnClickListener(v -> startActivity(new Intent(UpscGs.this,UpscTests.class)));
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);

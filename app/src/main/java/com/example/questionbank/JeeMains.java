@@ -52,7 +52,7 @@ public class JeeMains extends AppCompatActivity {
             if(id == R.id.profile) {
                 startActivity(new Intent(JeeMains.this,MyProfile.class));
             } else if(id == R.id.courses) {
-                startActivity(new Intent(JeeMains.this,CoursesActivity.class));
+                super.onBackPressed();
             } else if(id == R.id.perf_eval) {
                 startActivity(new Intent(JeeMains.this,PerformanceEvaluation.class));
             } else if(id == R.id.devinfo) {
@@ -68,18 +68,9 @@ public class JeeMains extends AppCompatActivity {
         l1 = findViewById(R.id.l1);
         l2 = findViewById(R.id.l2);
         l3 = findViewById(R.id.l3);
-        l1.setOnClickListener(v -> {
-            Intent i1 = new Intent(this,JeeCodes.class);
-            startActivity(i1);
-        });
-        l2.setOnClickListener(v -> {
-            Intent i2 = new Intent(this,JeeVideos.class);
-            startActivity(i2);
-        });
-        l3.setOnClickListener(v -> {
-            Intent i3 = new Intent(this,JeeTests.class);
-            startActivity(i3);
-        });
+        l1.setOnClickListener(v -> startActivity(new Intent(JeeMains.this,JeeCodes.class)));
+        l2.setOnClickListener(v -> startActivity(new Intent(JeeMains.this,JeeVideos.class)));
+        l3.setOnClickListener(v -> startActivity(new Intent(JeeMains.this,JeeTests.class)));
 
     }
     @Override

@@ -57,7 +57,8 @@
                         android:text="@string/tests11"
                         android:backgroundTint="#b3d9ff"
                         android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"
+                        tools:ignore="ButtonStyle,NestedWeights" />
 
                     <Button
                         android:id="@+id/b12"
@@ -67,7 +68,8 @@
                         android:text="@string/tests12"
                         android:backgroundTint="#b3d9ff"
                         android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"
+                        tools:ignore="ButtonStyle" />
 
                     <Button
                         android:id="@+id/b13"
@@ -77,7 +79,8 @@
                         android:layout_weight="1"
                         android:text="@string/tests13"
                         android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"
+                        tools:ignore="ButtonStyle" />
 
                 </LinearLayout>
 
@@ -93,7 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:text="Polity"
+                    android:text="@string/upsctt1"
                     android:gravity="center"
                     android:backgroundTint="#b3ff99"
                     android:layout_gravity="center_horizontal"
@@ -112,7 +115,8 @@
                         android:layout_weight="1"
                         android:text="@string/tests11"
                         android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"
+                        tools:ignore="ButtonStyle,NestedWeights" />
 
                     <Button
                         android:id="@+id/b22"
@@ -122,7 +126,8 @@
                         android:layout_weight="1"
                         android:text="@string/tests12"
                         android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"
+                        tools:ignore="ButtonStyle" />
 
                     <Button
                         android:id="@+id/b23"
@@ -132,7 +137,8 @@
                         android:layout_weight="1"
                         android:text="@string/tests13"
                         android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"
+                        tools:ignore="ButtonStyle" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -146,7 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:text="Economy"
+                    android:text="@string/upsctt2"
                     android:gravity="center"
                     android:backgroundTint="#eb99ff"
                     android:layout_gravity="center_horizontal"
@@ -167,7 +173,8 @@
                         android:layout_weight="1"
                         android:text="@string/tests11"
                         android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"
+                        tools:ignore="ButtonStyle,NestedWeights" />
 
                     <Button
                         android:id="@+id/b32"
@@ -177,7 +184,8 @@
                         android:layout_weight="1"
                         android:text="@string/tests12"
                         android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"
+                        tools:ignore="ButtonStyle" />
 
                     <Button
                         android:id="@+id/b33"
@@ -187,7 +195,8 @@
                         android:layout_weight="1"
                         android:text="@string/tests13"
                         android:gravity="center"
-                        android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"
+                        tools:ignore="ButtonStyle" />
 
                 </LinearLayout>
 

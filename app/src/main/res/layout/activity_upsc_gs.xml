@@ -31,7 +31,7 @@
                     android:layout_width="80dp"
                     android:layout_height="100dp"
                     android:src="@drawable/upscicon"
-                    android:contentDescription="upscicon" />
+                    android:contentDescription="@string/supp" />
 
                 <LinearLayout
                     android:layout_marginTop="10dp"
@@ -45,7 +45,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
-                        android:text="View Notes" />
+                        android:text="@string/ugt1" />
 
                     <TextView
                         android:textColor="#000000"
@@ -53,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
                         android:layout_gravity="center_horizontal"
-                        android:text="This section contains some Notes on topics which come in UPSC GS Test"/>
+                        android:text="@string/ugt2"/>
 
                 </LinearLayout>
 
@@ -72,7 +72,7 @@
                     android:layout_width="80dp"
                     android:layout_height="100dp"
                     android:src="@drawable/youtubeicon"
-                    android:contentDescription="utubeicon" />
+                    android:contentDescription="@string/youthoob" />
 
                 <LinearLayout
                     android:layout_marginTop="10dp"
@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
                         android:layout_gravity="center_horizontal"
-                        android:text="Watch videos on economics and geography section of GS"/>
+                        android:text="@string/ugt3"/>
 
                 </LinearLayout>
 
@@ -114,7 +114,7 @@
                     android:layout_width="80dp"
                     android:layout_height="100dp"
                     android:src="@drawable/test"
-                    android:contentDescription="mcqicon" />
+                    android:contentDescription="@string/mcqtest" />
 
                 <LinearLayout
                     android:layout_marginTop="10dp"

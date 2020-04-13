@@ -38,7 +38,7 @@ public class PasswordChanger extends AppCompatActivity {
                     Toast.makeText(PasswordChanger.this,"New Password doesn't match with confirmed password!!!",Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(PasswordChanger.this,"Current Password entered is wrong!!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(PasswordChanger.this,"Current Password field is wrong!!!",Toast.LENGTH_LONG).show();
             }
         });
     }

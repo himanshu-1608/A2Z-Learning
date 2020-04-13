@@ -27,26 +27,11 @@
                 android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="#0000ff"
-                android:layout_marginTop="12sp"
-                android:gravity="center"
-                android:padding="2dp"
-                android:paddingStart="15sp"
-                android:paddingEnd="15sp"
-                android:text="@string/sut15"
-                android:textColor="#ff00ff"
-                android:textSize="20sp" />
-
-            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20sp"
-                android:layout_marginTop="15sp"
+                android:layout_marginTop="20sp"
                 android:text="@string/sut2"
                 android:textColor="#000099"
                 android:textSize="16sp" />
@@ -229,8 +214,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="12sp"
-                android:background="@color/colorPrimaryDark"
-                android:textColor="@color/colorAccent"
+                android:background="@color/colorPrimary"
+                android:textColor="#ffffff"
                 android:paddingStart="40sp"
                 android:paddingEnd="40sp"
                 android:text="@string/sut10" />

@@ -25,7 +25,7 @@
                 android:gravity="center"
                 android:layout_gravity="center_horizontal"
                 style="@style/TextAppearance.AppCompat.Title"
-                android:text="Source : ATP STAR-JEE"/>
+                android:text="@string/jeevt1"/>
 
             <Button
                 android:id="@+id/b11"
@@ -36,7 +36,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="IUPAC Nomenclature" />
+                android:text="@string/jeevt2" />
 
             <Button
                 android:id="@+id/b12"
@@ -47,7 +47,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="Binomial Theorem(Class 11)" />
+                android:text="@string/jeevt3" />
 
             <Button
                 android:id="@+id/b13"
@@ -58,7 +58,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="Center of mass and collisions" />
+                android:text="@string/jeevt4" />
 
             <Button
                 android:id="@+id/b14"
@@ -69,7 +69,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="Organic Tricks (Recommended)" />
+                android:text="@string/jeevt5" />
 
 
         </LinearLayout>

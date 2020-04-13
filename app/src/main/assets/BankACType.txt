@@ -1,22 +1,24 @@
-There are three types of Bank Accounts :
+There are three types of Bank Accounts:
 
 1.Savings A/C
         -- Household
-        -- Some restrictions(no. of trans-
-           actions,cap on daily withdrawal,
-           minimum balance maintenance)
+        -- Some restrictions(no. of
+           transactions,cap on daily
+           withdrawal,minimum balance
+           maintenance)
         -- Low Interest
         -- Demand Deposit + Time Deposit
 
 2.Current A/C
         -- Business Entities
         -- No restrictions
-        -- No or negative interests(3.6%)
+        -- No or negative interests
+           (3.6%)
         -- Demand Deposit
 
 3.Recurring/Fixed Deposits
         -- All Entities
         -- Some restrictions
-        -- Relatively higher interest rates
-           (6.7%)
+        -- Relatively higher interest
+           rates(6.7%)
         -- Time Deposits

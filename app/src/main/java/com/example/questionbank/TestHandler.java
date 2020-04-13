@@ -17,7 +17,7 @@ public class TestHandler extends TestLayout {
     View test;
     long timeofExercise;
     Boolean teststate;
-    String filename,cont,filesent;
+    String filename,filesent;
     @Override
     public void onBackPressed() {
         if(teststate) {

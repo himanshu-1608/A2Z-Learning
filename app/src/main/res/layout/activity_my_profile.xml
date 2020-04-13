@@ -11,7 +11,8 @@
         android:layout_width="126dp"
         android:layout_gravity="center"
         android:layout_height="100dp"
-        android:src="@drawable/accountimage"/>
+        android:src="@drawable/accountimage"
+        android:contentDescription="@string/mypt1" />
     <LinearLayout
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
@@ -23,7 +24,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.7"
             android:layout_height="50sp"
-            android:text="Name"
+            android:text="@string/mypt2"
             android:gravity="center"
             style="@style/TextAppearance.AppCompat.Button"
             android:textSize="15sp"/>
@@ -59,7 +60,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="@string/mypt3"
             android:gravity="center"
             style="@style/Widget.MaterialComponents.Button"
             android:textSize="15sp"/>
@@ -88,7 +89,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Mobile"
+            android:text="@string/mypt4"
             android:gravity="center"
             style="@style/Widget.MaterialComponents.Button"
             android:textSize="15sp"/>
@@ -110,11 +111,19 @@
         android:id="@+id/changepass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Password"
+        android:text="@string/mypt6"
         android:textSize="20sp"
         android:gravity="center"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
         style="@style/Widget.MaterialComponents.Button"/>
 
+    <TextView
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0000"
+        android:textSize="12sp"
+        android:layout_marginTop="10dp"
+        android:text="@string/mypt7"/>
 </androidx.appcompat.widget.LinearLayoutCompat>

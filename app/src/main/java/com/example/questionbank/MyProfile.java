@@ -30,7 +30,6 @@ public class MyProfile extends AppCompatActivity {
         changepass = findViewById(R.id.changepass);
         setValues();
         final Boolean[] namer = {false};
-
         nameedit.setOnClickListener(v -> {
             if(!namer[0]) {
                 nameval.setFocusableInTouchMode(true);
@@ -47,11 +46,9 @@ public class MyProfile extends AppCompatActivity {
         });
 
         changepass.setOnClickListener(v -> {
-
             Intent it = new Intent(MyProfile.this,PasswordChanger.class);
             it.putExtra("Passcode",passstring);
             startActivity(it);
-
         });
 
     }

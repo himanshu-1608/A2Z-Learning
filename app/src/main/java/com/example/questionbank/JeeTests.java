@@ -79,7 +79,8 @@ public class JeeTests extends AppCompatActivity {
         l3.setVisibility(View.VISIBLE);
     }
     private void l1gone() {
-        l1.setVisibility(View.GONE); }
+        l1.setVisibility(View.GONE);
+    }
     private void l2gone() {
         l2.setVisibility(View.GONE);
     }
@@ -134,5 +135,4 @@ public class JeeTests extends AppCompatActivity {
         l2 = findViewById(R.id.l2);
         l3 = findViewById(R.id.l3);
     }
-
 }

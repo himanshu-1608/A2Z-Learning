@@ -30,7 +30,8 @@
                     android:layout_marginStart="5dp"
                     android:layout_width="80dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/codes"/>
+                    android:src="@drawable/codes"
+                    android:contentDescription="@string/cppbt1" />
 
                 <LinearLayout
                     android:layout_marginTop="10dp"
@@ -59,20 +60,25 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/l2"
+                android:clickable="true"
+                android:id="@+id/lwatch2"
                 android:layout_marginTop="20dp"
                 android:background="@color/trueColor"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:focusable="true">
 
                 <ImageView
+                    android:clickable="false"
                     android:layout_marginStart="5dp"
                     android:layout_width="80dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/youtubeicon"/>
+                    android:src="@drawable/youtubeicon"
+                    android:contentDescription="@string/youthoob" />
 
                 <LinearLayout
+                    android:clickable="false"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_width="wrap_content"
@@ -111,7 +117,8 @@
                     android:layout_marginStart="5dp"
                     android:layout_width="80dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/test"/>
+                    android:src="@drawable/test"
+                    android:contentDescription="@string/mcqtest" />
 
                 <LinearLayout
                     android:layout_marginTop="10dp"

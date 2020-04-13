@@ -29,10 +29,8 @@ public class JeeVideos extends AppCompatActivity {
             bgrp[i].setOnClickListener(v -> {
                 String str = "https://www.youtube.com/playlist?list=" + linklist[finalI];
                 Uri webpage = Uri.parse(str);
-                Intent webIntent = new Intent(Intent.ACTION_VIEW,webpage);
-                startActivity(webIntent);
+                startActivity(new Intent(Intent.ACTION_VIEW,webpage));
             });
         }
-
     }
 }

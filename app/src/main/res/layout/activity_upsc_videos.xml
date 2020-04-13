@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 style="@style/TextAppearance.AppCompat.Title"
-                android:text="Source : Mrunal Patel"/>
+                android:text="@string/uvt1"/>
 
             <Button
                 android:id="@+id/b11"
@@ -35,7 +35,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="British Imperialism Exigencies" />
+                android:text="@string/uvt2" />
 
             <Button
                 android:id="@+id/b12"
@@ -46,7 +46,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="GDP and related terms" />
+                android:text="@string/uvt3" />
 
             <Button
                 android:id="@+id/b13"
@@ -57,7 +57,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="Fiscal Framework for India" />
+                android:text="@string/uvt4" />
 
             <Button
                 android:id="@+id/b14"
@@ -68,7 +68,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="Continental Drift Theory" />
+                android:text="@string/uvt5" />
 
 
         </LinearLayout>

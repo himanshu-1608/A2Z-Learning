@@ -64,15 +64,9 @@ public class CoursesActivity extends AppCompatActivity {
             return true;
         });
 
-        c1.setOnClickListener(v -> {
-            startActivity(new Intent(CoursesActivity.this,JeeMains.class));
-        });
-        c2.setOnClickListener(v -> {
-            startActivity(new Intent(CoursesActivity.this,CppBasics.class));
-        });
-        c3.setOnClickListener(v -> {
-            startActivity(new Intent(CoursesActivity.this,UpscGs.class));
-        });
+        c1.setOnClickListener(v -> startActivity(new Intent(CoursesActivity.this,JeeMains.class)));
+        c2.setOnClickListener(v -> startActivity(new Intent(CoursesActivity.this,CppBasics.class)));
+        c3.setOnClickListener(v -> startActivity(new Intent(CoursesActivity.this,UpscGs.class)));
 
     }
 

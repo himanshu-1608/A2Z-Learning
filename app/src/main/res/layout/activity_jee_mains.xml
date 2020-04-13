@@ -30,7 +30,8 @@
                     android:layout_marginStart="5dp"
                     android:layout_width="80dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/physicsicon"/>
+                    android:src="@drawable/physicsicon"
+                    android:contentDescription="@string/courset2" />
 
                 <LinearLayout
                     android:layout_marginTop="10dp"
@@ -44,7 +45,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
-                        android:text="View Notes" />
+                        android:text="@string/jeemt1" />
 
                     <TextView
                         android:textColor="#000000"
@@ -52,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
                         android:layout_gravity="center_horizontal"
-                        android:text="This section contains all the notes on different topics required in JEE preparation"/>
+                        android:text="@string/jeemt2"/>
 
                 </LinearLayout>
 
@@ -70,7 +71,8 @@
                     android:layout_marginStart="5dp"
                     android:layout_width="80dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/youtubeicon"/>
+                    android:src="@drawable/youtubeicon"
+                    android:contentDescription="@string/youthoob" />
 
                 <LinearLayout
                     android:layout_marginTop="10dp"
@@ -92,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
                         android:layout_gravity="center_horizontal"
-                        android:text="Videos from experienced teachers on all those JEE Mains topics which have most importance"/>
+                        android:text="@string/jeemt4"/>
 
                 </LinearLayout>
 
@@ -111,7 +113,8 @@
                     android:layout_marginStart="5dp"
                     android:layout_width="80dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/test"/>
+                    android:src="@drawable/test"
+                    android:contentDescription="@string/mcqtest" />
 
                 <LinearLayout
                     android:layout_marginTop="10dp"

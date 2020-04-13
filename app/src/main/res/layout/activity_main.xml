@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="32sp"
-                android:textColor="#0000ff"
+                android:textColor="#8c8c8c"
                 android:layout_marginTop="15dp"
                 style="@style/TextAppearance.AppCompat"/>
 
@@ -87,14 +87,15 @@
                 android:text="@string/mainat7"/>
 
             <TextView
+                android:id="@+id/splash"
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:textColor="#0000ff"
+                android:textColor="#8c8c8c"
                 android:gravity="center_horizontal"
-                android:textSize="28sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="HAPPY LEARNING PEEPS :)"/>
+                android:text="@string/maint99"/>
 
         </LinearLayout>
 

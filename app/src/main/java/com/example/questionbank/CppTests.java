@@ -67,55 +67,27 @@ public class CppTests extends AppCompatActivity {
         }
     }
 
-
-    private void l1came() {
-        l1.setVisibility(View.VISIBLE);
-    }
-    private void l2came() {
-        l2.setVisibility(View.VISIBLE);
-    }
-    private void l3came() {
-        l3.setVisibility(View.VISIBLE);
-    }
-    private void l1gone() {
-        l1.setVisibility(View.GONE);
-    }
-    private void l2gone() {
-        l2.setVisibility(View.GONE);
-    }
-    private void l3gone() {
-        l3.setVisibility(View.GONE);
-    }
+    private void l1came() {l1.setVisibility(View.VISIBLE);}
+    private void l2came() {l2.setVisibility(View.VISIBLE);}
+    private void l3came() {l3.setVisibility(View.VISIBLE);}
+    private void l1gone() {l1.setVisibility(View.GONE);}
+    private void l2gone() {l2.setVisibility(View.GONE);}
+    private void l3gone() {l3.setVisibility(View.GONE);}
     private void showallA() {
-        l1came();
-        l2gone();
-        l3gone();
-        bon = false;
-        con = false;
+        l1came();l2gone();l3gone();
+        bon = false; con = false;
     }
-    private void removeallA() {
-        l1gone();
-    }
+    private void removeallA() {l1gone();}
     private void showallB() {
-        l2came();
-        l1gone();
-        l3gone();
-        aon = false;
-        con = false;
+        l2came();l1gone();l3gone();
+        aon = false;con = false;
     }
-    private void removeallB() {
-        l2gone();
-    }
+    private void removeallB() {l2gone();}
     private void showallC() {
-        l3came();
-        l1gone();
-        l2gone();
-        aon = false;
-        bon = false;
+        l3came();l1gone();l2gone();
+        aon = false;bon = false;
     }
-    private void removeallC() {
-        l3gone();
-    }
+    private void removeallC() {l3gone();}
 
     private void work() {
         b1  = findViewById(R.id.b1);

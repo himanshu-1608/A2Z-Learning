@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">All In One Study</string>
-    <string name="sut1">Sign Up for free\nto avail</string>
+    <string name="app_name">A2Z Learning</string>
+    <string name="sut1">Sign Up for free</string>
     <string name="sut2">Name</string>
     <string name="sut3">First and Last Name</string>
     <string name="sut4">Email ID</string>
@@ -78,5 +78,53 @@
     <string name="hst3">You could contact our support team at <a style="color:blue" href="mailto:ydv1608@gmail.com?subject=Change my email address">ydv1608@gmail.com</a> and they will verify your phone number and renew your Email ID</string>
     <string name="hst4">How to recover my progress if I lost my Phone/Email ID ?</string>
     <string name="hst5"><![CDATA[We have 2 critical points to recover your data:\nEmail Id & Phone Number\nThrough any one of these , we can recover your account.]]></string>
+    <string name="courset1">Course List</string>
+    <string name="courset2">JEE PIC</string>
+    <string name="courset3">JEE Mains</string>
+    <string name="courset4">C++ Pic</string>
+    <string name="courset5">CPP Programming</string>
+    <string name="courset6">UPSC Pic</string>
+    <string name="courset7">UPSC GS</string>
+    <string name="cppbt1">CodePic</string>
+    <string name="youthoob">Youthoob</string>
+    <string name="mcqtest">Test</string>
+    <string name="hst9">For any other help or queries, contact us at ydv1608@gmail.com</string>
+    <string name="jeecodet1">Photoelectric Effect</string>
+    <string name="jeecodet2">Diffraction of Light</string>
+    <string name="jeemt1">View Notes</string>
+    <string name="jeemt2">This section contains all the notes on different topics required in JEE preparation</string>
+    <string name="jeemt4">Videos from experienced teachers on all those JEE Mains topics which have most importance</string>
+    <string name="jeett1">Chemistry</string>
+    <string name="jeett2">Units and Dimensions</string>
+    <string name="jeevt1">Source : ATP STAR-JEE</string>
+    <string name="jeevt2">IUPAC Nomenclature</string>
+    <string name="jeevt3">Binomial Theorem(Class 11)</string>
+    <string name="jeevt4">Center of mass and collisions</string>
+    <string name="jeevt5">Organic Tricks (Recommended)</string>
+    <string name="maint99">HAPPY LEARNING PEEPS :)</string>
+    <string name="mypt1">ProfilePic</string>
+    <string name="mypt2">Name</string>
+    <string name="mypt3">Email</string>
+    <string name="mypt4">Mobile</string>
+    <string name="mypt6">Change Password</string>
+    <string name="mypt7">* User Profile Photo Feature soon :p</string>
+    <string name="pet1">Tests Taken :</string>
+    <string name="pet2">Tests History</string>
+    <string name="pet3">Index</string>
+    <string name="pet4">Total\nQues.</string>
+    <string name="pet5">Correct</string>
+    <string name="pet6">Score\n(in %)</string>
+    <string name="uct1">Types of Bank Accounts</string>
+    <string name="uct2">Functions of Money</string>
+    <string name="ugt1">View Notes</string>
+    <string name="ugt2">This section contains some Notes on topics which come in UPSC GS Test</string>
+    <string name="ugt3">Watch videos on economics and geography section of GS</string>
+    <string name="upsctt1">Polity</string>
+    <string name="upsctt2">Economy</string>
+    <string name="uvt1">Source : Mrunal Patel</string>
+    <string name="uvt2">British Imperialism Exigencies</string>
+    <string name="uvt3">GDP and related terms</string>
+    <string name="uvt4">Fiscal Framework for India</string>
+    <string name="uvt5">Continental Drift Theory</string>
 
 </resources>

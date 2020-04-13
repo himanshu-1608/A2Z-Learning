@@ -18,7 +18,7 @@ public class PerformanceEvaluation extends AppCompatActivity {
     private final static String Correct = "correct.txt";
     private final static String TestName = "testname.txt";
     TextView one,two,three,four,counter;
-
+    StringBuilder sb4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +61,7 @@ public class PerformanceEvaluation extends AppCompatActivity {
                     sb3.append(t3);
                     sb3.append("qq");
                 }
+                sb4 = sb3;
                 int l1, l2, l3,up;
                 float ans;
                 l1 = sb1.indexOf("qq");
@@ -73,10 +74,10 @@ public class PerformanceEvaluation extends AppCompatActivity {
                 String temp;
                 int count = Integer.parseInt(a);
                 for (int i = 0; i < count; i++) {
-                    l3 = sb3.indexOf("qq");
-                    temp = sb3.substring(0, l3);
-                    sb3.delete(0, l3 + 2);
-                    pehli += temp + "\n\n";
+                    l3 = sb4.indexOf("qq");
+                    temp = sb4.substring(0, l3);
+                    sb4.delete(0, l3 + 2);
+                    pehli += setter(temp) + "\n\n";
                     doosri += "4\n\n";
                     teesri += barr[i] + "\n\n";
                     up = Integer.parseInt(String.valueOf(barr[i]));
@@ -113,6 +114,42 @@ public class PerformanceEvaluation extends AppCompatActivity {
                     }
                 }
             }
+        }
+    }
+
+    private String setter(String temp) {
+        switch (temp) {
+            case "CppDPTest1" : return "DP T1";
+            case "CppDPTest2" : return "DP T2";
+            case "CppDPTest3" : return "DP T3";
+            case "CppFullTest1" :
+            case "UpscFullTest1" :
+            case "JEEFullTest1" :
+                return "Full T1";
+            case "CppFullTest2" :
+            case "UpscFullTest2" :
+            case "JEEFullTest2" :
+                return "Full T2";
+            case "CppFullTest3" :
+            case "UpscFullTest3" :
+            case "JEEFullTest3" :
+                return "Full T3";
+            case "CppOOPSTest1" : return "OOPS T1";
+            case "CppOOPSTest2" : return "OOPS T2";
+            case "CppOOPSTest3" : return "OOPS T3";
+            case "JEEChemistryTest1" : return "Chem T1";
+            case "JEEChemistryTest2" : return "Chem T2";
+            case "JEEChemistryTest3" : return "Chem T3";
+            case "JEEPhysicsTest1" : return "Phy T1";
+            case "JEEPhysicsTest2" : return "Phy T2";
+            case "JEEPhysicsTest3" : return "Phy T3";
+            case "UpscEconomyTest1" : return "Eco T1";
+            case "UpscEconomyTest2" : return "Eco T2";
+            case "UpscEconomyTest3" : return "Eco T3";
+            case "UpscPolityTest1" : return "Polity T1";
+            case "UpscPolityTest2" : return "Polity T2";
+            case "UpscPolityTest3" : return "Polity T3";
+            default : return "";
         }
     }
 

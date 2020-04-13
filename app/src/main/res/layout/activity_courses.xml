@@ -18,7 +18,7 @@
             android:id="@+id/tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Course List"
+            android:text="@string/courset1"
             android:textSize="20sp"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
@@ -38,13 +38,14 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="60dp"
-                android:src="@drawable/jee_mains"/>
+                android:src="@drawable/jee_mains"
+                android:contentDescription="@string/courset2" />
 
             <TextView
                 android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="JEE Mains"
+                android:text="@string/courset3"
                 android:textSize="22sp"/>
 
         </LinearLayout>
@@ -63,13 +64,14 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="60dp"
-                android:src="@drawable/cpp"/>
+                android:src="@drawable/cpp"
+                android:contentDescription="@string/courset4" />
 
             <TextView
                 android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CPP Programming"
+                android:text="@string/courset5"
                 android:textSize="22sp"/>
 
         </LinearLayout>
@@ -88,13 +90,14 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="60dp"
-                android:src="@drawable/upscicon"/>
+                android:src="@drawable/upscicon"
+                android:contentDescription="@string/courset6" />
 
             <TextView
                 android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="UPSC GS"
+                android:text="@string/courset7"
                 android:textSize="22sp"/>
 
         </LinearLayout>
