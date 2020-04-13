@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class JeeTests extends AppCompatActivity {
+public class UpscTests extends AppCompatActivity {
 
     Button b1,b2,b3,b11,b12,b13,b21,b22,b23,b31,b32,b33;
     Boolean aon,bon,con;
@@ -17,7 +17,7 @@ public class JeeTests extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jee_tests);
+        setContentView(R.layout.activity_upsc_tests);
 
         aon = false;
         bon = false;
@@ -56,12 +56,12 @@ public class JeeTests extends AppCompatActivity {
             }
         });
         Button[] butgrp = new Button[] {b11,b12,b13,b21,b22,b23,b31,b32,b33};
-        final String[] strgrp = new String[]{"JEEFullTest1.txt","JEEFullTest2.txt","JEEFullTest3.txt","JEEChemistryTest1.txt","JEEChemistryTest2.txt","JEEChemistryTest3.txt","JEEPhysicsTest1.txt","JEEPhysicsTest2.txt","JEEPhysicsTest3.txt"};
+        final String[] strgrp = new String[]{"UpscFullTest1.txt","UpscFullTest2.txt","UpscFullTest3.txt","UpscPolityTest1.txt","UpscPolityTest2.txt","UpscPolityTest3.txt","UpscEconomyTest1.txt","UpscEconomyTest2.txt","UpscEconomyTest3.txt"};
         for(int i = 0 ; i < 9 ; i++ ) {
             int finalI = i;
             butgrp[i].setOnClickListener(v -> {
                 final String sentfile = strgrp[finalI];
-                Intent it = new Intent(JeeTests.this,TestHandler.class);
+                Intent it = new Intent(UpscTests.this,TestHandler.class);
                 it.putExtra("filename",sentfile);
                 startActivity(it);
             });
@@ -79,7 +79,8 @@ public class JeeTests extends AppCompatActivity {
         l3.setVisibility(View.VISIBLE);
     }
     private void l1gone() {
-        l1.setVisibility(View.GONE); }
+        l1.setVisibility(View.GONE);
+    }
     private void l2gone() {
         l2.setVisibility(View.GONE);
     }

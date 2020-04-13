@@ -1,9 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="10dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
     tools:context=".Faq">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/faqt1"
+            android:textSize="25sp"
+            android:gravity="center_horizontal"
+            style="@style/TextAppearance.AppCompat"/>
+
+        <TextView
+            android:gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:text="@string/faqt2"/>
+
+        <TextView
+            android:gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/faqt3"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:text="@string/faqt4"/>
+
+        <TextView
+            android:gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/faqt5"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:text="@string/faqt6"/>
+
+        <TextView
+            android:gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/faqt7"
+            android:textColor="#000000"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

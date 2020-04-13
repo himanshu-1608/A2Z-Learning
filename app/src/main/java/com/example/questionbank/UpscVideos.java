@@ -7,14 +7,13 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class JeeVideos extends AppCompatActivity {
+public class UpscVideos extends AppCompatActivity {
 
     Button b1,b2,b3,b4;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jee_videos);
+        setContentView(R.layout.activity_upsc_videos);
 
         b1 = findViewById(R.id.b11);
         b2 = findViewById(R.id.b12);
@@ -22,12 +21,12 @@ public class JeeVideos extends AppCompatActivity {
         b4 = findViewById(R.id.b14);
         final Button[] bgrp = new Button[]{b1,b2,b3,b4};
 
-        final String[] linklist = new String[]{"PL7rZUH8srnuMBYGxK7WsYmsD5ln7sEc73","PL7rZUH8srnuOubmBqCWQ6Uj-MG-FQREcr","PL7rZUH8srnuMd3PVxiJIOFaBdZKu0hcEQ","PL7rZUH8srnuMWp2vnqHB64jbCM7U-ryuM"};
+        final String[] linklist = new String[]{"qhz6_nGD4Rw","7jZ4RtMaU9s","yzeJ7tVcHQA","IxpPoVc7y3U"};
 
         for(int i = 0 ; i < bgrp.length ; i++) {
             int finalI = i;
             bgrp[i].setOnClickListener(v -> {
-                String str = "https://www.youtube.com/playlist?list=" + linklist[finalI];
+                String str = "https://www.youtube.com/watch?v=" + linklist[finalI];
                 Uri webpage = Uri.parse(str);
                 Intent webIntent = new Intent(Intent.ACTION_VIEW,webpage);
                 startActivity(webIntent);
@@ -35,4 +34,5 @@ public class JeeVideos extends AppCompatActivity {
         }
 
     }
+
 }

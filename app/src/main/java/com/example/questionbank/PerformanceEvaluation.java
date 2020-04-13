@@ -17,7 +17,7 @@ public class PerformanceEvaluation extends AppCompatActivity {
     private final static String Total = "total.txt";
     private final static String Correct = "correct.txt";
     private final static String TestName = "testname.txt";
-    TextView one,two,three,counter;
+    TextView one,two,three,four,counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class PerformanceEvaluation extends AppCompatActivity {
         one     = findViewById(R.id.one);
         two     = findViewById(R.id.two);
         three   = findViewById(R.id.three);
+        four    = findViewById(R.id.four);
         counter = findViewById(R.id.Counter);
         FileInputStream fis1 = null, fis2 = null,fis3 = null;
         if(!exists()) {
@@ -60,13 +61,14 @@ public class PerformanceEvaluation extends AppCompatActivity {
                     sb3.append(t3);
                     sb3.append("qq");
                 }
-                int l1, l2, l3;
+                int l1, l2, l3,up;
+                float ans;
                 l1 = sb1.indexOf("qq");
                 l2 = sb2.indexOf("qq");
                 String a = sb1.substring(0, l1);
                 String b = sb2.substring(0, l2);
                 char[] barr = b.toCharArray();
-                String pehli = "", doosri = "", teesri = "";
+                String pehli = "", doosri = "", teesri = "",chothi = "";
                 counter.setText("  " + a);
                 String temp;
                 int count = Integer.parseInt(a);
@@ -77,10 +79,15 @@ public class PerformanceEvaluation extends AppCompatActivity {
                     pehli += temp + "\n\n";
                     doosri += "4\n\n";
                     teesri += barr[i] + "\n\n";
+                    up = Integer.parseInt(String.valueOf(barr[i]));
+                    ans = (float)up/(float)4;
+                    ans *= 100;
+                    chothi += ans+"\n\n";
                 }
                 one.setText(pehli);
                 two.setText(doosri);
                 three.setText(teesri);
+                four.setText(chothi);
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {

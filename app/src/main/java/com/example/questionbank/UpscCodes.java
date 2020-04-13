@@ -10,14 +10,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class JeeCodes extends AppCompatActivity {
+public class UpscCodes extends AppCompatActivity {
 
     TextView scroll1;
     TextView scroll2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jee_codes);
+        setContentView(R.layout.activity_upsc_codes);
 
         scroll1 = findViewById(R.id.scroll1);
         scroll2 = findViewById(R.id.scroll2);
@@ -30,7 +31,7 @@ public class JeeCodes extends AppCompatActivity {
         StringBuilder text = new StringBuilder();
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new InputStreamReader(getAssets().open("DualNature.txt")));
+            reader = new BufferedReader(new InputStreamReader(getAssets().open("BankACType.txt")));
             String mLine;
             while((mLine = reader.readLine()) != null) {
                 text.append(mLine);
@@ -38,7 +39,7 @@ public class JeeCodes extends AppCompatActivity {
 
             }
         } catch (IOException e) {
-            Toast.makeText(getApplicationContext(),"Error reading file : DualNature-Photoelectric Effect!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Error reading file : Types of bank accounts!", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         } finally {
             if (reader != null) {
@@ -56,14 +57,14 @@ public class JeeCodes extends AppCompatActivity {
         StringBuilder text = new StringBuilder();
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new InputStreamReader(getAssets().open("Diffraction.txt")));
+            reader = new BufferedReader(new InputStreamReader(getAssets().open("MoneyFunction.txt")));
             String mLine;
             while((mLine = reader.readLine()) != null) {
                 text.append(mLine);
                 text.append("\n");
             }
         } catch (IOException e) {
-            Toast.makeText(getApplicationContext(),"Error reading file : Diffraction of light!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Error reading file : Functions of money!", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         } finally {
             if (reader != null) {

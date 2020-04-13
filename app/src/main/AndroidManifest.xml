@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".JeeTests"></activity>
+        <activity android:name=".UpscTests"/>
+        <activity android:name=".UpscVideos" />
+        <activity android:name=".UpscCodes" />
+        <activity android:name=".JeeTests" />
         <activity android:name=".JeeVideos" />
         <activity android:name=".JeeCodes" />
         <activity android:name=".Faq" />

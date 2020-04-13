@@ -59,5 +59,24 @@
     <string name="aut4">-- Questions in the app are limited as this is a demo app. In further updates, we will work on it\'s question quantity and quality.</string>
     <string name="aut5">-- All Errors and Bugs can be informed to the developer at <a color='#0099ff' href="mailto:ydv1608@gmail.com?subject=Report Bug in Question-Bank App">ydv1608@gmail.com</a> or on the above <a color='#0099ff' href="https://github.com/himanshu-1608/Question-Bank">GitHub Link</a>. Reviews are necessary for the development of app.</string>
     <string name="aut6">-- You could also mail us at <font color='#ff0000'><a color='#000000' href="mailto:ydv1608@gmail.com?subject=Add suggestions">ydv1608@gmail.com</a></font> to suggest different topics which we should add in our app in later releases. Our <a color='#0099ff' href="http://www.iitb.ac.in/en/information-faculty">Technical Team</a>(with 10+ years of experience) will work hard to prepare you on that topic by providing all the latest questions and study material on the topic.</string>
+    <string name="mainat1">Your single service point for all kinds of exams. Explore your options from the menu!!!</string>
+    <string name="mainat2">· About The App</string>
+    <string name="mainat3">This app contains study materials, notes, youtube tutorials and mock tests for various courses.</string>
+    <string name="mainat4">· What You Seek</string>
+    <string name="mainat5">This app has a full coverage of various exams that can be checked by going on the Menu->Courses Area. Since it is an evolving app, we have initially added 3 courses only.But we would be extending the topic coverage.\nThis app dynamically changes information to keep you up-to-date with the latest data(of course you have to enable internet for that to happen)</string>
+    <string name="mainat6">· Features</string>
+    <string name="mainat7">-- Tricky Tests :\nWe have 2 different type of tests in here -\n1.Full-Length test(to get you an in-sight of your overall knowledge)\n2.Topic-Oriented(Every topic has separate tests so you can achieve success bit by bit)\n\n--Personal Score Evaluation : \nThis is the best part of the app, we must tell you !\nWe have your score and your crest and troughs to evaluate your efforts.</string>
+    <string name="faqt1">Frequently Asked Questions</string>
+    <string name="faqt2">How does it ensure my privacy?</string>
+    <string name="faqt3">Your personal details were stored in your storage with encryption and neither the developer nor any other apps shall have access to it.This data is dynamically shown only to you and no one else.</string>
+    <string name="faqt4">I do not want to share my real name</string>
+    <string name="faqt5">Your real name will not be visible to the community. However, this name will be used in future to show your national rankings.That\'s why we have a change Name option available for this.</string>
+    <string name="faqt6">Are my numbers being stored or sold to someone?</string>
+    <string name="faqt7">The data is stored in your mobile and the developer DOES NOT COLLECT any kind of information related to you.</string>
+    <string name="hst1">Help &amp; Support Section</string>
+    <string name="hst2">How to change my user Email ID ?</string>
+    <string name="hst3">You could contact our support team at <a style="color:blue" href="mailto:ydv1608@gmail.com?subject=Change my email address">ydv1608@gmail.com</a> and they will verify your phone number and renew your Email ID</string>
+    <string name="hst4">How to recover my progress if I lost my Phone/Email ID ?</string>
+    <string name="hst5"><![CDATA[We have 2 critical points to recover your data:\nEmail Id & Phone Number\nThrough any one of these , we can recover your account.]]></string>
 
 </resources>

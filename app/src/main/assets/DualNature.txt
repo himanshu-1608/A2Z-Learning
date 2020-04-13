@@ -1,0 +1,8 @@
+When certain metal surfeces are illuminated
+by UV radiation (and in some cases by visible
+light),the electrons are emitted from them.
+This phenomenon is known as photoelectric
+effect. By absorbing energy from the incident
+electromagnetic radiation, the electrons in
+the metal escape the attraction of positive
+ions in the metal.

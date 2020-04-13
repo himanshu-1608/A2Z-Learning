@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".JeeVideos">
+    tools:context=".UpscVideos">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,9 +23,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_gravity="center_horizontal"
                 style="@style/TextAppearance.AppCompat.Title"
-                android:text="Source : ATP STAR-JEE"/>
+                android:text="Source : Mrunal Patel"/>
 
             <Button
                 android:id="@+id/b11"
@@ -36,7 +35,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="IUPAC Nomenclature" />
+                android:text="British Imperialism Exigencies" />
 
             <Button
                 android:id="@+id/b12"
@@ -47,7 +46,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="Binomial Theorem(Class 11)" />
+                android:text="GDP and related terms" />
 
             <Button
                 android:id="@+id/b13"
@@ -58,7 +57,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="Center of mass and collisions" />
+                android:text="Fiscal Framework for India" />
 
             <Button
                 android:id="@+id/b14"
@@ -69,7 +68,7 @@
                 android:backgroundTint="#07f"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="Organic Tricks (Recommended)" />
+                android:text="Continental Drift Theory" />
 
 
         </LinearLayout>

@@ -1,0 +1,7 @@
+The phenomenon of bending of light around the
+corners of an obstacle or aperture is called
+diffraction of light.
+Conditions for Diffraction of Light :
+The wavelength of incident light should be
+greater or comparable to the size of the
+obstacle or aperture.

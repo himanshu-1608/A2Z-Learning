@@ -1,0 +1,24 @@
+The expression for torque t = (a * L) + (b * I/w) where L represents angular momentum, I is the moment of inertia and w is angular velocity. The dimensions of a*b are
+In an experiment, 4 quantities a,b,c and d are measured with % error 1%, 2%, 3% and 4% respectively. Quantity P is calculated as follows % error in P is P = (a^3 * b^2)/(c * d)
+If force(F), velocity(V) and time(T) are taken as fundamental units, then the dimensions of mass are
+In a tangent galvanometer, current i is proportional to tan d where d is angular deflection. The relative error in i will be least when d is equal to
+M(0) L(0) T(-4)
+M(0) L(0) T(-2)
+M(0) L(0) T(-1)
+M(0) L(0) T(-3)
+7%
+4%
+14%
+10%
+[ F V T^-1 ]
+[ F V T^-2 ]
+[ F V^-1 T^-1 ]
+[ F V^-1 T ]
+30
+45
+60
+90
+1
+3
+4
+2

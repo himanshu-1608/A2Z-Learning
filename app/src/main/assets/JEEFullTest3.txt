@@ -1,0 +1,24 @@
+The pH of 0.5 L of 1.0 M NaCl solution after electrolysis for 965 s using 5.0 A current , is
+A cylindrical vessel is filled with water up to a height H. A hole is bored in the wall at a depth h from the free surface of water. For maximum range , h is equal to
+If S be the sum, P be the product and R be the sum of the reciprocals of n terms of a G.P., then (S/R) to power n =
+Conjugate of a complex number is 1/(i-1), then the complex number
+1.0
+12.7
+13.0
+1.30
+H/4
+H/2
+3H/4
+H
+P*P
+P
+P*P*P
+P^(0.5)
+-1/(i+1)
+1/(i-1)
+-1/(i-1)
+1/(i+1)
+3
+2
+1
+1

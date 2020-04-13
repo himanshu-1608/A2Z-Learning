@@ -1,0 +1,25 @@
+        ----  PRIMARY FUNCTIONS ----
+
+1.Measure of value[Divisible,Fungible]
+        -- Labour gets wages
+		-- Land gets rent
+		-- Capital gets interest
+
+2.Medium of exchange
+        -- Solves low cost of transaction
+        -- Solves double coincidence of wants
+        -- Durable
+        -- Portable
+        -- Acceptance
+
+
+       ---- SECONDARY FUNCTIONS ----
+
+3.Store of value
+
+4.Transfer of value
+
+5.Acts as a medium for defered payments(which
+  can be paid later eg. Credit)
+
+6.Standardisation

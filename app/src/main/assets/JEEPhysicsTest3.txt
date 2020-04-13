@@ -1,0 +1,24 @@
+A container contains 35 kg water. 0.2 kg water leaks from the container. Find the amount of water in container
+Crane is British unit of volume(one crane = 170.4742 L). Convert crane into SI units.
+The pitch of a screw gauge is 1 mm and there are 100 divisions on the circular scale. While measuring diameter of a thick wire, the pitch scale reads 1 mm and 63rd division on the circular scale coincides with the reference. The length of the wire is 5.6 cm.Then
+SI unit of intensity of wave is
+34.8 kg
+35 kg
+34.80 kg
+35.0 kg
+0.170474 m3
+17.0474 m3
+0.00170474 m3
+1704.74 m3
+The least count of screw gauge is 0.001 mm
+The volume of the wire is 0.117 cm3
+The diameter of the wire is 1.63 m
+The cross-section area of the wire is 0.0209 cm3
+J m(-2) s(-2)
+J m(-1) s(-2)
+W m(-2)
+J m(-2)
+2
+1
+2
+3

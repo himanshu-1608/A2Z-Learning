@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,7 +14,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Objects;
 
 
@@ -45,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout d1;
     ActionBarDrawerToggle abdt;
     NavigationView nav_view;
+    TextView namevala;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(it);
         }
 
+        namevala = findViewById(R.id.name);
         nav_view = findViewById(R.id.nav_view);
         d1 = findViewById(R.id.d1);
         abdt = new ActionBarDrawerToggle(this,d1,R.string.CppJavaOpen,R.string.CppJavaClose);
@@ -64,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
         d1.addDrawerListener(abdt);
         abdt.syncState();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
-
 
         nav_view.setNavigationItemSelectedListener(menuItem -> {
             int id =  menuItem.getItemId();
@@ -85,6 +90,45 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
+
+        FileInputStream fis = null;
+
+        try {
+            fis = openFileInput(FILE_NAME);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String text;
+
+            while ((text = br.readLine()) != null) {
+                sb.append(text);
+                sb.append("qqAB");
+            }
+            StringBuilder out;
+            out = sb;
+            int lastind = out.indexOf("qqAB");
+            String namestring = out.substring(9, lastind);
+            namevala.setText("Heyyy " + namestring + "!");
+        } catch (IOException e) {
+            System.out.println("Error Reading File");
+            e.printStackTrace();
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+
+
+
+
+
+
 
     }
 
