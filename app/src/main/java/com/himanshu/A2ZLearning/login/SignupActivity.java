@@ -64,8 +64,10 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!e[0]) {
                     pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    eye1.setBackgroundResource(R.drawable.ic_not_see);
                     e[0] = true;
                 } else {
+                    eye1.setBackgroundResource(R.drawable.ic_passcheck);
                     pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     e[0] = false;
                 }
@@ -77,8 +79,10 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!e[1]) {
                     cpass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    eye2.setBackgroundResource(R.drawable.ic_not_see);
                     e[1] = true;
                 } else {
+                    eye2.setBackgroundResource(R.drawable.ic_passcheck);
                     cpass.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     e[1] = false;
                 }
@@ -154,7 +158,7 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(this,"Select a Gender!!!",Toast.LENGTH_LONG).show();
             return false;
         }
-        if((one.length() < 8) || (!isValidPassword(one))) {
+        if((one.length() < 4) || (!isValidPassword(one))) {
             Toast.makeText(this,"Use a strong Password!!!",Toast.LENGTH_LONG).show();
             return false;
         }

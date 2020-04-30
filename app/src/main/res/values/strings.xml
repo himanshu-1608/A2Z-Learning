@@ -16,38 +16,21 @@
     <string name="sut12">Male</string>
     <string name="sut13">Female</string>
     <string name="sut14">Prefer not to say</string>
-    <string name="sut15">Personal Score Evaluation</string>
-    <string name="sut16">Watch</string>
     <string name="sut17">Mobile Number</string>
-    <string name="sut18">10 - digit mobile no.</string>
+    <string name="sut18">10 - digit Mobile No.</string>
     <string name="supp"><![CDATA[^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$]]></string>
     <string name="suep">[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+</string>
     <string name="sunp">^[\\p{L} .\'-]+$</string>
-    <string name="sump">^[6-9]\\d{9}$</string>
-    <string name="mat1">LEARN ANYTHING YOU LIKE</string>
-    <string name="CppJavaOpen">Open</string>
-    <string name="CppJavaClose">Close</string>
+    <string name="sump">^[1-9]\\d{9}$</string>
     <string name="cppt1">View Codes</string>
-    <string name="cppt2">This section contains codes for all the basic programs needed for dynamic programming.</string>
+    <string name="cppt2">This section contains codes for all the basic programs needed for <b>Dynamic Programming</b>.</string>
     <string name="cppt3">Watch Videos</string>
-    <string name="cppt4">Videos for the basic algorithms of dynamic programming.</string>
+    <string name="cppt4">Videos for the basic algorithms of Dynamic Programming.</string>
     <string name="cppt5">Test Series</string>
     <string name="cppt6">-- Full Length Test\n-- Topic - Wise</string>
-    <string name="cppcodet1">Longest Common Subsequence</string>
-    <string name="cppcodet2">Fractional KnapSack Problem</string>
-    <string name="cppvideot1">Object Oriented Design &amp; Design Patterns</string>
-    <string name="cppvideot2">Source : geekforgeeks.org</string>
-    <string name="cppvideot3">A* Algorithm</string>
     <string name="tlt1">START THE TEST</string>
     <string name="tlt2">Time Left :</string>
     <string name="tlt3">End test</string>
-    <string name="tests11">Test 1</string>
-    <string name="tests12">Test 2</string>
-    <string name="tests13">Test 3</string>
-    <string name="cpptests1">TEST TYPE</string>
-    <string name="cpptests2">Full Length Test(ALL TOPICS)</string>
-    <string name="cpptests3">Dynamic Programming</string>
-    <string name="cpptests4">OOPS ( Object-Oriented )</string>
     <string name="navmenut1">My Profile</string>
     <string name="navmenut2">Courses</string>
     <string name="navmenut3">Personal Score Evaluation</string>
@@ -57,30 +40,30 @@
     <string name="passswordchangert1">Change Password</string>
     <string name="aut1">Developed by\nHimanshu Yadav</string>
     <string name="aut2">Project Source Code available at following link :</string>
-    <string name="aut3">https://github.com/himanshu-1608/Question-Bank</string>
-    <string name="aut4">-- Questions in the app are limited as this is a demo app. In further updates, we will work on it\'s question quantity and quality.</string>
-    <string name="aut5">-- All Errors and Bugs can be informed to the developer at <a color='#0099ff' href="mailto:ydv1608@gmail.com?subject=Report Bug in Question-Bank App">ydv1608@gmail.com</a> or on the above <a color='#0099ff' href="https://github.com/himanshu-1608/Question-Bank">GitHub Link</a>. Reviews are necessary for the development of app.</string>
-    <string name="aut6">-- You could also mail us at <font color='#ff0000'><a color='#000000' href="mailto:ydv1608@gmail.com?subject=Add suggestions">ydv1608@gmail.com</a></font> to suggest different topics which we should add in our app in later releases. Our <a color='#0099ff' href="http://www.iitb.ac.in/en/information-faculty">Technical Team</a>(with 10+ years of experience) will work hard to prepare you on that topic by providing all the latest questions and study material on the topic.</string>
+    <string name="aut3">https://github.com/himanshu-1608/A2Z-Learning</string>
+    <string name="aut4">-- Questions in the app are limited as this is a demo app. In further updates, we will work on it\'s question\'s quantity and quality.</string>
+    <string name="aut5">-- All Errors and Bugs are to be informed to the developer at <a href="mailto:ydv1608@gmail.com?subject=Report Bug in A2Z Learning App">ydv1608@gmail.com</a> or on the above <a color='#0099ff' href="https://github.com/himanshu-1608/A2Z-Learning">GitHub Link</a>. Reviews are necessary for the development of app.</string>
+    <string name="aut6">-- You could also mail us at <a color='#000000' href="mailto:ydv1608@gmail.com?subject=Add suggestions">ydv1608@gmail.com</a> to suggest different topics which we should add in our app in later releases. Our <a href="http://www.iitb.ac.in/en/information-faculty">Technical Team</a>(with 10+ years of experience) will work hard to prepare you on that topic by providing all the latest questions and study material on the topic.</string>
     <string name="mainat1">Your single service point for all kinds of exams. Explore your options from the menu!!!</string>
     <string name="mainat2">· About The App</string>
-    <string name="mainat3">This app contains study materials, notes, youtube tutorials and mock tests for various courses.</string>
+    <string name="mainat3">This app contains Study Materials, Notes, Youtube Tutorials and Mock Tests for various Courses.</string>
     <string name="mainat4">· What You Seek</string>
-    <string name="mainat5">This app has a full coverage of various exams that can be checked by going on the Menu->Courses Area. Since it is an evolving app, we have initially added 3 courses only.But we would be extending the topic coverage.\nThis app dynamically changes information to keep you up-to-date with the latest data(of course you have to enable internet for that to happen)</string>
+    <string name="mainat5">This app has a full coverage of various exams that can be checked by going on the Menu -> Courses Area. Since it is an evolving app, we have initially added 3 courses only.But we would be extending the topic coverage.\nThis app dynamically changes information to keep you up-to-date with the latest data(of course you have to enable internet for that to happen)</string>
     <string name="mainat6">· Features</string>
-    <string name="mainat7">-- Tricky Tests :\nWe have 2 different type of tests in here -\n1.Full-Length test(to get you an in-sight of your overall knowledge)\n2.Topic-Oriented(Every topic has separate tests so you can achieve success bit by bit)\n\n--Personal Score Evaluation : \nThis is the best part of the app, we must tell you !\nWe have your score and your crest and troughs to evaluate your efforts.</string>
+    <string name="mainat7">-- Tricky Tests :\nWe have 2 different type of tests in here -\n1.Full-Length Test(to get you an in-sight of your overall knowledge)\n2.Topic-Oriented(Every topic has separate tests so you can achieve success bit by bit)\n\n--Personal Score Evaluation : \nThis is the best part of the app, we must tell you !\nWe have your score and your crest and troughs to evaluate your efforts.</string>
     <string name="faqt1">Frequently Asked Questions</string>
-    <string name="faqt2">How does it ensure my privacy?</string>
-    <string name="faqt3">Your personal details were stored in your storage with encryption and neither the developer nor any other apps shall have access to it.This data is dynamically shown only to you and no one else.</string>
-    <string name="faqt4">I do not want to share my real name</string>
-    <string name="faqt5">Your real name will not be visible to the community. However, this name will be used in future to show your national rankings.That\'s why we have a change Name option available for this.</string>
-    <string name="faqt6">Are my numbers being stored or sold to someone?</string>
-    <string name="faqt7">The data is stored in your mobile and the developer DOES NOT COLLECT any kind of information related to you.</string>
+    <string name="faqt2">Q. How does it ensure my privacy?</string>
+    <string name="faqt3">A. Your personal details were stored in your storage with encryption and neither the developer nor any other app shall have access to it. This data is dynamically shown only to you and no one else.</string>
+    <string name="faqt4">Q. I do not want to share my Real Name!!</string>
+    <string name="faqt5">A. Your Real Name will not be visible to the community. However, this name will be used in near future to show your National Rankings. That\'s why we have a change name option available for this.</string>
+    <string name="faqt6">Q.Are my numbers being stored or sold to someone ?</string>
+    <string name="faqt7">A.The data is stored in your mobile and the developer <b>DOES NOT COLLECT/INTEND TO COLLECT</b> any kind of information related to you.</string>
     <string name="hst1">Help &amp; Support Section</string>
-    <string name="hst2">How to change my user Email ID ?</string>
-    <string name="hst3">You could contact our support team at <a style="color:blue" href="mailto:ydv1608@gmail.com?subject=Change my email address">ydv1608@gmail.com</a> and they will verify your phone number and renew your Email ID</string>
-    <string name="hst4">How to recover my progress if I lost my Phone/Email ID ?</string>
-    <string name="hst5"><![CDATA[We have 2 critical points to recover your data:\nEmail Id & Phone Number\nThrough any one of these , we can recover your account.]]></string>
-    <string name="hst9">For any other help or queries, contact us at ydv1608@gmail.com</string>
+    <string name="hst2">Q. How to change my user Email ID ?</string>
+    <string name="hst3">A. You could contact our support team at <a style="color:blue" href="mailto:ydv1608@gmail.com?subject=Change my email address">ydv1608@gmail.com</a> and they will verify your phone number and renew your Email ID</string>
+    <string name="hst4">Q. How to recover my progress if I lost my Phone/Email ID ?</string>
+    <string name="hst5">A. We have 2 critical points to recover your data:\n<b>Email Id &amp; Phone Number</b>\nThrough any one of these , we can recover your account.></string>
+    <string name="hst6">For any other help or queries, contact us at <a style="color:blue" href="mailto:ydv1608@gmail.com?subject=Query">ydv1608@gmail.com</a></string>
     <string name="courset1">Course List</string>
     <string name="courset2">JEE PIC</string>
     <string name="courset3">JEE Mains</string>
@@ -91,56 +74,36 @@
     <string name="cppbt1">CodePic</string>
     <string name="youthoob">Youthoob</string>
     <string name="mcqtest">Test</string>
-
-    <string name="jeecodet1">Photoelectric Effect</string>
-    <string name="jeecodet2">Diffraction of Light</string>
     <string name="jeemt1">View Notes</string>
     <string name="jeemt2">This section contains all the notes on different topics required in JEE preparation</string>
-    <string name="jeemt4">Videos from experienced teachers on all those JEE Mains topics which have most importance</string>
-    <string name="jeett1">Chemistry</string>
-    <string name="jeett2">Units and Dimensions</string>
-    <string name="jeevt1">Source : ATP STAR-JEE</string>
-    <string name="jeevt2">IUPAC Nomenclature</string>
-    <string name="jeevt3">Binomial Theorem(Class 11)</string>
-    <string name="jeevt4">Center of mass and collisions</string>
-    <string name="jeevt5">Organic Tricks (Recommended)</string>
-    <string name="maint99">HAPPY LEARNING PEEPS :)</string>
+    <string name="jeemt3">Videos from experienced teachers on all those JEE Mains topics which have most importance</string>
+    <string name="homet1">HAPPY LEARNING PEEPS :)</string>
     <string name="mypt1">ProfilePic</string>
     <string name="mypt2">Name</string>
     <string name="mypt3">Email</string>
     <string name="mypt4">Mobile</string>
     <string name="mypt6">Change Password</string>
-    <string name="mypt7">* User Profile Photo Feature soon :p\nEmail &amp; Phone Number Change facility not available right now.</string>
+    <string name="mypt5">* User Profile Photo Feature soon :p\nEmail &amp; Phone Number Change facility not available right now.</string>
     <string name="pet1">Tests Taken :</string>
     <string name="pet2">Tests History</string>
     <string name="pet3">Index</string>
     <string name="pet4">Total\nQues.</string>
     <string name="pet5">Correct</string>
     <string name="pet6">Score\n(in %)</string>
-    <string name="uct1">Types of Bank Accounts</string>
-    <string name="uct2">Functions of Money</string>
     <string name="ugt1">View Notes</string>
     <string name="ugt2">This section contains some Notes on topics which come in UPSC GS Test</string>
     <string name="ugt3">Watch videos on economics and geography section of GS</string>
-    <string name="upsctt1">Polity</string>
-    <string name="upsctt2">Economy</string>
-    <string name="uvt1">Source : Mrunal Patel</string>
-    <string name="uvt2">British Imperialism Exigencies</string>
-    <string name="uvt3">GDP and related terms</string>
-    <string name="uvt4">Fiscal Framework for India</string>
-    <string name="uvt5">Continental Drift Theory</string>
 
-
+    <string name="aft1">Next</string>
     <string name="aft2">Enter your registered mobile number and email below :</string>
     <string name="aft3">phoneimage</string>
     <string name="aft4">Mobile Number (10 digits)</string>
     <string name="aft5">email_image</string>
     <string name="aft6">Email Address</string>
-    <string name="aft7">Next</string>
+    <string name="alt1">Don\'t have an account?\nSign up now</string>
     <string name="alt2">Password</string>
     <string name="alt3">Login</string>
     <string name="alt4">Forgot Password?</string>
-    <string name="alt5">Don\'t have an account?\nSign up now</string>
     <string name="navmenut7">Home</string>
 
 </resources>

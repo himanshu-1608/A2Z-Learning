@@ -22,9 +22,7 @@ public class HelpSupportFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_help_support, container, false);
 
         TextView t1 = view.findViewById(R.id.t1);
-        TextView t2 = view.findViewById(R.id.t2);
         t1.setMovementMethod(LinkMovementMethod.getInstance());
-        t2.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }

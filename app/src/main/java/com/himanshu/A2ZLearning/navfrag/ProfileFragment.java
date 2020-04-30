@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
-import com.himanshu.a2zlearning.MainActivity;
 import com.himanshu.a2zlearning.R;
 
 import java.util.Objects;
@@ -20,10 +20,10 @@ import java.util.Objects;
 public class ProfileFragment extends Fragment {
 
     private final static String DATA = "UserData";
-    Button nameedit,changepass;
-    String passstring;
-    TextView nameval,emailval,mobval;
-    SharedPreferences sp;
+    private Button nameedit;
+    private EditText nameval;
+    private TextView emailval,mobval;
+    private SharedPreferences sp;
 
     public ProfileFragment() {}
 
@@ -31,12 +31,12 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        sp = Objects.requireNonNull(getContext()).getSharedPreferences(DATA, Context.MODE_PRIVATE);
+        sp = Objects.requireNonNull(this.getActivity()).getSharedPreferences(DATA, Context.MODE_PRIVATE);
         nameval = view.findViewById(R.id.nameval);
         emailval = view.findViewById(R.id.emailval);
         mobval = view.findViewById(R.id.mobval);
         nameedit = view.findViewById(R.id.nameedit);
-        changepass = view.findViewById(R.id.changepass);
+        Button changepass = view.findViewById(R.id.changepass);
         setValues();
         final Boolean[] namer = {false};
         nameedit.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +48,7 @@ public class ProfileFragment extends Fragment {
                     namer[0] = true;
                     nameedit.setBackgroundResource(R.drawable.ic_check);
                 } else {
+                    sp.edit().putString("UserName",nameval.getText().toString().trim()).apply();
                     nameval.setBackground(null);
                     nameval.setEnabled(false);
                     nameval.setFocusable(false);
@@ -61,7 +62,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 assert getFragmentManager() != null;
-                Objects.requireNonNull(((MainActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).setTitle("Change Password");
+
                 getFragmentManager().beginTransaction().replace(R.id.frame,new PasswordChanger()).commit();
             }
         });

@@ -26,10 +26,14 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    //AppCompat
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    //AndroidX and Legacy Support for previous designs
     implementation 'com.android.support:design:28.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //Internal Files -- Not to be changed
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

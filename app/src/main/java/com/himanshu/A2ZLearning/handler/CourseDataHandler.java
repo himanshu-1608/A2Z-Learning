@@ -1,10 +1,7 @@
 package com.himanshu.a2zlearning.handler;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -57,7 +54,7 @@ public class CourseDataHandler extends Fragment {
                 text11.setText(getActivity().getResources().getString(R.string.jeemt2));
                 img2.setImageDrawable(getActivity().getDrawable(R.drawable.ic_youtube));
                 text2.setText(getActivity().getResources().getString(R.string.cppt3));
-                text21.setText(getActivity().getResources().getString(R.string.jeemt4));
+                text21.setText(getActivity().getResources().getString(R.string.jeemt3));
                 img3.setImageDrawable(getActivity().getDrawable(R.drawable.ic_mcqtest));
                 text3.setText(getActivity().getResources().getString(R.string.cppt5));
                 text31.setText(getActivity().getResources().getString(R.string.cppt6));
@@ -185,7 +182,7 @@ public class CourseDataHandler extends Fragment {
                 switch (myMessage) {
                     case 1 :
                         topics.add("Full Length Test(ALL TOPICS)");
-                        topics.add("Chemistry(Organic)");
+                        topics.add("Organic Chemistry");
                         topics.add("Units & Dimensions");
                         break;
                     case 2 :

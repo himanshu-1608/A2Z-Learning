@@ -39,7 +39,7 @@ public class PerformanceFragment extends Fragment {
         FileInputStream fis1 = null, fis2 = null,fis3 = null;
         if(!exists()) {
             Toast.makeText(getContext(), "No Tests Given till Now", Toast.LENGTH_LONG).show();
-            counter.setText("0");
+            counter.setText(" 0");
         }
         else {
             try {

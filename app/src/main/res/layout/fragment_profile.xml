@@ -16,6 +16,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:tint="@android:color/darker_gray"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
@@ -145,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/mypt7"
+                android:text="@string/mypt5"
                 android:textColor="#ff0000"
                 android:textSize="12sp" />
 

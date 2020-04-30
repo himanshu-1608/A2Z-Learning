@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.himanshu.a2zlearning.R;
@@ -17,8 +16,6 @@ public class ForgetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget);
-        EditText etphone = findViewById(R.id.etphone);
-        EditText etemail = findViewById(R.id.etemail);
         Button btnnext = findViewById(R.id.btnnext);
 
         btnnext.setOnClickListener(new View.OnClickListener() {

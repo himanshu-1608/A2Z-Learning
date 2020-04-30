@@ -3,6 +3,7 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     android:importantForAutofill="noExcludeDescendants"
     tools:context=".login.SignupActivity">
@@ -15,12 +16,14 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv1"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12sp"
+            android:layout_marginTop="62dp"
             android:gravity="center"
             android:text="@string/sut1"
-            android:textSize="20sp" />
+            android:textSize="23sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv2"
@@ -30,7 +33,7 @@
             android:layout_marginTop="20sp"
             android:text="@string/sut2"
             android:textColor="#000099"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et1"
@@ -111,6 +114,8 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et5"
+            android:maxLength="10"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
@@ -155,7 +160,7 @@
             <Button
                 android:id="@+id/eye1"
                 android:layout_width="27dp"
-                android:layout_height="22dp"
+                android:layout_height="24dp"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/ic_passcheck" />
 
@@ -198,7 +203,7 @@
             <Button
                 android:id="@+id/eye2"
                 android:layout_width="27dp"
-                android:layout_height="22dp"
+                android:layout_height="24dp"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/ic_passcheck" />
 
@@ -211,16 +216,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="12sp"
             android:background="@color/colorPrimary"
-            android:paddingStart="40sp"
-            android:paddingEnd="40sp"
+            android:paddingHorizontal="40sp"
             android:text="@string/sut10"
+            android:layout_marginBottom="100dp"
             android:textColor="@color/white" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"
-            android:visibility="invisible" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 

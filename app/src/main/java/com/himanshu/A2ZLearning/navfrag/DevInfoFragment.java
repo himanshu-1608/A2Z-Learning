@@ -30,7 +30,7 @@ public class DevInfoFragment extends Fragment {
         git.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/himanshu-1608/Question-Bank")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/himanshu-1608/A2Z-Learning")));
             }
         });
 

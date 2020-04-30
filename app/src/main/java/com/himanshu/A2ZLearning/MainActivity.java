@@ -31,6 +31,7 @@ import com.himanshu.a2zlearning.navfrag.CoursesFragment;
 import com.himanshu.a2zlearning.navfrag.DevInfoFragment;
 import com.himanshu.a2zlearning.navfrag.HelpSupportFragment;
 import com.himanshu.a2zlearning.navfrag.HomeFragment;
+import com.himanshu.a2zlearning.navfrag.PasswordChanger;
 import com.himanshu.a2zlearning.navfrag.PerformanceFragment;
 import com.himanshu.a2zlearning.navfrag.ProfileFragment;
 
@@ -188,9 +189,12 @@ public class MainActivity extends AppCompatActivity {
                 fragmentSetter(new HomeFragment(),getResources().getString(R.string.app_name));
             } else if(frag instanceof CourseDataHandler || frag instanceof CourseNotesHandler || frag instanceof CourseVideosHandler || frag instanceof CourseTestsHandler) {
                 fragmentSetter(new CoursesFragment(),"Courses");
+            } else if(frag instanceof PasswordChanger) {
+                fragmentSetter(new ProfileFragment(),"My Profile");
+            } else {
+                super.onBackPressed();
             }
         }
     }
-
 
 }

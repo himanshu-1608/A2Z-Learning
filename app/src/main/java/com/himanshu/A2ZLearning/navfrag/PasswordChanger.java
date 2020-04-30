@@ -33,6 +33,7 @@ public class PasswordChanger extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_password_changer, container, false);
         Button change = view.findViewById(R.id.changer);
+        Objects.requireNonNull(((MainActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).setTitle("Change Password");
         oldp = view.findViewById(R.id.oldp);
         p1 = view.findViewById(R.id.p1);
         p2 = view.findViewById(R.id.p2);
@@ -47,8 +48,8 @@ public class PasswordChanger extends Fragment {
                 String cp = p2.getText().toString().trim();
                 if(old.equals(checker)){
                     if(newp.equals(cp)) {
+                        sp.edit().putString("UserPassword",p1.getText().toString().trim()).apply();
                         Toast.makeText(getContext(),"Password Changed Successfully!!!",Toast.LENGTH_LONG).show();
-                        Objects.requireNonNull(((MainActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).setTitle("My Profile");
                         assert getFragmentManager() != null;
                         getFragmentManager().beginTransaction().replace(R.id.frame,new ProfileFragment()).commit();
                     } else {

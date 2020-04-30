@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginHorizontal="15dp"
+
     android:layout_marginTop="10dp"
     android:orientation="vertical"
     tools:context=".navfrag.HelpSupportFragment">
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,8 +69,9 @@
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:linksClickable="true"
-        android:text="@string/hst9"
+        android:text="@string/hst6"
         android:textColor="#000000"
         android:textSize="25sp" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
