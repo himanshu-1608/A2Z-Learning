@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" >
+    <item
+        android:title="@string/navmenut7"
+        android:icon="@drawable/ic_home"
+        android:id="@+id/home" >
+    </item>
+
+    <item
+        android:id="@+id/profile"
+        android:title="@string/navmenut1"
+        android:icon="@drawable/ic_profile">
+    </item>
+
+    <item
+        android:id="@+id/courses"
+        android:title="@string/navmenut2"
+        android:icon="@drawable/ic_courses">
+    </item>
+
+    <item
+        android:id="@+id/perf_eval"
+        android:title="@string/navmenut3"
+        android:icon="@drawable/ic_perf_eval">
+    </item>
+
+    <item
+        android:id="@+id/devinfo"
+        android:title="@string/navmenut4"
+        android:icon="@drawable/ic_dev_info">
+    </item>
+
+    <item
+        android:id="@+id/helpsupport"
+        android:title="@string/navmenut5"
+        android:icon="@drawable/ic_help_support">
+    </item>
+
+    <item
+        android:id="@+id/logout"
+        android:title="@string/navmenut6"
+        android:icon="@drawable/ic_logout">
+    </item>
+    </group>
+
+</menu>

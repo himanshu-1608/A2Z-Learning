@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestHandler"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".testhandling.TestHandler">
 
-    <include layout="@layout/activity_test_layout"
-        android:id="@+id/inflated_test"/>
+    <include
+        android:id="@+id/inflated_test"
+        layout="@layout/activity_test_layout" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

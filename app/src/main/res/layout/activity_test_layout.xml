@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/test_layout"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/test_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestLayout"
-    android:orientation="vertical">
-
+    android:layout_marginTop="10dp"
+    android:orientation="vertical"
+    tools:context=".testhandling.TestLayout">
 
     <Button
+        android:background="@drawable/test_buttons"
         android:id="@+id/start_button"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:elevation="12dp"
+        android:layout_marginHorizontal="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tlt1"/>
+        android:text="@string/tlt1" />
+
     <LinearLayout
         android:id="@+id/timedata"
         android:layout_width="match_parent"
@@ -21,166 +27,201 @@
         android:weightSum="2">
 
         <TextView
-            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ActionButton"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="start"
-            style="@style/Widget.AppCompat.ActionButton"
             android:text="@string/tlt2"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
+
         <TextView
             android:id="@+id/count_time"
-            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ActionButton"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:textSize="30sp"
-            style="@style/Widget.AppCompat.ActionButton"/>
+            android:textSize="30sp" />
     </LinearLayout>
+
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
         android:id="@+id/no_of_ques"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="20dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/q1"
-                android:textSize="18sp"
-                android:layout_marginVertical="20dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"/>
+                android:layout_marginVertical="20dp"
+                android:textSize="18sp" />
+
             <RadioGroup
                 android:id="@+id/rg1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <RadioButton
                     android:id="@+id/op11"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op12"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op13"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op14"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </RadioGroup>
 
             <TextView
                 android:id="@+id/q2"
-                android:layout_marginVertical="20dp"
-                android:textSize="18sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"/>
+                android:layout_marginVertical="20dp"
+                android:textSize="18sp" />
+
             <RadioGroup
                 android:id="@+id/rg2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <RadioButton
                     android:id="@+id/op21"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op22"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op23"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op24"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </RadioGroup>
 
             <TextView
                 android:id="@+id/q3"
-                android:textSize="18sp"
-                android:layout_marginVertical="20dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"/>
+                android:layout_marginVertical="20dp"
+                android:textSize="18sp" />
+
             <RadioGroup
                 android:id="@+id/rg3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <RadioButton
                     android:id="@+id/op31"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op32"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op33"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op34"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </RadioGroup>
 
             <TextView
                 android:id="@+id/q4"
-                android:textSize="18sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="20dp"
-                android:layout_width="match_parent"/>
+                android:textSize="18sp" />
+
             <RadioGroup
                 android:id="@+id/rg4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <RadioButton
                     android:id="@+id/op41"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op42"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op43"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/op44"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </RadioGroup>
 
             <Button
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:elevation="50dp"
+                android:layout_marginHorizontal="50dp"
+                android:background="@drawable/test_buttons"
                 android:id="@+id/endTest"
+                android:layout_marginVertical="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/tlt3"/>
+                android:text="@string/tlt3" />
 
             <TextView
+                android:background="@color/colorPrimaryDark"
                 android:id="@+id/Result"
-                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textAllCaps="true"
                 android:layout_width="match_parent"
-                android:textSize="20sp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:foregroundGravity="center"
+                android:layout_marginBottom="20dp"
                 android:alpha="255"
-                style="@style/Widget.AppCompat.ActionButton"/>
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

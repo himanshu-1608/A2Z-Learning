@@ -1,42 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.questionbank">
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    package="com.himanshu.a2zlearning">
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/images2"
+        android:icon="@drawable/app_image"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/images"
+        android:roundIcon="@drawable/app_image"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".UpscTests" />
-        <activity android:name=".UpscVideos" />
-        <activity android:name=".UpscCodes" />
-        <activity android:name=".JeeTests" />
-        <activity android:name=".JeeVideos" />
-        <activity android:name=".JeeCodes" />
-        <activity android:name=".Faq" />
-        <activity android:name=".HelpandSupport" />
-        <activity android:name=".PerformanceEvaluation" />
-        <activity android:name=".AboutUs" />
-        <activity android:name=".CoursesActivity" />
-        <activity android:name=".PasswordChanger" />
-        <activity android:name=".MyProfile" />
-        <activity android:name=".TestHandler" />
-        <activity android:name=".TestLayout" />
-        <activity android:name=".CppTests" />
-        <activity android:name=".CppVideos" />
-        <activity android:name=".CppCodes" />
-        <activity android:name=".JeeMains" />
-        <activity android:name=".UpscGs" />
-        <activity android:name=".CppBasics" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".testhandling.TestLayout"></activity>
+        <activity android:name=".testhandling.TestHandler" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/HideToolBar" />
+        <activity android:name=".login.SignupActivity" />
+        <activity
+            android:name=".login.ForgetActivity"
+            android:theme="@style/HideToolBar" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:theme="@style/HideToolBar" />
+        <activity
+            android:name=".login.SplashScreen"
+            android:theme="@style/HideAppBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">A2Z Learning</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
     <string name="sut1">Sign Up for free</string>
     <string name="sut2">Name</string>
     <string name="sut3">First and Last Name</string>
@@ -51,7 +53,7 @@
     <string name="navmenut3">Personal Score Evaluation</string>
     <string name="navmenut4">About Us</string>
     <string name="navmenut5">Help and Support</string>
-    <string name="navmenut6">FAQ</string>
+    <string name="navmenut6">Log Out</string>
     <string name="passswordchangert1">Change Password</string>
     <string name="aut1">Developed by\nHimanshu Yadav</string>
     <string name="aut2">Project Source Code available at following link :</string>
@@ -78,6 +80,7 @@
     <string name="hst3">You could contact our support team at <a style="color:blue" href="mailto:ydv1608@gmail.com?subject=Change my email address">ydv1608@gmail.com</a> and they will verify your phone number and renew your Email ID</string>
     <string name="hst4">How to recover my progress if I lost my Phone/Email ID ?</string>
     <string name="hst5"><![CDATA[We have 2 critical points to recover your data:\nEmail Id & Phone Number\nThrough any one of these , we can recover your account.]]></string>
+    <string name="hst9">For any other help or queries, contact us at ydv1608@gmail.com</string>
     <string name="courset1">Course List</string>
     <string name="courset2">JEE PIC</string>
     <string name="courset3">JEE Mains</string>
@@ -88,7 +91,7 @@
     <string name="cppbt1">CodePic</string>
     <string name="youthoob">Youthoob</string>
     <string name="mcqtest">Test</string>
-    <string name="hst9">For any other help or queries, contact us at ydv1608@gmail.com</string>
+
     <string name="jeecodet1">Photoelectric Effect</string>
     <string name="jeecodet2">Diffraction of Light</string>
     <string name="jeemt1">View Notes</string>
@@ -107,7 +110,7 @@
     <string name="mypt3">Email</string>
     <string name="mypt4">Mobile</string>
     <string name="mypt6">Change Password</string>
-    <string name="mypt7">* User Profile Photo Feature soon :p</string>
+    <string name="mypt7">* User Profile Photo Feature soon :p\nEmail &amp; Phone Number Change facility not available right now.</string>
     <string name="pet1">Tests Taken :</string>
     <string name="pet2">Tests History</string>
     <string name="pet3">Index</string>
@@ -126,5 +129,18 @@
     <string name="uvt3">GDP and related terms</string>
     <string name="uvt4">Fiscal Framework for India</string>
     <string name="uvt5">Continental Drift Theory</string>
+
+
+    <string name="aft2">Enter your registered mobile number and email below :</string>
+    <string name="aft3">phoneimage</string>
+    <string name="aft4">Mobile Number (10 digits)</string>
+    <string name="aft5">email_image</string>
+    <string name="aft6">Email Address</string>
+    <string name="aft7">Next</string>
+    <string name="alt2">Password</string>
+    <string name="alt3">Login</string>
+    <string name="alt4">Forgot Password?</string>
+    <string name="alt5">Don\'t have an account?\nSign up now</string>
+    <string name="navmenut7">Home</string>
 
 </resources>
