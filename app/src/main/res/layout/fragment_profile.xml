@@ -16,13 +16,13 @@
             android:orientation="vertical">
 
             <ImageView
-                android:tint="@android:color/darker_gray"
+                android:id="@+id/profilePic"
                 android:layout_width="100dp"
+                android:scaleType="fitXY"
                 android:layout_height="100dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:contentDescription="@string/mypt1"
-                android:src="@drawable/ic_profile" />
+                android:contentDescription="@string/mypt1" />
 
             <LinearLayout
                 android:layout_width="match_parent"

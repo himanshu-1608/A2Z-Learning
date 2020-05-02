@@ -18,6 +18,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.himanshu.a2zlearning.MainActivity;
 import com.himanshu.a2zlearning.R;
 
@@ -29,6 +31,7 @@ import static java.util.regex.Pattern.compile;
 public class SignupActivity extends AppCompatActivity {
 
     private static final String DATA = "UserData";
+    private DatabaseReference mDataBase;
     TextView tv5,tv7;
     Button sign;
     EditText name,mail,pass,cpass,mob;
@@ -58,6 +61,7 @@ public class SignupActivity extends AppCompatActivity {
         rg = findViewById(R.id.rg);
         final Boolean[] e = {false,false};
         sp = getSharedPreferences(DATA,MODE_PRIVATE);
+        mDataBase = FirebaseDatabase.getInstance().getReference().child("UserData");
 
         eye1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +134,15 @@ public class SignupActivity extends AppCompatActivity {
                         Salute = "Ms.";
                     }
 
+                    //Save to Firebase
+
+                    //  Create a child for a user
+                    //  Assign Value to the child
+
+                    mDataBase.child(userName).setValue(one);
+
+
+                    //Save to sharedpreferences
                     sp.edit().putString("UserName",userName).apply();
                     sp.edit().putString("Salute",Salute).apply();
                     sp.edit().putString("UserEmail",emailID).apply();
@@ -147,7 +160,7 @@ public class SignupActivity extends AppCompatActivity {
     }
     private boolean validate(@NonNull String userName, @NonNull String emailID, @NonNull String one, @NonNull String two, @NonNull String num) {
         if(!isvalidName(userName)) {
-            Toast.makeText(this,"Provide a valid username!!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Provide a valid Username!!!",Toast.LENGTH_LONG).show();
             return false;
         }
         if(!isvalidEmail(emailID)){

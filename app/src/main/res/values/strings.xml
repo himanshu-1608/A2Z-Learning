@@ -3,8 +3,8 @@
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
     <string name="sut1">Sign Up for free</string>
-    <string name="sut2">Name</string>
-    <string name="sut3">First and Last Name</string>
+    <string name="sut2">Username</string>
+    <string name="sut3">Your Unique Username</string>
     <string name="sut4">Email ID</string>
     <string name="sut5">example123@gmail.com</string>
     <string name="sut6">Password</string>
@@ -50,7 +50,7 @@
     <string name="mainat4">· What You Seek</string>
     <string name="mainat5">This app has a full coverage of various exams that can be checked by going on the Menu -> Courses Area. Since it is an evolving app, we have initially added 3 courses only.But we would be extending the topic coverage.\nThis app dynamically changes information to keep you up-to-date with the latest data(of course you have to enable internet for that to happen)</string>
     <string name="mainat6">· Features</string>
-    <string name="mainat7">-- Tricky Tests :\nWe have 2 different type of tests in here -\n1.Full-Length Test(to get you an in-sight of your overall knowledge)\n2.Topic-Oriented(Every topic has separate tests so you can achieve success bit by bit)\n\n--Personal Score Evaluation : \nThis is the best part of the app, we must tell you !\nWe have your score and your crest and troughs to evaluate your efforts.</string>
+    <string name="mainat7">-- Tricky Tests :\nWe have 2 different type of tests in here -\n1.Full-Length Test(to get you an in-sight of your overall knowledge)\n2.Topic-Oriented(Every topic has separate tests so you can achieve success bit by bit)\n\n--Personal Score Evaluation : \nThis is the best part of the app, we must tell you !\nWe have your score and your crest and troughs to evaluate your efforts.\nThe Bar Graphs will show you graphically your performance over last 10 tests. Scroll more to get your previous scores!!!</string>
     <string name="faqt1">Frequently Asked Questions</string>
     <string name="faqt2">Q. How does it ensure my privacy?</string>
     <string name="faqt3">A. Your personal details were stored in your storage with encryption and neither the developer nor any other app shall have access to it. This data is dynamically shown only to you and no one else.</string>

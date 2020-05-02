@@ -35,10 +35,10 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
         android:background="@color/trueColor"
         android:gravity="center_horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
         android:text="@string/pet2"
         android:textColor="#000000"
         android:textSize="20sp" />
@@ -85,56 +85,81 @@
 
     </LinearLayout>
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:weightSum="5">
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentTop="true">
 
-            <TextView
-                android:id="@+id/one"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:layout_weight="2"
-                android:gravity="start"
-                android:textSize="20sp" />
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="5">
 
-            <TextView
-                android:id="@+id/two"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/one"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_weight="2"
+                    android:gravity="start"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/three"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/two"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/four"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/three"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/four"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/chartshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:background="@drawable/test_buttons"
+            android:paddingVertical="12dp"
+            android:text="Your Score Analysis"
+            android:textColor="@color/white" />
 
         </LinearLayout>
-
-    </ScrollView>
+    </RelativeLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

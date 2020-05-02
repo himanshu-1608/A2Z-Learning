@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.himanshu.a2zlearning">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/app_image"
@@ -9,13 +12,15 @@
         android:roundIcon="@drawable/app_image"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".testhandling.TestLayout"/>
+        <activity android:name=".ChartActivity"></activity>
+        <activity android:name=".testhandling.TestLayout" />
         <activity android:name=".testhandling.TestHandler" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/HideToolBar" />
-        <activity android:name=".login.SignupActivity"
-            android:theme="@style/HideToolBar"/>
+        <activity
+            android:name=".login.SignupActivity"
+            android:theme="@style/HideToolBar" />
         <activity
             android:name=".login.ForgetActivity"
             android:theme="@style/HideToolBar" />

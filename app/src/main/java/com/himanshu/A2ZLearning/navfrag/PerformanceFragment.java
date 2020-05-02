@@ -1,5 +1,6 @@
 package com.himanshu.a2zlearning.navfrag;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,9 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.himanshu.a2zlearning.ChartActivity;
 import com.himanshu.a2zlearning.R;
 
 import java.io.BufferedReader;
@@ -17,11 +20,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
 public class PerformanceFragment extends Fragment {
 
+    ArrayList<Integer> marks;
+    private String a;
     private final static String Total = "total.txt";
     private final static String Correct = "correct.txt";
     private final static String TestName = "testname.txt";
@@ -36,6 +43,8 @@ public class PerformanceFragment extends Fragment {
         TextView three = view.findViewById(R.id.three);
         TextView four = view.findViewById(R.id.four);
         TextView counter = view.findViewById(R.id.Counter);
+        Button chart = view.findViewById(R.id.chartshow);
+
         FileInputStream fis1 = null, fis2 = null,fis3 = null;
         if(!exists()) {
             Toast.makeText(getContext(), "No Tests Given till Now", Toast.LENGTH_LONG).show();
@@ -73,12 +82,13 @@ public class PerformanceFragment extends Fragment {
                 float ans;
                 l1 = sb1.indexOf("qq");
                 l2 = sb2.indexOf("qq");
-                String a = sb1.substring(0, l1);
+                a = sb1.substring(0, l1);
                 String b = sb2.substring(0, l2);
                 char[] barr = b.toCharArray();
                 String pehli = "", doosri = "", teesri = "",chothi = "";
                 counter.setText("  " + a);
                 String temp;
+                marks = new ArrayList<>();
                 int count = Integer.parseInt(a);
                 for (int i = 0; i < count; i++) {
                     l3 = sb3.indexOf("qq");
@@ -88,6 +98,7 @@ public class PerformanceFragment extends Fragment {
                     doosri += "4\n\n";
                     teesri += barr[i] + "\n\n";
                     up = Integer.parseInt(String.valueOf(barr[i]));
+                    marks.add(up);
                     ans = (float)up/(float)4;
                     ans *= 100;
                     chothi += ans+"\n\n";
@@ -122,6 +133,19 @@ public class PerformanceFragment extends Fragment {
                 }
             }
         }
+        chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ChartActivity.class);
+                if(!(exists())){
+                    intent.putExtra("Total",0);
+                } else {
+                    intent.putExtra("Total",Integer.parseInt(a));
+                }
+                intent.putExtra("CorrectList",marks);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "306956106585",
+    "firebase_url": "https://a2z-learning.firebaseio.com",
+    "project_id": "a2z-learning",
+    "storage_bucket": "a2z-learning.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306956106585:android:9f4e53a8d8fde18f596a48",
+        "android_client_info": {
+          "package_name": "com.himanshu.a2zlearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306956106585-6bflne5snvk8udcj5ea4q137g477hirl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJg2QTtcvBpkETxGrOCNhcJTZTLeN1NjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306956106585-6bflne5snvk8udcj5ea4q137g477hirl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
