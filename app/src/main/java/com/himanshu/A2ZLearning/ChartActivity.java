@@ -56,6 +56,7 @@ public class ChartActivity extends AppCompatActivity {
         barChart.setVisibility(View.VISIBLE);
         barChart.animateY(3000);
         barChart.setData(barData);
+        barChart.getDescription().setEnabled(false);
         barChart.setVisibleXRangeMaximum(10);
         barChart.setVisibleYRangeMinimum(120f, YAxis.AxisDependency.LEFT);
         barChart.moveViewToX(29);

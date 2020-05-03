@@ -20,9 +20,11 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.himanshu.a2zlearning.InternetCheck;
 import com.himanshu.a2zlearning.MainActivity;
 import com.himanshu.a2zlearning.R;
 
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -118,42 +120,57 @@ public class SignupActivity extends AppCompatActivity {
         sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String userName = name.getText().toString().trim();
-                final String emailID = mail.getText().toString().trim();
-                final String one = pass.getText().toString().trim();
-                final String two = cpass.getText().toString().trim();
-                final String num = mob.getText().toString().trim();
-                if(validate(userName,emailID,one,two,num)){
-                    String Salute = "";
-                    int select = rg.getCheckedRadioButtonId();
-                    RadioButton locate = rg.findViewById(select);
-                    String s = locate.getText().toString();
-                    if ("Male".equals(s)) {
-                        Salute = "Mr.";
-                    } else if ("Female".equals(s)) {
-                        Salute = "Ms.";
+                new InternetCheck(new InternetCheck.Consumer() {
+                    @Override
+                    public void accept(Boolean internet) {
+                        if(internet) {
+                            final String userName = name.getText().toString().trim();
+                            final String emailID = mail.getText().toString().trim();
+                            final String one = pass.getText().toString().trim();
+                            final String two = cpass.getText().toString().trim();
+                            final String num = mob.getText().toString().trim();
+                            if(validate(userName,emailID,one,two,num)){
+                                String Salute = "";
+                                int select = rg.getCheckedRadioButtonId();
+                                RadioButton locate = rg.findViewById(select);
+                                String s = locate.getText().toString();
+                                if ("Male".equals(s)) {
+                                    Salute = "Sir ";
+                                } else if ("Female".equals(s)) {
+                                    Salute = "Ma'am ";
+                                }
+                                //Save to Firebase
+
+                                //  Create a child for a user
+                                //  Assign Value to the child
+
+                                Date date = new Date();
+                                String UserID = ""+date.getTime()+"";
+                                sp.edit().putString("UserID",UserID).apply();
+                                DatabaseReference store = mDataBase.child(UserID);
+
+                                store.child("UserName").setValue(userName);
+                                store.child("UserEmail").setValue(emailID);
+                                store.child("UserPhone").setValue(num);
+                                store.child("Gender").setValue(s);
+
+                                //Save to sharedpreferences
+                                sp.edit().putString("UserName",userName).apply();
+                                sp.edit().putString("Salute",Salute).apply();
+                                sp.edit().putString("UserEmail",emailID).apply();
+                                sp.edit().putString("UserPhone",num).apply();
+                                sp.edit().putString("UserPassword",one).apply();
+                                sp.edit().putBoolean("isLogged",true).apply();
+
+                                Toast.makeText(SignupActivity.this,"Welcome , " + Salute + userName,Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(SignupActivity.this , MainActivity.class));
+                                finish();
+                            }
+                        } else {
+                            Toast.makeText(getBaseContext(),"Allow Internet",Toast.LENGTH_SHORT).show();
+                        }
                     }
-
-                    //Save to Firebase
-
-                    //  Create a child for a user
-                    //  Assign Value to the child
-
-                    mDataBase.child(userName).setValue(one);
-
-
-                    //Save to sharedpreferences
-                    sp.edit().putString("UserName",userName).apply();
-                    sp.edit().putString("Salute",Salute).apply();
-                    sp.edit().putString("UserEmail",emailID).apply();
-                    sp.edit().putString("UserPhone",num).apply();
-                    sp.edit().putString("UserPassword",one).apply();
-                    sp.edit().putBoolean("isLogged",true).apply();
-
-                    Toast.makeText(SignupActivity.this,"Welcome , " + Salute + userName,Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(SignupActivity.this , MainActivity.class));
-                    finish();
-                }
+                });
             }
         });
 
@@ -240,4 +257,5 @@ public class SignupActivity extends AppCompatActivity {
         }
         else return email.matches(emailPatternnew) && last.length() == 6 && email.charAt(email.length() - 3) == '.';
     }
+
 }

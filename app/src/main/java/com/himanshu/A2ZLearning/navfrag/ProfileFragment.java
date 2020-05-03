@@ -1,30 +1,43 @@
 package com.himanshu.a2zlearning.navfrag;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.himanshu.a2zlearning.R;
-import com.squareup.picasso.Picasso;
+import com.himanshu.a2zlearning.UploadImage;
 
 import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
 
+    private StorageReference mStorageRef;
+    private DatabaseReference mDataBaseRef;
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageView pic;
     private final static String DATA = "UserData";
@@ -39,6 +52,8 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        mStorageRef = FirebaseStorage.getInstance().getReference("Uploads");
+        mDataBaseRef = FirebaseDatabase.getInstance().getReference("Uploads");
         sp = Objects.requireNonNull(this.getActivity()).getSharedPreferences(DATA, Context.MODE_PRIVATE);
         nameval = view.findViewById(R.id.nameval);
         emailval = view.findViewById(R.id.emailval);
@@ -71,7 +86,6 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 assert getFragmentManager() != null;
-
                 getFragmentManager().beginTransaction().replace(R.id.frame,new PasswordChanger()).commit();
             }
         });
@@ -82,7 +96,6 @@ public class ProfileFragment extends Fragment {
                 openFileChooser();
             }
         });
-
         return view;
     }
 
@@ -102,13 +115,39 @@ public class ProfileFragment extends Fragment {
         mobval.setText(sp.getString("UserPhone","No Mobile Number"));
     }
 
+    private String getFileExtension(Uri uri) {
+        ContentResolver cr = Objects.requireNonNull(getActivity()).getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(uri));
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK
                 && data != null && data.getData() != null) {
             Uri mImage = data.getData();
-            Picasso.get().load(mImage).into(pic);
+            sp.edit().putBoolean("hasPic",true).apply();
+
+            StorageReference fileRef = mStorageRef.child("ProfilePic");
+            fileRef.putFile(mImage)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            UploadImage upload = new UploadImage("ProfilePic",
+                                    Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().toString());
+
+                            String uploadId = mDataBaseRef.push().getKey();
+                            assert uploadId != null;
+                            mDataBaseRef.child(uploadId).setValue(upload);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getActivity(),"Error in Adding File",Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
     }
 }

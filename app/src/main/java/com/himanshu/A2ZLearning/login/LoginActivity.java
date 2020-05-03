@@ -16,12 +16,14 @@ import com.himanshu.a2zlearning.R;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String DATA = "UserData";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final SharedPreferences sp = getSharedPreferences("DataFile", MODE_PRIVATE);
+        final SharedPreferences sp = getSharedPreferences(DATA, MODE_PRIVATE);
         final EditText phone = findViewById(R.id.etphone);
         final EditText password = findViewById(R.id.etpassword);
         Button btnlogin = findViewById(R.id.btnlogin);
