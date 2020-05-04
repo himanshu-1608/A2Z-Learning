@@ -52,8 +52,6 @@
     <string name="mainat6">· Features</string>
     <string name="mainat7">-- Tricky Tests :\nWe have 2 different type of tests in here -\n1.Full-Length Test(to get you an in-sight of your overall knowledge)\n2.Topic-Oriented(Every topic has separate tests so you can achieve success bit by bit)\n\n--Personal Score Evaluation : \nThis is the best part of the app, we must tell you !\nWe have your score and your crest and troughs to evaluate your efforts.\nThe Bar Graphs will show you graphically your performance over last 10 tests. Scroll more to get your previous scores!!!</string>
     <string name="faqt1">Frequently Asked Questions</string>
-    <string name="faqt2">Q. How does it ensure my privacy?</string>
-    <string name="faqt3">A. Your personal details were stored in your storage with encryption and neither the developer nor any other app shall have access to it. This data is dynamically shown only to you and no one else.</string>
     <string name="faqt4">Q. I do not want to share my Real Name!!</string>
     <string name="faqt5">A. Your Real Name will not be visible to the community. However, this name will be used in near future to show your National Rankings. That\'s why we have a change name option available for this.</string>
     <string name="faqt6">Q.Are my numbers being stored or sold to someone ?</string>
@@ -80,10 +78,9 @@
     <string name="homet1">HAPPY LEARNING PEEPS :)</string>
     <string name="mypt1">ProfilePic</string>
     <string name="mypt2">Name</string>
-    <string name="mypt3">Email</string>
+    <string name="mypt3">Email ID</string>
     <string name="mypt4">Mobile</string>
     <string name="mypt6">Change Password</string>
-    <string name="mypt5">* User Profile Photo Feature soon :p\nEmail &amp; Phone Number Change facility not available right now.</string>
     <string name="pet1">Tests Taken :</string>
     <string name="pet2">Tests History</string>
     <string name="pet3">Index</string>

@@ -79,7 +79,7 @@ public class TestHandler extends TestLayout {
                     }
                     setQuestions(rawText);
                 } catch (IOException e) {
-                    Toast.makeText(getApplicationContext(),"Error reading file !", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"Error reading file !", Toast.LENGTH_LONG).show();
                 } finally {
                     if (reader != null) {
                         try {

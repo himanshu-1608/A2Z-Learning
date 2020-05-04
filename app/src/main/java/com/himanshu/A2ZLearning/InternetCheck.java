@@ -9,7 +9,7 @@ import java.net.Socket;
 public class InternetCheck extends AsyncTask<Void,Void,Boolean> {
     private Consumer mConsumer;
 
-    public  interface Consumer { void accept(Boolean internet); }
+    public  interface Consumer { void accept(Boolean internet) throws IOException; }
 
     public  InternetCheck(Consumer consumer) { mConsumer = consumer; execute(); }
 
@@ -20,5 +20,9 @@ public class InternetCheck extends AsyncTask<Void,Void,Boolean> {
         return true;
     } catch (IOException e) { return false; } }
 
-    @Override protected void onPostExecute(Boolean internet) { mConsumer.accept(internet); }
+    @Override protected void onPostExecute(Boolean internet) {
+        try {
+            mConsumer.accept(internet);
+        } catch (IOException ignored) { }
+    }
 }

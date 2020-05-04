@@ -1,6 +1,7 @@
 package com.himanshu.a2zlearning.login;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -18,13 +19,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.MutableData;
+import com.google.firebase.database.Transaction;
 import com.himanshu.a2zlearning.InternetCheck;
 import com.himanshu.a2zlearning.MainActivity;
 import com.himanshu.a2zlearning.R;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,7 +40,8 @@ import static java.util.regex.Pattern.compile;
 public class SignupActivity extends AppCompatActivity {
 
     private static final String DATA = "UserData";
-    private DatabaseReference mDataBase;
+    private DatabaseReference mData;
+    private DatabaseReference mCount;
     TextView tv5,tv7;
     Button sign;
     EditText name,mail,pass,cpass,mob;
@@ -63,7 +71,9 @@ public class SignupActivity extends AppCompatActivity {
         rg = findViewById(R.id.rg);
         final Boolean[] e = {false,false};
         sp = getSharedPreferences(DATA,MODE_PRIVATE);
-        mDataBase = FirebaseDatabase.getInstance().getReference().child("UserData");
+        final DatabaseReference mDataBase = FirebaseDatabase.getInstance().getReference();
+        mData = mDataBase.child("UserData");
+        mCount = mDataBase.child("UserCount");
 
         eye1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,50 +134,9 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void accept(Boolean internet) {
                         if(internet) {
-                            final String userName = name.getText().toString().trim();
-                            final String emailID = mail.getText().toString().trim();
-                            final String one = pass.getText().toString().trim();
-                            final String two = cpass.getText().toString().trim();
-                            final String num = mob.getText().toString().trim();
-                            if(validate(userName,emailID,one,two,num)){
-                                String Salute = "";
-                                int select = rg.getCheckedRadioButtonId();
-                                RadioButton locate = rg.findViewById(select);
-                                String s = locate.getText().toString();
-                                if ("Male".equals(s)) {
-                                    Salute = "Sir ";
-                                } else if ("Female".equals(s)) {
-                                    Salute = "Ma'am ";
-                                }
-                                //Save to Firebase
-
-                                //  Create a child for a user
-                                //  Assign Value to the child
-
-                                Date date = new Date();
-                                String UserID = ""+date.getTime()+"";
-                                sp.edit().putString("UserID",UserID).apply();
-                                DatabaseReference store = mDataBase.child(UserID);
-
-                                store.child("UserName").setValue(userName);
-                                store.child("UserEmail").setValue(emailID);
-                                store.child("UserPhone").setValue(num);
-                                store.child("Gender").setValue(s);
-
-                                //Save to sharedpreferences
-                                sp.edit().putString("UserName",userName).apply();
-                                sp.edit().putString("Salute",Salute).apply();
-                                sp.edit().putString("UserEmail",emailID).apply();
-                                sp.edit().putString("UserPhone",num).apply();
-                                sp.edit().putString("UserPassword",one).apply();
-                                sp.edit().putBoolean("isLogged",true).apply();
-
-                                Toast.makeText(SignupActivity.this,"Welcome , " + Salute + userName,Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(SignupActivity.this , MainActivity.class));
-                                finish();
-                            }
+                            setSignup();
                         } else {
-                            Toast.makeText(getBaseContext(),"Allow Internet",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupActivity.this,"Allow Internet",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -175,6 +144,7 @@ public class SignupActivity extends AppCompatActivity {
         });
 
     }
+
     private boolean validate(@NonNull String userName, @NonNull String emailID, @NonNull String one, @NonNull String two, @NonNull String num) {
         if(!isvalidName(userName)) {
             Toast.makeText(this,"Provide a valid Username!!!",Toast.LENGTH_LONG).show();
@@ -258,4 +228,59 @@ public class SignupActivity extends AppCompatActivity {
         else return email.matches(emailPatternnew) && last.length() == 6 && email.charAt(email.length() - 3) == '.';
     }
 
+    private void setSignup() {
+        final String userName = name.getText().toString().trim();
+        final String emailID = mail.getText().toString().trim();
+        final String one = pass.getText().toString().trim();
+        final String two = cpass.getText().toString().trim();
+        final String num = mob.getText().toString().trim();
+
+        if(validate(userName,emailID,one,two,num)) {
+
+            String Salute = "";
+            int select = rg.getCheckedRadioButtonId();
+            RadioButton locate = rg.findViewById(select);
+            final String s = locate.getText().toString();
+            if ("Male".equals(s)) {
+                Salute = "Sir";
+            } else if ("Female".equals(s)) {
+                Salute = "Ma'am";
+            }
+
+            Date date = new Date();
+            final String UserID = ""+date.getTime()+"";
+
+            Map<String,String> details = new HashMap<>();
+            details.put("UserName",userName);
+            details.put("UserEmail",emailID);
+            details.put("UserPhone",num);
+            details.put("Gender",s);
+            mData.child(UserID).setValue(details);
+            mCount.runTransaction(new Transaction.Handler() {
+                @NonNull
+                @Override
+                public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
+                    Long value = mutableData.getValue(Long.class);
+                    if (value == null) { mutableData.setValue(1); }
+                    else { mutableData.setValue(value + 1); }
+                    return Transaction.success(mutableData);
+                }
+                @Override
+                public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) { }
+            });
+
+            sp.edit().putString("UserID",UserID).apply();
+            sp.edit().putString("UserName",userName).apply();
+            sp.edit().putString("Salute",Salute).apply();
+            sp.edit().putString("UserEmail",emailID).apply();
+            sp.edit().putString("UserPhone",num).apply();
+            sp.edit().putString("UserPassword",one).apply();
+            sp.edit().putBoolean("isLogged",true).apply();
+            sp.edit().putBoolean("hasPic",false).apply();
+
+            Toast.makeText(SignupActivity.this,"Welcome , " + userName,Toast.LENGTH_LONG).show();
+            startActivity(new Intent(SignupActivity.this , MainActivity.class));
+            finish();
+        }
+    }
 }

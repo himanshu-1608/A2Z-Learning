@@ -5,6 +5,8 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,16 +14,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -29,55 +38,92 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.himanshu.a2zlearning.InternetCheck;
 import com.himanshu.a2zlearning.R;
-import com.himanshu.a2zlearning.UploadImage;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
 
-    private StorageReference mStorageRef;
-    private DatabaseReference mDataBaseRef;
+    private DatabaseReference mDatabaseRef;
+    private StorageReference storeDp;
+    private StorageReference storeAll;
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageView pic;
+    private ProgressBar profileBar;
     private final static String DATA = "UserData";
-    private Button nameedit;
-    private EditText nameval;
-    private TextView emailval,mobval;
+    private EditText txtName,txtEmail,txtPhone;
     private SharedPreferences sp;
-
+    private final Boolean[] changer = {false,false,false};
+    private ImageButton btnName,btnEmail,btnPhone;
     public ProfileFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference("Uploads");
-        mDataBaseRef = FirebaseDatabase.getInstance().getReference("Uploads");
         sp = Objects.requireNonNull(this.getActivity()).getSharedPreferences(DATA, Context.MODE_PRIVATE);
-        nameval = view.findViewById(R.id.nameval);
-        emailval = view.findViewById(R.id.emailval);
-        mobval = view.findViewById(R.id.mobval);
-        nameedit = view.findViewById(R.id.nameedit);
-        Button changepass = view.findViewById(R.id.changepass);
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("UserData").child(sp.getString("UserID","Null"));
+        StorageReference storeBase = FirebaseStorage.getInstance().getReference().child("Uploads").child(sp.getString("UserID", "Null")).child("ProfilePics");
+        storeDp = storeBase.child("Current");
+        storeAll = storeBase.child("All");
+
         pic = view.findViewById(R.id.profilePic);
+        profileBar = view.findViewById(R.id.profileBar);
+
+        txtName = view.findViewById(R.id.txtNameEdit);
+        txtEmail = view.findViewById(R.id.txtEmailEdit);
+        txtPhone = view.findViewById(R.id.txtPhoneEdit);
+
+        btnName = view.findViewById(R.id.btnNameEdit);
+        btnEmail = view.findViewById(R.id.btnEmailEdit);
+        btnPhone = view.findViewById(R.id.btnPhoneEdit);
+
+        Button changepass = view.findViewById(R.id.changepass);
+        Button changeImage = view.findViewById(R.id.changeImage);
+
         setValues();
-        final Boolean[] namer = {false};
-        nameedit.setOnClickListener(new View.OnClickListener() {
+
+        btnName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!namer[0]) {
-                    nameval.setFocusableInTouchMode(true);
-                    nameval.setEnabled(true);
-                    namer[0] = true;
-                    nameedit.setBackgroundResource(R.drawable.ic_check);
+                if(!changer[0]) {
+                    txtName.setFocusableInTouchMode(true);
+                    txtName.setEnabled(true);
+                    changer[0] = true;
+                    btnName.setImageDrawable(Objects.requireNonNull(getActivity()).getDrawable(R.drawable.ic_check));
                 } else {
-                    sp.edit().putString("UserName",nameval.getText().toString().trim()).apply();
-                    nameval.setBackground(null);
-                    nameval.setEnabled(false);
-                    nameval.setFocusable(false);
-                    nameedit.setBackgroundResource(R.drawable.ic_edit);
-                    namer[0] = false;
+                    changeName();
+                }
+            }
+        });
+
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!changer[1]) {
+                    txtEmail.setFocusableInTouchMode(true);
+                    txtEmail.setEnabled(true);
+                    changer[1] = true;
+                    btnEmail.setImageDrawable(Objects.requireNonNull(getActivity()).getDrawable(R.drawable.ic_check));
+                } else {
+                    changeEmail();
+                }
+            }
+        });
+
+        btnPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!changer[2]) {
+                    txtPhone.setFocusableInTouchMode(true);
+                    txtPhone.setEnabled(true);
+                    changer[2] = true;
+                    btnPhone.setImageDrawable(Objects.requireNonNull(getActivity()).getDrawable(R.drawable.ic_check));
+                } else {
+                    changePhone();
                 }
             }
         });
@@ -90,7 +136,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        pic.setOnClickListener(new View.OnClickListener() {
+        changeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openFileChooser();
@@ -98,6 +144,64 @@ public class ProfileFragment extends Fragment {
         });
         return view;
     }
+
+    private void changeName() {
+        new InternetCheck(new InternetCheck.Consumer() {
+            @Override
+            public void accept(Boolean internet) {
+                if(internet) {
+                    sp.edit().putString("UserName",txtName.getText().toString().trim()).apply();
+                    mDatabaseRef.child("UserName").setValue(txtName.getText().toString().trim());
+                    txtName.setBackground(null);
+                    txtName.setEnabled(false);
+                    txtName.setFocusable(false);
+                    btnName.setImageDrawable(Objects.requireNonNull(getActivity()).getDrawable(R.drawable.ic_edit));
+                    changer[0] = false;
+                } else {
+                    Toast.makeText(getContext(),"Allow Internet to sync",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void changeEmail() {
+        new InternetCheck(new InternetCheck.Consumer() {
+            @Override
+            public void accept(Boolean internet) {
+                if(internet) {
+                    sp.edit().putString("UserEmail",txtEmail.getText().toString().trim()).apply();
+                    mDatabaseRef.child("UserEmail").setValue(txtEmail.getText().toString().trim());
+                    txtEmail.setBackground(null);
+                    txtEmail.setEnabled(false);
+                    txtEmail.setFocusable(false);
+                    btnEmail.setImageDrawable(Objects.requireNonNull(getActivity()).getDrawable(R.drawable.ic_edit));
+                    changer[1] = false;
+                } else {
+                    Toast.makeText(getContext(),"Allow Internet to sync",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void changePhone() {
+        new InternetCheck(new InternetCheck.Consumer() {
+            @Override
+            public void accept(Boolean internet) {
+                if(internet) {
+                    sp.edit().putString("UserPhone",txtPhone.getText().toString().trim()).apply();
+                    mDatabaseRef.child("UserPhone").setValue(txtPhone.getText().toString().trim());
+                    txtPhone.setBackground(null);
+                    txtPhone.setEnabled(false);
+                    txtPhone.setFocusable(false);
+                    btnPhone.setImageDrawable(Objects.requireNonNull(getActivity()).getDrawable(R.drawable.ic_edit));
+                    changer[2] = false;
+                } else {
+                    Toast.makeText(getContext(),"Allow Internet to sync",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
 
     private void openFileChooser() {
         Intent intent = new Intent();
@@ -107,18 +211,62 @@ public class ProfileFragment extends Fragment {
     }
 
     private void setValues() {
-        nameval.setBackground(null);
-        nameval.setEnabled(false);
-        nameval.setFocusable(false);
-        nameval.setText(sp.getString("UserName","User 786"));
-        emailval.setText(sp.getString("UserEmail","No Email"));
-        mobval.setText(sp.getString("UserPhone","No Mobile Number"));
-    }
+        txtName.setBackground(null);
+        txtName.setEnabled(false);
+        txtName.setFocusable(false);
+        txtName.setText(sp.getString("UserName","User 786"));
+        txtEmail.setBackground(null);
+        txtEmail.setEnabled(false);
+        txtEmail.setFocusable(false);
+        txtEmail.setText(sp.getString("UserEmail","No Email"));
+        txtPhone.setBackground(null);
+        txtPhone.setEnabled(false);
+        txtPhone.setFocusable(false);
+        txtPhone.setText(sp.getString("UserPhone","No Mobile No."));
+        if(sp.getBoolean("hasPic",true)) {
+            new InternetCheck(new InternetCheck.Consumer() {
+                @Override
+                public void accept(Boolean internet) {
+                    if(internet) {
+                        storeDp.child("ProfilePic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Glide.with(Objects.requireNonNull(getContext()))
+                                        .load(uri)
+                                        .listener(new RequestListener<Drawable>() {
+                                            @Override
+                                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                                profileBar.setVisibility(View.GONE);
+                                                return false;
+                                            }
 
-    private String getFileExtension(Uri uri) {
-        ContentResolver cr = Objects.requireNonNull(getActivity()).getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cr.getType(uri));
+                                            @Override
+                                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                                profileBar.setVisibility(View.GONE);
+                                                return false;
+                                            }
+                                        })
+                                        .into(pic);
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                pic.setImageDrawable(getResources().getDrawable(R.drawable.ic_dark_profile));
+                                Toast.makeText(getContext(),"Failed to load image. Check internet connection!",Toast.LENGTH_LONG).show();
+                                profileBar.setVisibility(View.GONE);
+                            }
+                        });
+                    } else {
+                        profileBar.setVisibility(View.GONE);
+                        pic.setImageDrawable(getResources().getDrawable(R.drawable.ic_dark_profile));
+                        Toast.makeText(getContext(),"Failed to load image. Check internet connection!",Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(getContext(),"Done Default Loading",Toast.LENGTH_SHORT).show();
+            pic.setImageDrawable(getResources().getDrawable(R.drawable.ic_dark_profile));
+        }
     }
 
     @Override
@@ -126,28 +274,49 @@ public class ProfileFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK
                 && data != null && data.getData() != null) {
-            Uri mImage = data.getData();
-            sp.edit().putBoolean("hasPic",true).apply();
 
-            StorageReference fileRef = mStorageRef.child("ProfilePic");
-            fileRef.putFile(mImage)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            UploadImage upload = new UploadImage("ProfilePic",
-                                    Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().toString());
+            final Uri mImage = data.getData();
 
-                            String uploadId = mDataBaseRef.push().getKey();
-                            assert uploadId != null;
-                            mDataBaseRef.child(uploadId).setValue(upload);
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getActivity(),"Error in Adding File",Toast.LENGTH_SHORT).show();
-                        }
-                    });
+            new InternetCheck(new InternetCheck.Consumer() {
+                @Override
+                public void accept(Boolean internet) throws IOException {
+                    if(internet) {
+                        sp.edit().putBoolean("hasPic",true).apply();
+                        Bitmap bmp = MediaStore.Images.Media.getBitmap(Objects.requireNonNull(getActivity()).getContentResolver(),mImage);
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        bmp.compress(Bitmap.CompressFormat.JPEG, 15, baos);
+                        byte[] databytes = baos.toByteArray();
+
+                        //uploading the image
+                        StorageReference fileRef = storeDp.child("ProfilePic");
+                        UploadTask uploadTask = fileRef.putBytes(databytes);
+                        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                Toast.makeText(getContext(),"ADDED online",Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getActivity(),"Error in Adding File",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        Glide.with(Objects.requireNonNull(getContext()))
+                                .load(mImage)
+                                .into(pic);
+
+                        storeAll.child(""+System.currentTimeMillis()+"."+getFileExtension(mImage)).putBytes(databytes);
+                    } else {
+                        Toast.makeText(getContext(),"Allow Internet to sync",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
+    }
+    private String getFileExtension(Uri uri) {
+        ContentResolver cr = Objects.requireNonNull(getActivity()).getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(uri));
     }
 }
