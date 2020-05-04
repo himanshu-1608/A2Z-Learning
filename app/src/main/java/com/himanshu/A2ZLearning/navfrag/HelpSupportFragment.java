@@ -21,8 +21,8 @@ public class HelpSupportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_help_support, container, false);
 
-        TextView t1 = view.findViewById(R.id.t1);
-        t1.setMovementMethod(LinkMovementMethod.getInstance());
+        TextView t3 = view.findViewById(R.id.t3);
+        t3.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }

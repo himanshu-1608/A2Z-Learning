@@ -9,6 +9,7 @@ import android.os.Handler;
 
 import com.himanshu.a2zlearning.MainActivity;
 import com.himanshu.a2zlearning.R;
+import com.himanshu.a2zlearning.RankingActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 boolean logged = sp.getBoolean("isLogged", false);
                 if (logged) {
-                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                    startActivity(new Intent(SplashScreen.this, LoginActivity.class));
                     finish();
                 } else {
                     startActivity(new Intent(SplashScreen.this, LoginActivity.class));

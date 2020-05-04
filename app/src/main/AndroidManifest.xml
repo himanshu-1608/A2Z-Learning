@@ -14,7 +14,8 @@
         android:roundIcon="@drawable/app_image"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".testing.test2"></activity>
+        <activity android:name=".RankingActivity"></activity>
+        <activity android:name=".testing.test2" />
         <activity android:name=".testing.Test1" />
         <activity android:name=".ChartActivity" />
         <activity android:name=".testhandling.TestLayout" />

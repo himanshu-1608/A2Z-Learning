@@ -42,8 +42,8 @@
     <string name="aut2">Project Source Code available at following link :</string>
     <string name="aut3">https://github.com/himanshu-1608/A2Z-Learning</string>
     <string name="aut4">-- Questions in the app are limited as this is a demo app. In further updates, we will work on it\'s question\'s quantity and quality.</string>
-    <string name="aut5">-- All Errors and Bugs are to be informed to the developer at <a href="mailto:ydv1608@gmail.com?subject=Report Bug in A2Z Learning App">ydv1608@gmail.com</a> or on the above <a color='#0099ff' href="https://github.com/himanshu-1608/A2Z-Learning">GitHub Link</a>. Reviews are necessary for the development of app.</string>
-    <string name="aut6">-- You could also mail us at <a color='#000000' href="mailto:ydv1608@gmail.com?subject=Add suggestions">ydv1608@gmail.com</a> to suggest different topics which we should add in our app in later releases. Our <a href="http://www.iitb.ac.in/en/information-faculty">Technical Team</a>(with 10+ years of experience) will work hard to prepare you on that topic by providing all the latest questions and study material on the topic.</string>
+    <string name="aut5">-- All Errors and Bugs are to be informed to the developer at <a href="mailto:a.2.z.learning.contact@gmail.com?subject=Report Bug in A2Z Learning App">a.2.z.learning.contact@gmail.com</a> or on the above <a color='#0099ff' href="https://github.com/himanshu-1608/A2Z-Learning">GitHub Link</a>. Reviews are necessary for the development of app.</string>
+    <string name="aut6">-- You could also mail us at <a color='#000000' href="mailto:a.2.z.learning.contact@gmail.com?subject=Add suggestions">a.2.z.learning.contact@gmail.com</a> to suggest different topics which we should add in our app in later releases. Our <a href="http://www.iitb.ac.in/en/information-faculty">Technical Team</a>(with 10+ years of experience) will work hard to prepare you on that topic by providing all the latest questions and study material on the topic.</string>
     <string name="mainat1">Your single service point for all kinds of exams. Explore your options from the menu!!!</string>
     <string name="mainat2">· About The App</string>
     <string name="mainat3">This app contains Study Materials, Notes, Youtube Tutorials and Mock Tests for various Courses.</string>
@@ -57,11 +57,9 @@
     <string name="faqt6">Q.Are my numbers being stored or sold to someone ?</string>
     <string name="faqt7">A.The data is stored in your mobile and the developer <b>DOES NOT COLLECT/INTEND TO COLLECT</b> any kind of information related to you.</string>
     <string name="hst1">Help &amp; Support Section</string>
-    <string name="hst2">Q. How to change my user Email ID ?</string>
-    <string name="hst3">A. You could contact our support team at <a style="color:blue" href="mailto:ydv1608@gmail.com?subject=Change my email address">ydv1608@gmail.com</a> and they will verify your phone number and renew your Email ID</string>
     <string name="hst4">Q. How to recover my progress if I lost my Phone/Email ID ?</string>
     <string name="hst5">A. We have 2 critical points to recover your data:\n<b>Email Id &amp; Phone Number</b>\nThrough any one of these , we can recover your account.></string>
-    <string name="hst6">For any other help or queries, contact us at <a style="color:blue" href="mailto:ydv1608@gmail.com?subject=Query">ydv1608@gmail.com</a></string>
+    <string name="hst6">For any other help or queries, contact us at <a href="mailto:a.2.z.learning.contact@gmail.com?subject=Query">a.2.z.learning.contact@gmail.com</a></string>
     <string name="courset1">Course List</string>
     <string name="courset2">JEE PIC</string>
     <string name="courset3">JEE Mains</string>
