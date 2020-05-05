@@ -1,4 +1,4 @@
-package com.himanshu.a2zlearning;
+package com.himanshu.a2zlearning.rankings;
 
 public class basiclist {
     private int marks;

@@ -6,14 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.ImageDecoder;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +22,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -251,21 +252,21 @@ public class ProfileFragment extends Fragment {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                pic.setImageDrawable(getResources().getDrawable(R.drawable.ic_dark_profile));
+                                pic.setImageResource(R.drawable.ic_dark_profile);
                                 Toast.makeText(getContext(),"Failed to load image. Check internet connection!",Toast.LENGTH_LONG).show();
                                 profileBar.setVisibility(View.GONE);
                             }
                         });
                     } else {
                         profileBar.setVisibility(View.GONE);
-                        pic.setImageDrawable(getResources().getDrawable(R.drawable.ic_dark_profile));
+                        pic.setImageResource(R.drawable.ic_dark_profile);
                         Toast.makeText(getContext(),"Failed to load image. Check internet connection!",Toast.LENGTH_LONG).show();
                     }
                 }
             });
         } else {
             Toast.makeText(getContext(),"Done Default Loading",Toast.LENGTH_SHORT).show();
-            pic.setImageDrawable(getResources().getDrawable(R.drawable.ic_dark_profile));
+            pic.setImageResource(R.drawable.ic_dark_profile);
         }
     }
 
@@ -282,7 +283,12 @@ public class ProfileFragment extends Fragment {
                 public void accept(Boolean internet) throws IOException {
                     if(internet) {
                         sp.edit().putBoolean("hasPic",true).apply();
-                        Bitmap bmp = MediaStore.Images.Media.getBitmap(Objects.requireNonNull(getActivity()).getContentResolver(),mImage);
+                        Bitmap bmp;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                            bmp = ImageDecoder.decodeBitmap(ImageDecoder.createSource(requireContext().getContentResolver(), mImage));
+                        } else {
+                            bmp = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(), mImage);
+                        }
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         bmp.compress(Bitmap.CompressFormat.JPEG, 15, baos);
                         byte[] databytes = baos.toByteArray();

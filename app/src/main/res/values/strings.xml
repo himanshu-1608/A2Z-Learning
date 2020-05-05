@@ -8,7 +8,7 @@
     <string name="sut4">Email ID</string>
     <string name="sut5">example123@gmail.com</string>
     <string name="sut6">Password</string>
-    <string name="sut7">* Create a strong password\nMinimum 1 Uppercase,1 Lowercase,1 Symbol,1 Digit</string>
+    <string name="sut7">* Create a strong password(Minimum Length 6)\nMinimum 1 Uppercase,1 Lowercase,1 Symbol,1 Digit</string>
     <string name="sut8">Confirm Password</string>
     <string name="sut9">* Passwords must match</string>
     <string name="sut10">Sign Up</string>
@@ -21,7 +21,7 @@
     <string name="supp"><![CDATA[^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$]]></string>
     <string name="suep">[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+</string>
     <string name="sunp">^[\\p{L} .\'-]+$</string>
-    <string name="sump">^[1-9]\\d{9}$</string>
+    <string name="sump">^[6-9]\\d{9}$</string>
     <string name="cppt1">View Codes</string>
     <string name="cppt2">This section contains codes for all the basic programs needed for <b>Dynamic Programming</b>.</string>
     <string name="cppt3">Watch Videos</string>

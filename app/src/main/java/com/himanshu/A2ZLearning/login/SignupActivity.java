@@ -14,24 +14,30 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
+import com.google.firebase.database.ValueEventListener;
 import com.himanshu.a2zlearning.InternetCheck;
 import com.himanshu.a2zlearning.MainActivity;
 import com.himanshu.a2zlearning.R;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -40,14 +46,12 @@ import static java.util.regex.Pattern.compile;
 public class SignupActivity extends AppCompatActivity {
 
     private static final String DATA = "UserData";
-    private DatabaseReference mData;
-    private DatabaseReference mCount;
     TextView tv5,tv7;
+    ProgressBar progressBar;
     Button sign;
+    private FirebaseAuth auth;
     EditText name,mail,pass,cpass,mob;
     Button eye1,eye2;
-    RadioButton male,female,other;
-    RadioGroup rg;
     SharedPreferences sp;
 
     @Override
@@ -65,15 +69,10 @@ public class SignupActivity extends AppCompatActivity {
         mob = findViewById(R.id.et5);
         eye1 = findViewById(R.id.eye1);
         eye2 = findViewById(R.id.eye2);
-        male = findViewById(R.id.rb1);
-        female = findViewById(R.id.rb2);
-        other = findViewById(R.id.rb3);
-        rg = findViewById(R.id.rg);
+        progressBar = findViewById(R.id.progressBar);
         final Boolean[] e = {false,false};
         sp = getSharedPreferences(DATA,MODE_PRIVATE);
-        final DatabaseReference mDataBase = FirebaseDatabase.getInstance().getReference();
-        mData = mDataBase.child("UserData");
-        mCount = mDataBase.child("UserCount");
+        auth = FirebaseAuth.getInstance();
 
         eye1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,31 +146,33 @@ public class SignupActivity extends AppCompatActivity {
 
     private boolean validate(@NonNull String userName, @NonNull String emailID, @NonNull String one, @NonNull String two, @NonNull String num) {
         if(!isvalidName(userName)) {
-            Toast.makeText(this,"Provide a valid Username!!!",Toast.LENGTH_LONG).show();
+            name.setError("Enter Valid Username");
+            name.requestFocus();
             return false;
         }
         if(!isvalidEmail(emailID)){
-            Toast.makeText(this,"Enter valid Email Address!!!",Toast.LENGTH_LONG).show();
-            return false;
-        }
-        if(rg.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this,"Select a Gender!!!",Toast.LENGTH_LONG).show();
-            return false;
-        }
-        if((one.length() < 4) || (!isValidPassword(one))) {
-            Toast.makeText(this,"Use a strong Password!!!",Toast.LENGTH_LONG).show();
-            return false;
-        }
-        if(two.isEmpty()) {
-            Toast.makeText(this,"Confirm your Password!!!",Toast.LENGTH_LONG).show();
-            return false;
-        }
-        if(!two.equals(one)) {
-            Toast.makeText(this,"Password and Confirm Password should be same!!!",Toast.LENGTH_LONG).show();
+            mail.setError("Invalid Email");
+            mail.requestFocus();
             return false;
         }
         if(!isvalidPhoneNo(num)){
-            Toast.makeText(this,"Enter valid phone no.!!!",Toast.LENGTH_LONG).show();
+            mob.setError("Invalid Number");
+            mob.requestFocus();
+            return false;
+        }
+        if((one.length() < 6) || (!isValidPassword(one))) {
+            pass.setError("Set a strong password");
+            pass.requestFocus();
+            return false;
+        }
+        if(two.isEmpty()) {
+            cpass.setError("Confirm your password");
+            cpass.requestFocus();
+            return false;
+        }
+        if(!two.equals(one)) {
+            cpass.setError("Both passwords should be same");
+            cpass.requestFocus();
             return false;
         }
         return true;
@@ -188,14 +189,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private boolean isvalidName(@NonNull String userName) {
-        boolean result = false;
-        if (!userName.isEmpty()) {
-            String regx = getString(R.string.sunp);
-            Pattern pattern = compile(regx, Pattern.CASE_INSENSITIVE);
-            Matcher matcher = pattern.matcher(userName);
-            result = matcher.find();
-        }
-        return result;
+        return !(userName.isEmpty());
     }
 
     private boolean isValidPassword(@NonNull String password) {
@@ -212,10 +206,10 @@ public class SignupActivity extends AppCompatActivity {
             return false;
         }
         String emailPatterning = getString(R.string.suep);
-        if(!email.matches(emailPatterning)) {
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return false;
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if(!email.matches(emailPatterning)) {
             return false;
         }
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -236,51 +230,69 @@ public class SignupActivity extends AppCompatActivity {
         final String num = mob.getText().toString().trim();
 
         if(validate(userName,emailID,one,two,num)) {
+            progressBar.setVisibility(View.VISIBLE);
+            Query signupQuery = FirebaseDatabase.getInstance().getReference().child("Users").orderByChild("UserName").equalTo(userName);
 
-            String Salute = "";
-            int select = rg.getCheckedRadioButtonId();
-            RadioButton locate = rg.findViewById(select);
-            final String s = locate.getText().toString();
-            if ("Male".equals(s)) {
-                Salute = "Sir";
-            } else if ("Female".equals(s)) {
-                Salute = "Ma'am";
-            }
-
-            Date date = new Date();
-            final String UserID = ""+date.getTime()+"";
-
-            Map<String,String> details = new HashMap<>();
-            details.put("UserName",userName);
-            details.put("UserEmail",emailID);
-            details.put("UserPhone",num);
-            details.put("Gender",s);
-            mData.child(UserID).setValue(details);
-            mCount.runTransaction(new Transaction.Handler() {
-                @NonNull
+            signupQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
-                    Long value = mutableData.getValue(Long.class);
-                    if (value == null) { mutableData.setValue(1); }
-                    else { mutableData.setValue(value + 1); }
-                    return Transaction.success(mutableData);
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.getChildrenCount()>0) {
+                        progressBar.setVisibility(View.INVISIBLE);
+                        Toast.makeText(getBaseContext(),"Username already taken",Toast.LENGTH_LONG).show();
+                    } else {
+                        auth.createUserWithEmailAndPassword(emailID,one).addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(!task.isSuccessful()) {
+                                    progressBar.setVisibility(View.INVISIBLE);
+                                    Toast.makeText(SignupActivity.this,"Sign Up Failed",Toast.LENGTH_LONG).show();
+                                } else {
+                                    String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+                                    final DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+                                    Map<String,String> details = new HashMap<>();
+                                    details.put("UserName",userName);
+                                    details.put("UserEmail",emailID);
+                                    details.put("UserPhone",num);
+                                    current_user_db.setValue(details);
+                                    final DatabaseReference mCount = FirebaseDatabase.getInstance().getReference().child("UserCount");
+                                    mCount.runTransaction(new Transaction.Handler() {
+                                        @NonNull
+                                        @Override
+                                        public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
+                                            Long value = mutableData.getValue(Long.class);
+                                            if (value == null) { mutableData.setValue(1); }
+                                            else { mutableData.setValue(value + 1); }
+                                            return Transaction.success(mutableData);
+                                        }
+                                        @Override
+                                        public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) { }
+                                    });
+                                    sp.edit().putString("UserName",userName).apply();
+                                    sp.edit().putString("UserID",userId).apply();
+                                    sp.edit().putString("UserEmail",emailID).apply();
+                                    sp.edit().putString("UserPhone",num).apply();
+                                    sp.edit().putBoolean("hasPic",false).apply();
+                                    sp.edit().putBoolean("isLogged",true).apply();
+                                    progressBar.setVisibility(View.INVISIBLE);
+                                    Toast.makeText(SignupActivity.this,"Welcome , " + userName,Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(SignupActivity.this , MainActivity.class));
+                                    finish();
+                                }
+                            }
+                        }).addOnFailureListener(SignupActivity.this, new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                progressBar.setVisibility(View.INVISIBLE);
+                                Toast.makeText(SignupActivity.this,"Sign Up Failed\n(Network or Email Issues)",Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
                 }
                 @Override
-                public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) { }
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(SignupActivity.this,"Oops!! Some Database Error Occured",Toast.LENGTH_LONG).show();
+                }
             });
-
-            sp.edit().putString("UserID",UserID).apply();
-            sp.edit().putString("UserName",userName).apply();
-            sp.edit().putString("Salute",Salute).apply();
-            sp.edit().putString("UserEmail",emailID).apply();
-            sp.edit().putString("UserPhone",num).apply();
-            sp.edit().putString("UserPassword",one).apply();
-            sp.edit().putBoolean("isLogged",true).apply();
-            sp.edit().putBoolean("hasPic",false).apply();
-
-            Toast.makeText(SignupActivity.this,"Welcome , " + userName,Toast.LENGTH_LONG).show();
-            startActivity(new Intent(SignupActivity.this , MainActivity.class));
-            finish();
         }
     }
 }

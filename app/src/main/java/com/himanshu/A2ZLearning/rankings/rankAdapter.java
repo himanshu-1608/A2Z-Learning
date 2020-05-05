@@ -1,4 +1,4 @@
-package com.himanshu.a2zlearning;
+package com.himanshu.a2zlearning.rankings;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.himanshu.a2zlearning.R;
 
 import java.util.List;
 

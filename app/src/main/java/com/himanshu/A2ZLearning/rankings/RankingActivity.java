@@ -1,10 +1,12 @@
-package com.himanshu.a2zlearning;
+package com.himanshu.a2zlearning.rankings;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.himanshu.a2zlearning.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
