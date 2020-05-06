@@ -32,8 +32,13 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,6 +57,7 @@ import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
 
+    private FirebaseAuth auth;
     private DatabaseReference mDatabaseRef;
     private StorageReference storeDp;
     private StorageReference storeAll;
@@ -71,9 +77,10 @@ public class ProfileFragment extends Fragment {
 
         sp = Objects.requireNonNull(this.getActivity()).getSharedPreferences(DATA, Context.MODE_PRIVATE);
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(sp.getString("UserID","Null"));
-        StorageReference storeBase = FirebaseStorage.getInstance().getReference().child("Uploads").child(sp.getString("UserID", "Null")).child("ProfilePics");
+        StorageReference storeBase = FirebaseStorage.getInstance().getReference().child("Uploads").child(sp.getString("UserID", "")).child("ProfilePics");
         storeDp = storeBase.child("Current");
         storeAll = storeBase.child("All");
+        auth = FirebaseAuth.getInstance();
 
         pic = view.findViewById(R.id.profilePic);
         profileBar = view.findViewById(R.id.profileBar);
@@ -263,7 +270,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void accept(Boolean internet) {
                 if(internet) {
-                    storeDp.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    storeDp.child("ProfilePic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
                             Glide.with(Objects.requireNonNull(getContext()))
@@ -290,7 +297,40 @@ public class ProfileFragment extends Fragment {
                             profileBar.setVisibility(View.GONE);
                         }
                     });
+                    /*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if(user != null) {
+                        if( user.getPhotoUrl()!= null) {
+                            Glide.with(Objects.requireNonNull(getContext()))
+                                    .load(user.getPhotoUrl())
+                                    .fallback(R.drawable.ic_dark_profile)
+                                    .error(R.drawable.ic_dark_profile)
+                                    .listener(new RequestListener<Drawable>() {
+                                        @Override
+                                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                            Toast.makeText(getContext(),"5"+e,Toast.LENGTH_SHORT).show();
+                                            profileBar.setVisibility(View.GONE);
+                                            return false;
+                                        }
+
+                                        @Override
+                                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                            Toast.makeText(getContext(),"4",Toast.LENGTH_SHORT).show();
+                                            profileBar.setVisibility(View.GONE);
+                                            return false;
+                                        }
+                                    })
+                                    .into(pic);
+                        } else {
+                            Toast.makeText(getContext(),"3",Toast.LENGTH_SHORT).show();
+                            pic.setImageResource(R.drawable.ic_dark_profile);
+                            profileBar.setVisibility(View.GONE);
+                        }
+                    } else {
+                        Toast.makeText(getContext(),"2",Toast.LENGTH_SHORT).show();
+                        profileBar.setVisibility(View.GONE);
+                    }*/
                 } else {
+                    Toast.makeText(getContext(),"Allow Internet",Toast.LENGTH_SHORT).show();
                     profileBar.setVisibility(View.GONE);
                     pic.setImageResource(R.drawable.ic_dark_profile);
                 }
@@ -326,6 +366,28 @@ public class ProfileFragment extends Fragment {
                         uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                FirebaseUser user = auth.getCurrentUser();
+
+                                if(taskSnapshot.getMetadata() != null) {
+                                    if( taskSnapshot.getMetadata().getReference()!= null ) {
+                                        String profileUrlString = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
+                                        if(user != null) {
+                                            UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
+                                                    .setDisplayName("ProfilePic")
+                                                    .setPhotoUri(Uri.parse(profileUrlString))
+                                                    .build();
+                                            user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()) {
+                                                        Toast.makeText(getContext(),"Profile Image Changed",Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    }
+                                }
+
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override

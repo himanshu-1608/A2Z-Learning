@@ -277,8 +277,8 @@ public class SignupActivity extends AppCompatActivity {
                                     sp.edit().putString("UserPhone",num).apply();
                                     sp.edit().putBoolean("isLogged",true).apply();
                                     progressBar.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(SignupActivity.this,"Welcome , " + userName,Toast.LENGTH_LONG).show();
-                                    startActivity(new Intent(SignupActivity.this , MainActivity.class));
+                                    Intent intent = new Intent(SignupActivity.this , MainActivity.class);
+                                    startActivity(intent);
                                     finish();
                                 }
                             }

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.himanshu.a2zlearning.MainActivity;
 import com.himanshu.a2zlearning.R;
 
@@ -25,15 +26,23 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                boolean logged = sp.getBoolean("isLogged", false);
-                if (logged) {
+                if(FirebaseAuth.getInstance().getCurrentUser() != null) {
                     startActivity(new Intent(SplashScreen.this, MainActivity.class));
                     finish();
                 } else {
                     startActivity(new Intent(SplashScreen.this, LoginActivity.class));
                     finish();
                 }
+                /*boolean logged = sp.getBoolean("isLogged", false);
+                if (logged) {
+                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                    finish();
+                } else {
+                    startActivity(new Intent(SplashScreen.this, LoginActivity.class));
+                    finish();
+                }*/
             }
         },SPLASH_TIME_OUT);
     }
+
 }

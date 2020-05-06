@@ -22,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.himanshu.a2zlearning.handler.CourseDataHandler;
 import com.himanshu.a2zlearning.handler.CourseNotesHandler;
 import com.himanshu.a2zlearning.handler.CourseTestsHandler;
@@ -128,6 +129,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         sp.edit().putBoolean("isLogged",false).apply();
+                        sp.edit().remove("UserName").apply();
+                        sp.edit().remove("UserID").apply();
+                        sp.edit().remove("UserPhone").apply();
+                        sp.edit().remove("UserPassword").apply();
+                        sp.edit().remove("UserEmail").apply();
+                        sp.edit().remove("UserName").apply();
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         finish();
                     }
@@ -139,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpToolBar() {
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("I Am An NITian");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("A2Z Learning");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         abdt = new ActionBarDrawerToggle(MainActivity.this,drawerLayout,R.string.open_drawer,R.string.close_drawer);
@@ -147,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         abdt.syncState();
         View header = navView.getHeaderView(0);
         headerText = header.findViewById(R.id.headerText);
-        headerText.setText(sp.getString("UserName","User 786"));
+        headerText.setText(sp.getString("UserName",""));
     }
 
     @Override
@@ -197,4 +204,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser() == null) {
+            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+            finish();
+        }
+    }
 }
