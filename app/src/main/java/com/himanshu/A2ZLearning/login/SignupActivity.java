@@ -23,6 +23,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -269,9 +272,9 @@ public class SignupActivity extends AppCompatActivity {
                                     });
                                     sp.edit().putString("UserName",userName).apply();
                                     sp.edit().putString("UserID",userId).apply();
+                                    sp.edit().putString("UserPassword",one).apply();
                                     sp.edit().putString("UserEmail",emailID).apply();
                                     sp.edit().putString("UserPhone",num).apply();
-                                    sp.edit().putBoolean("hasPic",false).apply();
                                     sp.edit().putBoolean("isLogged",true).apply();
                                     progressBar.setVisibility(View.INVISIBLE);
                                     Toast.makeText(SignupActivity.this,"Welcome , " + userName,Toast.LENGTH_LONG).show();
@@ -283,7 +286,11 @@ public class SignupActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 progressBar.setVisibility(View.INVISIBLE);
-                                Toast.makeText(SignupActivity.this,"Sign Up Failed\n(Network or Email Issues)",Toast.LENGTH_LONG).show();
+                                if(e instanceof FirebaseAuthUserCollisionException) {
+                                    Toast.makeText(SignupActivity.this,"Email Already Registered. Use Log In Instead",Toast.LENGTH_LONG).show();
+                                } else {
+                                    Toast.makeText(SignupActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                                }
                             }
                         });
                     }
