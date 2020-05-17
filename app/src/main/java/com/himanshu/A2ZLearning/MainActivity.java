@@ -23,10 +23,10 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.himanshu.a2zlearning.handler.CourseDataHandler;
-import com.himanshu.a2zlearning.handler.CourseNotesHandler;
-import com.himanshu.a2zlearning.handler.CourseTestsHandler;
-import com.himanshu.a2zlearning.handler.CourseVideosHandler;
+import com.himanshu.a2zlearning.courseHandler.CourseDataHandler;
+import com.himanshu.a2zlearning.courseHandler.CourseNotesHandler;
+import com.himanshu.a2zlearning.courseHandler.CourseTestsHandler;
+import com.himanshu.a2zlearning.courseHandler.CourseVideosHandler;
 import com.himanshu.a2zlearning.login.LoginActivity;
 import com.himanshu.a2zlearning.navfrag.CoursesFragment;
 import com.himanshu.a2zlearning.navfrag.DevInfoFragment;
@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        FirebaseAuth.getInstance().signOut();
                         sp.edit().putBoolean("isLogged",false).apply();
                         sp.edit().remove("UserName").apply();
                         sp.edit().remove("UserID").apply();

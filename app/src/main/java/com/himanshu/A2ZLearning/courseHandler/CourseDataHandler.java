@@ -1,4 +1,4 @@
-package com.himanshu.a2zlearning.handler;
+package com.himanshu.a2zlearning.courseHandler;
 
 import android.os.Bundle;
 

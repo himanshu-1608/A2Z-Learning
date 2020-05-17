@@ -1,4 +1,4 @@
-package com.himanshu.a2zlearning.handler;
+package com.himanshu.a2zlearning.courseHandler;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -83,6 +83,7 @@ public class CourseTestsHandler extends Fragment {
     private void fillData() {
         topics = new ArrayList<>();
         map = new HashMap<>();
+        assert this.getArguments() != null;
         topics = this.getArguments().getStringArrayList("TopicList");
         List<String> tests = this.getArguments().getStringArrayList("TestList");
         assert tests != null;

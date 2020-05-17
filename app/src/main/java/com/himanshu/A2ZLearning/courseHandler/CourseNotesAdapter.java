@@ -1,4 +1,4 @@
-package com.himanshu.a2zlearning.handler;
+package com.himanshu.a2zlearning.courseHandler;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class CourseTestsAdapter extends BaseExpandableListAdapter {
+public class CourseNotesAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<String> topics;
     private Map<String,List<String>> map;
 
-    CourseTestsAdapter(Context context, List<String> topics, Map<String, List<String>> map) {
+    public CourseNotesAdapter(Context context, List<String> topics, Map<String, List<String>> map) {
         this.context = context;
         this.topics = topics;
         this.map = map;
@@ -52,20 +52,21 @@ public class CourseTestsAdapter extends BaseExpandableListAdapter {
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
-        return groupPosition*3 + childPosition;
+        return childPosition;
     }
 
     @Override
     public boolean hasStableIds() {
-        return true;
+        return false;
     }
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+
         String heading = (String) getGroup(groupPosition);
         if(convertView==null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.explist_tests_parent,null);
+            convertView = inflater.inflate(R.layout.explist_notes_parent,null);
         }
         TextView txtParent = convertView.findViewById(R.id.list_topics);
         txtParent.setText(heading);
@@ -76,9 +77,10 @@ public class CourseTestsAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
         String desc = (String) getChild(groupPosition,childPosition);
+
         if(convertView==null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.explist_tests_child,null);
+            convertView = inflater.inflate(R.layout.explist_notes_child,null);
         }
         TextView txtChild = convertView.findViewById(R.id.list_desc);
         txtChild.setText(desc);
@@ -88,6 +90,6 @@ public class CourseTestsAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return true;
+        return false;
     }
 }
