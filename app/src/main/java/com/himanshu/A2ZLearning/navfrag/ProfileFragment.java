@@ -50,6 +50,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.himanshu.a2zlearning.InternetCheck;
 import com.himanshu.a2zlearning.R;
+import com.himanshu.a2zlearning.res.Res;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -64,7 +65,7 @@ public class ProfileFragment extends Fragment {
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageView pic;
     private ProgressBar profileBar;
-    private final static String DATA = "UserData";
+    private final String DATA = Res.sp1;
     private EditText txtName,txtEmail,txtPhone;
     private SharedPreferences sp;
     private final Boolean[] changer = {false,false,false};
@@ -132,8 +133,7 @@ public class ProfileFragment extends Fragment {
         changepass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                assert getFragmentManager() != null;
-                getFragmentManager().beginTransaction().replace(R.id.frame,new PasswordChanger()).commit();
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,new PasswordChanger()).commit();
             }
         });
 

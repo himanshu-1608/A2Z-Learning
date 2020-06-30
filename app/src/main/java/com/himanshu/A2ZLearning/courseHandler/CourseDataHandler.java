@@ -117,8 +117,7 @@ public class CourseDataHandler extends Fragment {
                 bundle.putStringArrayList("TopicList",topics);
                 bundle.putStringArrayList("FileList",files);
                 frag.setArguments(bundle);
-                assert getFragmentManager() != null;
-                getFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
             }
         });
 
@@ -168,8 +167,7 @@ public class CourseDataHandler extends Fragment {
                 bundle.putStringArrayList("TextList",texts);
                 bundle.putStringArrayList("LinkList",links);
                 frag.setArguments(bundle);
-                assert getFragmentManager() != null;
-                getFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
             }
         });
 
@@ -200,8 +198,7 @@ public class CourseDataHandler extends Fragment {
                 bundle.putInt("CourseID",myMessage);
                 bundle.putStringArrayList("TestList",tests);
                 frag.setArguments(bundle);
-                assert getFragmentManager() != null;
-                getFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
             }
         });
         return view;

@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.himanshu.a2zlearning.MainActivity;
 import com.himanshu.a2zlearning.R;
+import com.himanshu.a2zlearning.res.Res;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -31,7 +32,7 @@ import static java.util.regex.Pattern.compile;
 
 public class PasswordChanger extends Fragment {
 
-    private static final String DATA = "UserData";
+    private final String DATA = Res.sp1;
     private EditText oldp,p1,p2;
     private SharedPreferences sp;
     private FirebaseAuth auth;
@@ -69,8 +70,7 @@ public class PasswordChanger extends Fragment {
                                                 if(task.isSuccessful()) {
                                                     sp.edit().putString("UserPassword",newp).apply();
                                                     Toast.makeText(getContext(),"Password Changed Successfully !!", Toast.LENGTH_LONG).show();
-                                                    assert getFragmentManager() != null;
-                                                    getFragmentManager().beginTransaction().replace(R.id.frame,new ProfileFragment()).commit();
+                                                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,new ProfileFragment()).commit();
                                                 } else {
                                                     Toast.makeText(getContext(),"Error in changing Password !"+task.getException(),Toast.LENGTH_LONG).show();
                                                 }

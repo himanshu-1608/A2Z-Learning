@@ -32,6 +32,7 @@ import com.google.firebase.database.Transaction;
 import com.himanshu.a2zlearning.InternetCheck;
 import com.himanshu.a2zlearning.MainActivity;
 import com.himanshu.a2zlearning.R;
+import com.himanshu.a2zlearning.res.Res;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -42,7 +43,6 @@ import static java.util.regex.Pattern.compile;
 public class LoginActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
-    private static final String DATA = "UserData";
     EditText email,password;
     TextView txtforgot,txtsignup;
     Button btnlogin;
@@ -57,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
 
         dbRef = FirebaseDatabase.getInstance().getReference();
         auth = FirebaseAuth.getInstance();
+        String DATA = Res.sp1;
         sp = getSharedPreferences(DATA, MODE_PRIVATE);
         email = findViewById(R.id.etemail);
         password = findViewById(R.id.etpassword);

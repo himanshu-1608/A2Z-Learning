@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,12 +36,13 @@ import com.himanshu.a2zlearning.navfrag.HomeFragment;
 import com.himanshu.a2zlearning.navfrag.PasswordChanger;
 import com.himanshu.a2zlearning.navfrag.PerformanceFragment;
 import com.himanshu.a2zlearning.navfrag.ProfileFragment;
+import com.himanshu.a2zlearning.res.Res;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String DATAFILE = "UserData";
+    private final String DATAFILE = Res.sp1;
     DrawerLayout drawerLayout;
     CoordinatorLayout coordinatorLayout;
     Toolbar toolbar;
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navView;
     ActionBarDrawerToggle abdt;
     ImageButton img1,img2;
-    SharedPreferences sp;
+    SharedPreferences sp,altsp;
     TextView headerText;
 
     @Override
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         img1                = findViewById(R.id.imgInsta);
         img2                = findViewById(R.id.imgFB);
         sp = getSharedPreferences(DATAFILE,MODE_PRIVATE);
+        altsp = getSharedPreferences(Res.sp2,MODE_PRIVATE);
 
         //setup toolbar
         setUpToolBar();
@@ -195,8 +198,24 @@ public class MainActivity extends AppCompatActivity {
                 alert.show();
             } else if(frag instanceof CoursesFragment || frag instanceof DevInfoFragment || frag instanceof HelpSupportFragment || frag instanceof PerformanceFragment || frag instanceof ProfileFragment) {
                 fragmentSetter(new HomeFragment(),getResources().getString(R.string.app_name));
-            } else if(frag instanceof CourseDataHandler || frag instanceof CourseNotesHandler || frag instanceof CourseVideosHandler || frag instanceof CourseTestsHandler) {
+            } else if(frag instanceof CourseDataHandler){
                 fragmentSetter(new CoursesFragment(),"Courses");
+            } else if(frag instanceof CourseNotesHandler || frag instanceof CourseVideosHandler || frag instanceof CourseTestsHandler) {
+                CourseDataHandler fragInfo;
+                switch(altsp.getInt("myMessage",1)) {
+                    case 1 :
+                        fragInfo = new CourseDataHandler(1);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragInfo).commit();
+                        break;
+                    case 2 :
+                        fragInfo = new CourseDataHandler(2);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragInfo).commit();
+                        break;
+                    case 3 :
+                        fragInfo = new CourseDataHandler(3);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragInfo).commit();
+                        break;
+                }
             } else if(frag instanceof PasswordChanger) {
                 fragmentSetter(new ProfileFragment(),"My Profile");
             } else {

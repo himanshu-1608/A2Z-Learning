@@ -101,4 +101,8 @@
     <string name="alt4">Forgot Password?</string>
     <string name="navmenut7">Home</string>
 
+    <!--Shared Preferences Strings-->
+    <string name="sp1">UserData</string>
+    <string name="sp2">FragHandler</string>
+
 </resources>

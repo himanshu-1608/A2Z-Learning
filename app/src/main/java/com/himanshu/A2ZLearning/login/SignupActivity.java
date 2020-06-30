@@ -23,9 +23,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.himanshu.a2zlearning.InternetCheck;
 import com.himanshu.a2zlearning.MainActivity;
 import com.himanshu.a2zlearning.R;
+import com.himanshu.a2zlearning.res.Res;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -48,7 +47,6 @@ import static java.util.regex.Pattern.compile;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private static final String DATA = "UserData";
     TextView tv5,tv7;
     ProgressBar progressBar;
     Button sign;
@@ -74,6 +72,7 @@ public class SignupActivity extends AppCompatActivity {
         eye2 = findViewById(R.id.eye2);
         progressBar = findViewById(R.id.progressBar);
         final Boolean[] e = {false,false};
+        String DATA = Res.sp1;
         sp = getSharedPreferences(DATA,MODE_PRIVATE);
         auth = FirebaseAuth.getInstance();
 
