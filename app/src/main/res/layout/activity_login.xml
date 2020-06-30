@@ -92,16 +92,22 @@
 
         <TextView
             android:id="@+id/txtforgot"
-            android:layout_width="wrap_content"
+            android:paddingVertical="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:background="@drawable/style_onlyround"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:text="@string/alt4"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:text="@string/alt4" />
 
         <RelativeLayout
             android:layout_width="match_parent"

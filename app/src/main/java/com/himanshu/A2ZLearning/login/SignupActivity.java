@@ -18,10 +18,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DataSnapshot;
@@ -32,10 +28,10 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
-import com.himanshu.a2zlearning.InternetCheck;
-import com.himanshu.a2zlearning.MainActivity;
+import com.himanshu.a2zlearning.utils.InternetCheck;
+import com.himanshu.a2zlearning.ui.activities.MainActivity;
 import com.himanshu.a2zlearning.R;
-import com.himanshu.a2zlearning.res.Res;
+import com.himanshu.a2zlearning.utils.Res;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -76,74 +72,55 @@ public class SignupActivity extends AppCompatActivity {
         sp = getSharedPreferences(DATA,MODE_PRIVATE);
         auth = FirebaseAuth.getInstance();
 
-        eye1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!e[0]) {
-                    pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    eye1.setBackgroundResource(R.drawable.ic_not_see);
-                    e[0] = true;
-                } else {
-                    eye1.setBackgroundResource(R.drawable.ic_passcheck);
-                    pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    e[0] = false;
-                }
+        eye1.setOnClickListener(v -> {
+            if(!e[0]) {
+                pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                eye1.setBackgroundResource(R.drawable.ic_not_see);
+                e[0] = true;
+            } else {
+                eye1.setBackgroundResource(R.drawable.ic_passcheck);
+                pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                e[0] = false;
             }
         });
 
-        eye2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!e[1]) {
-                    cpass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    eye2.setBackgroundResource(R.drawable.ic_not_see);
-                    e[1] = true;
-                } else {
-                    eye2.setBackgroundResource(R.drawable.ic_passcheck);
-                    cpass.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    e[1] = false;
-                }
+        eye2.setOnClickListener(v -> {
+            if(!e[1]) {
+                cpass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                eye2.setBackgroundResource(R.drawable.ic_not_see);
+                e[1] = true;
+            } else {
+                eye2.setBackgroundResource(R.drawable.ic_passcheck);
+                cpass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                e[1] = false;
             }
         });
 
-        pass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus) {
-                    tv5.setVisibility(View.VISIBLE);
-                } else {
-                    tv5.setVisibility(View.GONE);
-                }
+        pass.setOnFocusChangeListener((v, hasFocus) -> {
+            if(hasFocus) {
+                tv5.setVisibility(View.VISIBLE);
+            } else {
+                tv5.setVisibility(View.GONE);
             }
         });
 
-        cpass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus) {
-                    tv7.setVisibility(View.VISIBLE);
-                } else {
-                    tv7.setVisibility(View.GONE);
-                }
+        cpass.setOnFocusChangeListener((v, hasFocus) -> {
+            if(hasFocus) {
+                tv7.setVisibility(View.VISIBLE);
+            } else {
+                tv7.setVisibility(View.GONE);
             }
         });
 
-        sign.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new InternetCheck(new InternetCheck.Consumer() {
-                    @Override
-                    public void accept(Boolean internet) {
-                        if(internet) {
-                            setSignup();
-                        } else {
-                            Toast.makeText(SignupActivity.this,"Allow Internet",Toast.LENGTH_SHORT).show();
-                        }
+        sign.setOnClickListener(v ->
+                new InternetCheck(internet -> {
+                    if(internet) {
+                    setSignup();
+                    } else {
+                        Toast.makeText(SignupActivity.this,"Allow Internet",Toast.LENGTH_SHORT).show();
                     }
-                });
-            }
-        });
-
+                })
+        );
     }
 
     private boolean validate(@NonNull String userName, @NonNull String emailID, @NonNull String one, @NonNull String two, @NonNull String num) {
@@ -242,54 +219,48 @@ public class SignupActivity extends AppCompatActivity {
                         progressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(getBaseContext(),"Username already taken",Toast.LENGTH_LONG).show();
                     } else {
-                        auth.createUserWithEmailAndPassword(emailID,one).addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(!task.isSuccessful()) {
-                                    progressBar.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(SignupActivity.this,"Sign Up Failed",Toast.LENGTH_LONG).show();
-                                } else {
-                                    String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
-                                    final DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
-                                    Map<String,String> details = new HashMap<>();
-                                    details.put("UserName",userName);
-                                    details.put("UserEmail",emailID);
-                                    details.put("UserPhone",num);
-                                    current_user_db.setValue(details);
-                                    final DatabaseReference mCount = FirebaseDatabase.getInstance().getReference().child("UserCount");
-                                    mCount.runTransaction(new Transaction.Handler() {
-                                        @NonNull
-                                        @Override
-                                        public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
-                                            Long value = mutableData.getValue(Long.class);
-                                            if (value == null) { mutableData.setValue(1); }
-                                            else { mutableData.setValue(value + 1); }
-                                            return Transaction.success(mutableData);
-                                        }
-                                        @Override
-                                        public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) { }
-                                    });
-                                    sp.edit().putString("UserName",userName).apply();
-                                    sp.edit().putString("UserID",userId).apply();
-                                    sp.edit().putString("UserPassword",one).apply();
-                                    sp.edit().putString("UserEmail",emailID).apply();
-                                    sp.edit().putString("UserPhone",num).apply();
-                                    sp.edit().putBoolean("isLogged",true).apply();
-                                    progressBar.setVisibility(View.INVISIBLE);
-                                    Intent intent = new Intent(SignupActivity.this , MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                }
-                            }
-                        }).addOnFailureListener(SignupActivity.this, new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
+                        auth.createUserWithEmailAndPassword(emailID,one).addOnCompleteListener(SignupActivity.this, task -> {
+                            if(!task.isSuccessful()) {
                                 progressBar.setVisibility(View.INVISIBLE);
-                                if(e instanceof FirebaseAuthUserCollisionException) {
-                                    Toast.makeText(SignupActivity.this,"Email Already Registered. Use Log In Instead",Toast.LENGTH_LONG).show();
-                                } else {
-                                    Toast.makeText(SignupActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
-                                }
+                                Toast.makeText(SignupActivity.this,"Sign Up Failed",Toast.LENGTH_LONG).show();
+                            } else {
+                                String userId = Objects.requireNonNull(auth.getCurrentUser()).getUid();
+                                final DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+                                Map<String,String> details = new HashMap<>();
+                                details.put("UserName",userName);
+                                details.put("UserEmail",emailID);
+                                details.put("UserPhone",num);
+                                current_user_db.setValue(details);
+                                final DatabaseReference mCount = FirebaseDatabase.getInstance().getReference().child("UserCount");
+                                mCount.runTransaction(new Transaction.Handler() {
+                                    @NonNull
+                                    @Override
+                                    public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
+                                        Long value = mutableData.getValue(Long.class);
+                                        if (value == null) { mutableData.setValue(1); }
+                                        else { mutableData.setValue(value + 1); }
+                                        return Transaction.success(mutableData);
+                                    }
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot1) { }
+                                });
+                                sp.edit().putString("UserName",userName).apply();
+                                sp.edit().putString("UserID",userId).apply();
+                                sp.edit().putString("UserPassword",one).apply();
+                                sp.edit().putString("UserEmail",emailID).apply();
+                                sp.edit().putString("UserPhone",num).apply();
+                                sp.edit().putBoolean("isLogged",true).apply();
+                                progressBar.setVisibility(View.INVISIBLE);
+                                Intent intent = new Intent(SignupActivity.this , MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }).addOnFailureListener(SignupActivity.this, e -> {
+                            progressBar.setVisibility(View.INVISIBLE);
+                            if(e instanceof FirebaseAuthUserCollisionException) {
+                                Toast.makeText(SignupActivity.this,"Email Already Registered. Use Log In Instead",Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(SignupActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
                             }
                         });
                     }

@@ -19,9 +19,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.himanshu.a2zlearning.MainActivity;
+import com.himanshu.a2zlearning.ui.activities.MainActivity;
 import com.himanshu.a2zlearning.R;
-import com.himanshu.a2zlearning.res.Res;
+import com.himanshu.a2zlearning.utils.Res;
 
 import java.util.Objects;
 import java.util.regex.Matcher;

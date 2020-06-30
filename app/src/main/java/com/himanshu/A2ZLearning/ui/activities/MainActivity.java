@@ -1,4 +1,4 @@
-package com.himanshu.a2zlearning;
+package com.himanshu.a2zlearning.ui.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -20,10 +20,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.himanshu.a2zlearning.R;
 import com.himanshu.a2zlearning.courseHandler.CourseDataHandler;
 import com.himanshu.a2zlearning.courseHandler.CourseNotesHandler;
 import com.himanshu.a2zlearning.courseHandler.CourseTestsHandler;
@@ -36,7 +36,7 @@ import com.himanshu.a2zlearning.navfrag.HomeFragment;
 import com.himanshu.a2zlearning.navfrag.PasswordChanger;
 import com.himanshu.a2zlearning.navfrag.PerformanceFragment;
 import com.himanshu.a2zlearning.navfrag.ProfileFragment;
-import com.himanshu.a2zlearning.res.Res;
+import com.himanshu.a2zlearning.utils.Res;
 
 import java.util.Objects;
 

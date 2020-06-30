@@ -27,11 +27,11 @@
             android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
             android:value="com.google.firebase.components.ComponentRegistrar" />
         <activity android:name=".rankings.RankingActivity" />
-        <activity android:name=".ChartActivity" />
+        <activity android:name=".ui.activities.ChartActivity" />
         <activity android:name=".testhandling.TestLayout" />
         <activity android:name=".testhandling.TestHandler" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:theme="@style/HideToolBar" />
         <activity
             android:name=".login.SignupActivity"

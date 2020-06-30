@@ -90,12 +90,11 @@
     <string name="ugt3">Watch videos on economics and geography section of GS</string>
 
     <string name="aft1">Next</string>
-    <string name="aft2">Enter your registered mobile number and email below :</string>
+    <string name="aft2">Enter your registered email below :</string>
     <string name="aft3">phoneimage</string>
-    <string name="aft4">Mobile Number (10 digits)</string>
     <string name="aft5">email_image</string>
     <string name="aft6">Email Address</string>
-    <string name="alt1">Don\'t have an account?\nSign up now</string>
+    <string name="alt1">Don\'t have an account?\nClick here to sign up</string>
     <string name="alt2">Password</string>
     <string name="alt3">Login</string>
     <string name="alt4">Forgot Password?</string>

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.himanshu.a2zlearning.MainActivity;
+import com.himanshu.a2zlearning.ui.activities.MainActivity;
 import com.himanshu.a2zlearning.R;
 
 import java.util.ArrayList;

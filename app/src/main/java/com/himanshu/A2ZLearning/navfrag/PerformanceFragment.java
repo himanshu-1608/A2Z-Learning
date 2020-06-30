@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.himanshu.a2zlearning.ChartActivity;
+import com.himanshu.a2zlearning.ui.activities.ChartActivity;
 import com.himanshu.a2zlearning.R;
 
 import java.io.BufferedReader;

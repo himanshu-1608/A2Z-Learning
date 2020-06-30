@@ -6,12 +6,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.himanshu.a2zlearning.MainActivity;
+import com.himanshu.a2zlearning.ui.activities.MainActivity;
 import com.himanshu.a2zlearning.R;
-import com.himanshu.a2zlearning.res.Res;
+import com.himanshu.a2zlearning.utils.Res;
 
 public class SplashScreen extends AppCompatActivity {
 

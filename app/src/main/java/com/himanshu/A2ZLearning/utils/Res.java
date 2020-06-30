@@ -1,4 +1,4 @@
-package com.himanshu.a2zlearning.res;
+package com.himanshu.a2zlearning.utils;
 
 public class Res {
     public static final String sp1 = "UserData";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,95 +7,95 @@
     android:orientation="vertical"
     tools:context=".login.ForgetActivity">
 
-    <ImageView
-        android:scaleType="fitCenter"
-        android:scaleY="2"
-        android:scaleX="2"
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/progressLayout"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginTop="80dp"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/app_image" />
+        android:layout_height="match_parent">
 
-    <TextView
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/aft2"
-        android:textColor="#fff"
-        android:textSize="17sp" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/style_login"
-        android:orientation="horizontal"
-        android:paddingHorizontal="5dp"
-        android:paddingVertical="7dp">
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:contentDescription="@string/aft3"
-            android:src="@drawable/ic_phone" />
-
-        <EditText
-            android:id="@+id/etphone"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginStart="4dp"
-            android:autofillHints="Mobile Number"
-            android:background="@android:color/transparent"
-            android:hint="@string/aft4"
-            android:inputType="phone"
-            android:maxLength="10"
-            android:maxLines="1" />
+            android:layout_height="match_parent">
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="80dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitCenter"
+                android:scaleX="2"
+                android:scaleY="2"
+                android:src="@drawable/app_image" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="13dp"
-        android:background="@drawable/style_login"
-        android:orientation="horizontal"
-        android:paddingHorizontal="5dp"
-        android:paddingVertical="7dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/aft2"
+                android:textColor="#fff"
+                android:textSize="17sp" />
 
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:contentDescription="@string/aft5"
-            android:src="@drawable/ic_email" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/style_login"
+                android:orientation="horizontal"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="7dp">
 
-        <EditText
-            android:id="@+id/etemail"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginStart="4dp"
-            android:autofillHints="Email"
-            android:background="@android:color/transparent"
-            android:hint="@string/aft6"
-            android:inputType="textEmailAddress" />
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:contentDescription="@string/aft5"
+                    android:src="@drawable/ic_email" />
 
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/etemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="4dp"
+                    android:autofillHints="Email"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/aft6"
+                    android:inputType="textEmailAddress" />
 
-    <Button
-        android:id="@+id/btnnext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="13dp"
-        android:background="@drawable/style_onlyround"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:text="@string/aft1"
-        android:textAllCaps="false"
-        android:textColor="#ffffff"
-        android:textSize="19sp"
-        android:textStyle="bold" />
+            </LinearLayout>
 
-</LinearLayout>
+            <Button
+                android:id="@+id/btnnext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/style_onlyround"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:text="@string/aft1"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

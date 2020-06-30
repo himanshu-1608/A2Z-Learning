@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.himanshu.a2zlearning.MainActivity;
+import com.himanshu.a2zlearning.ui.activities.MainActivity;
 import com.himanshu.a2zlearning.R;
 
 import java.util.ArrayList;

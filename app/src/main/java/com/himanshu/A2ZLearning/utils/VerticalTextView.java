@@ -1,4 +1,4 @@
-package com.himanshu.a2zlearning;
+package com.himanshu.a2zlearning.utils;
 
 import android.content.Context;
 import android.graphics.Canvas;

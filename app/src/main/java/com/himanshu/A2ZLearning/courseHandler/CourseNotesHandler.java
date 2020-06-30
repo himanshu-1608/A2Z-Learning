@@ -11,7 +11,7 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
-import com.himanshu.a2zlearning.MainActivity;
+import com.himanshu.a2zlearning.ui.activities.MainActivity;
 import com.himanshu.a2zlearning.R;
 
 import java.io.BufferedReader;

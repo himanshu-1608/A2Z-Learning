@@ -16,10 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
@@ -29,10 +25,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
-import com.himanshu.a2zlearning.InternetCheck;
-import com.himanshu.a2zlearning.MainActivity;
+import com.himanshu.a2zlearning.utils.InternetCheck;
+import com.himanshu.a2zlearning.ui.activities.MainActivity;
 import com.himanshu.a2zlearning.R;
-import com.himanshu.a2zlearning.res.Res;
+import com.himanshu.a2zlearning.utils.Res;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -66,91 +62,71 @@ public class LoginActivity extends AppCompatActivity {
         txtsignup = findViewById(R.id.txtsignup);
         progressBar = findViewById(R.id.progressBar);
 
-        btnlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                userLogin();
-            }
-        });
+        btnlogin.setOnClickListener(v -> userLogin());
 
-        txtforgot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,ForgetActivity.class));
-            }
-        });
+        txtforgot.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, ForgetActivity.class)));
 
-        txtsignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,SignupActivity.class));
-            }
-        });
+        txtsignup.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this,SignupActivity.class)));
 
     }
 
     private void userLogin() {
-        new InternetCheck(new InternetCheck.Consumer() {
-            @Override
-            public void accept(Boolean internet) {
-                if(internet) {
-                    final String semail = email.getText().toString().trim();
-                    final String spass = password.getText().toString().trim();
-                    if(validate(semail,spass)) {
-                        progressBar.setVisibility(View.VISIBLE);
-                        checkLogin(semail,spass);
-                    }
-                } else {
-                    Toast.makeText(LoginActivity.this,"Allow Internet",Toast.LENGTH_LONG).show();
+        btnlogin.setClickable(false);
+        new InternetCheck(internet -> {
+            if(internet) {
+                final String semail = email.getText().toString().trim();
+                final String spass = password.getText().toString().trim();
+                if(validate(semail,spass)) {
+                    progressBar.setVisibility(View.VISIBLE);
+                    checkLogin(semail,spass);
                 }
+            } else {
+                Toast.makeText(LoginActivity.this,"Allow Internet",Toast.LENGTH_LONG).show();
+                btnlogin.setClickable(true);
             }
         });
 
     }
 
     private void checkLogin(String semail,String spass) {
-        auth.signInWithEmailAndPassword(semail,spass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
-                    progressBar.setVisibility(View.INVISIBLE);
-                    String uid = auth.getUid();
-                    sp.edit().putString("UserID",uid).apply();
-                    assert uid != null;
-                    dbRef.child("Users").child(uid).runTransaction(new Transaction.Handler() {
-                        @NonNull
-                        @Override
-                        public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
-                            for(final MutableData childs : mutableData.getChildren()) {
-                                if(Objects.equals(childs.getKey(), "UserName")) {
-                                    sp.edit().putString("UserName",childs.getValue(String.class)).apply();
-                                } else if(Objects.equals(childs.getKey(), "UserEmail")) {
-                                    sp.edit().putString("UserEmail",childs.getValue(String.class)).apply();
-                                } else if(Objects.equals(childs.getKey(), "UserPhone")) {
-                                    sp.edit().putString("UserPhone",childs.getValue(String.class)).apply();
-                                }
-                            }
-                            return Transaction.success(mutableData);
-                        }
-                        @Override
-                        public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) { }
-                    });
-                    sp.edit().putBoolean("isLogged",true).apply();
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
+        auth.signInWithEmailAndPassword(semail,spass).addOnCompleteListener(task -> {
+            if(task.isSuccessful()) {
                 progressBar.setVisibility(View.INVISIBLE);
-                if(e instanceof FirebaseAuthInvalidUserException) {
-                    Toast.makeText(LoginActivity.this,"Email not registered!\nSign Up Now :)",Toast.LENGTH_LONG).show();
-                } else if(e instanceof FirebaseAuthInvalidCredentialsException) {
-                    Toast.makeText(LoginActivity.this,"Invalid Email or Password",Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Toast.makeText(LoginActivity.this,"Error : "+e,Toast.LENGTH_LONG).show();
-                }
+                String uid = auth.getUid();
+                sp.edit().putString("UserID",uid).apply();
+                assert uid != null;
+                dbRef.child("Users").child(uid).runTransaction(new Transaction.Handler() {
+                    @NonNull
+                    @Override
+                    public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
+                        for(final MutableData childs : mutableData.getChildren()) {
+                            if(Objects.equals(childs.getKey(), "UserName")) {
+                                sp.edit().putString("UserName",childs.getValue(String.class)).apply();
+                            } else if(Objects.equals(childs.getKey(), "UserEmail")) {
+                                sp.edit().putString("UserEmail",childs.getValue(String.class)).apply();
+                            } else if(Objects.equals(childs.getKey(), "UserPhone")) {
+                                sp.edit().putString("UserPhone",childs.getValue(String.class)).apply();
+                            }
+                        }
+                        return Transaction.success(mutableData);
+                    }
+                    @Override
+                    public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) {btnlogin.setClickable(true);}
+                });
+                sp.edit().putBoolean("isLogged",true).apply();
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            }
+        }).addOnFailureListener(e -> {
+            progressBar.setVisibility(View.INVISIBLE);
+            btnlogin.setClickable(true);
+            if(e instanceof FirebaseAuthInvalidUserException) {
+                Toast.makeText(LoginActivity.this,"Email not registered!\nSign Up Now :)",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(LoginActivity.this,SignupActivity.class));
+            } else if(e instanceof FirebaseAuthInvalidCredentialsException) {
+                Toast.makeText(LoginActivity.this,"Invalid Email or Password",Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(LoginActivity.this,"Error : "+e,Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -159,11 +135,13 @@ public class LoginActivity extends AppCompatActivity {
         if(!isvalidEmail(semail)) {
             email.setError("Invalid Email Address");
             email.requestFocus();
+            btnlogin.setClickable(true);
             return false;
         }
         if(!isValidPassword(spass)) {
-            password.setError("Invalid Password(Min. 6 Characters)");
+            password.setError("Minimum length 6,minimum 1 uppercase,1 lowercase,1 symbol,1 digit");
             password.requestFocus();
+            btnlogin.setClickable(true);
             return false;
         }
         return true;

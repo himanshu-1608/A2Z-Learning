@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 
 import com.himanshu.a2zlearning.courseHandler.CourseDataHandler;
 import com.himanshu.a2zlearning.R;
-import com.himanshu.a2zlearning.res.Res;
+import com.himanshu.a2zlearning.utils.Res;
 
 import java.util.Objects;
 

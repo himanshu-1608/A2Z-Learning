@@ -48,9 +48,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.himanshu.a2zlearning.InternetCheck;
+import com.himanshu.a2zlearning.utils.InternetCheck;
 import com.himanshu.a2zlearning.R;
-import com.himanshu.a2zlearning.res.Res;
+import com.himanshu.a2zlearning.utils.Res;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
