@@ -1,5 +1,12 @@
 # A2Z Learning
 
+![Top-Language](https://img.shields.io/github/languages/top/himanshu-1608/A2Z-Learning)
+![Vulnarabilities](https://img.shields.io/snyk/vulnerabilities/github/himanshu-1608/A2Z-Learning)
+![Code-Size](https://img.shields.io/github/languages/code-size/himanshu-1608/A2Z-Learning?color=green)
+![Issues](https://img.shields.io/bitbucket/issues-raw/himanshu-1608/A2Z-Learning)
+![License](https://img.shields.io/github/license/himanshu-1608/A2Z-Learning?color=purple)
+![Completion](https://img.shields.io/badge/Project%20Completion-~100%25-blue)
+
 Language used : Java + XML.
 
 Hola People :raised_hands: !!
