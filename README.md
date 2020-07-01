@@ -7,7 +7,14 @@
 ![License](https://img.shields.io/github/license/himanshu-1608/A2Z-Learning?color=purple)
 ![Completion](https://img.shields.io/badge/Project%20Completion-~100%25-blue)
 
-Language used : Java.
+- Technical Features:
+  - Java Language (Lambda functions)
+  - Login, Signup & Forgot password feature by Firebase Auth & RealTime DataBase
+  - Fragment handling (Minimum Activities)
+  - Room Persistence Library for Database usage
+  - Profile pic function from Firebase storage
+  - Performance evaluation by Bar Graphs ( Github - MP Android Chart dependency)
+  - Proper REGEX & form validations during signup & login
 
 Hola People :raised_hands: !!
 
