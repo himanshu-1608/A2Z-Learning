@@ -1,6 +1,5 @@
 package com.himanshu.a2zlearning.login;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;

@@ -86,120 +86,111 @@ public class CourseDataHandler extends Fragment {
         }
 
         final Bundle bundle = new Bundle();
-        l1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CourseNotesHandler frag = new CourseNotesHandler();
-                ArrayList<String> topics = new ArrayList<>();
-                ArrayList<String> files = new ArrayList<>();
-                switch(myMessage) {
-                    case 1 :
-                        topics.add("Photoelectric Effect");
-                        topics.add("Diffraction of Light");
-                        files.add("DualNature.txt");
-                        files.add("Diffraction.txt");
-                        break;
+        l1.setOnClickListener(v -> {
+            CourseNotesHandler frag = new CourseNotesHandler();
+            ArrayList<String> topics = new ArrayList<>();
+            ArrayList<String> files = new ArrayList<>();
+            switch(myMessage) {
+                case 1 :
+                    topics.add("Photoelectric Effect");
+                    topics.add("Diffraction of Light");
+                    files.add("DualNature.txt");
+                    files.add("Diffraction.txt");
+                    break;
 
-                    case 2 :
-                        topics.add("Longest Common Subsequence");
-                        topics.add("Fractional KnapSack Problem");
-                        files.add("LcsCode.txt");
-                        files.add("KnapSack01.txt");
-                        break;
+                case 2 :
+                    topics.add("Longest Common Subsequence");
+                    topics.add("Fractional KnapSack Problem");
+                    files.add("LcsCode.txt");
+                    files.add("KnapSack01.txt");
+                    break;
 
-                    case 3 :
-                        topics.add("Types of Bank Accounts");
-                        topics.add("Functions of Money");
-                        files.add("BankACType.txt");
-                        files.add("MoneyFunction.txt");
-                        break;
-                }
-                bundle.putStringArrayList("TopicList",topics);
-                bundle.putStringArrayList("FileList",files);
-                frag.setArguments(bundle);
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
+                case 3 :
+                    topics.add("Types of Bank Accounts");
+                    topics.add("Functions of Money");
+                    files.add("BankACType.txt");
+                    files.add("MoneyFunction.txt");
+                    break;
             }
+            bundle.putStringArrayList("TopicList",topics);
+            bundle.putStringArrayList("FileList",files);
+            frag.setArguments(bundle);
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
         });
 
-        l2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CourseVideosHandler frag = new CourseVideosHandler();
-                ArrayList<String> texts = new ArrayList<>();
-                ArrayList<String> links = new ArrayList<>();
-                switch(myMessage) {
-                    case 1 :
-                        texts.add("Source : ATP STAR-JEE");
-                        texts.add("IUPAC Nomenclature");
-                        texts.add("Binomial Theorem");
-                        texts.add("Center of mass and collisions");
-                        texts.add("Organic Tricks (Recommended)");
-                        links.add("BejGtvWV3m0");
-                        links.add("NjBPfRc6y-c");
-                        links.add("OXfFa_J3lYI");
-                        links.add("hvn1i68rC-E");
-                        break;
+        l2.setOnClickListener(v -> {
+            CourseVideosHandler frag = new CourseVideosHandler();
+            ArrayList<String> texts = new ArrayList<>();
+            ArrayList<String> links = new ArrayList<>();
+            switch(myMessage) {
+                case 1 :
+                    texts.add("Source : ATP STAR-JEE");
+                    texts.add("IUPAC Nomenclature");
+                    texts.add("Binomial Theorem");
+                    texts.add("Center of mass and collisions");
+                    texts.add("Organic Tricks (Recommended)");
+                    links.add("BejGtvWV3m0");
+                    links.add("NjBPfRc6y-c");
+                    links.add("OXfFa_J3lYI");
+                    links.add("hvn1i68rC-E");
+                    break;
 
-                    case 2 :
-                        texts.add("Source : geekforgeeks.org");
-                        texts.add("Longest Common Subsequence");
-                        texts.add("Fractional KnapSack Problem");
-                        texts.add("Object Oriented Design & Design Patterns");
-                        texts.add("A* Algorithm");
-                        links.add("HgUOWB0StNE");
-                        links.add("m1p-eWxrt6g");
-                        links.add("AopCPq2cZlA");
-                        links.add("vP5TkF0xJgI");
-                        break;
+                case 2 :
+                    texts.add("Source : geekforgeeks.org");
+                    texts.add("Longest Common Subsequence");
+                    texts.add("Fractional KnapSack Problem");
+                    texts.add("Object Oriented Design & Design Patterns");
+                    texts.add("A* Algorithm");
+                    links.add("HgUOWB0StNE");
+                    links.add("m1p-eWxrt6g");
+                    links.add("AopCPq2cZlA");
+                    links.add("vP5TkF0xJgI");
+                    break;
 
-                    case 3 :
-                        texts.add("Source : Mrunal Patel");
-                        texts.add("British Imperialism Exigencies");
-                        texts.add("GDP and related terms");
-                        texts.add("Fiscal Framework for India");
-                        texts.add("Continental Drift Theory");
-                        links.add("qhz6_nGD4Rw");
-                        links.add("7jZ4RtMaU9s");
-                        links.add("yzeJ7tVcHQA");
-                        links.add("IxpPoVc7y3U");
-                        break;
-                }
-                bundle.putStringArrayList("TextList",texts);
-                bundle.putStringArrayList("LinkList",links);
-                frag.setArguments(bundle);
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
+                case 3 :
+                    texts.add("Source : Mrunal Patel");
+                    texts.add("British Imperialism Exigencies");
+                    texts.add("GDP and related terms");
+                    texts.add("Fiscal Framework for India");
+                    texts.add("Continental Drift Theory");
+                    links.add("qhz6_nGD4Rw");
+                    links.add("7jZ4RtMaU9s");
+                    links.add("yzeJ7tVcHQA");
+                    links.add("IxpPoVc7y3U");
+                    break;
             }
+            bundle.putStringArrayList("TextList",texts);
+            bundle.putStringArrayList("LinkList",links);
+            frag.setArguments(bundle);
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
         });
 
-        l3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CourseTestsHandler frag = new CourseTestsHandler();
-                ArrayList<String> topics = new ArrayList<>();
-                ArrayList<String> tests = new ArrayList<>(Arrays.asList("Test 1", "Test 2", "Test 3"));
-                switch (myMessage) {
-                    case 1 :
-                        topics.add("Full Length Test(ALL TOPICS)");
-                        topics.add("Organic Chemistry");
-                        topics.add("Units & Dimensions");
-                        break;
-                    case 2 :
-                        topics.add("Full Length Test(ALL TOPICS)");
-                        topics.add("Dynamic Programming");
-                        topics.add("OOPS (Object-Oriented)");
-                        break;
-                    case 3 :
-                        topics.add("Full Length Test(ALL TOPICS)");
-                        topics.add("Polity");
-                        topics.add("Economy");
-                        break;
-                }
-                bundle.putStringArrayList("TopicList",topics);
-                bundle.putInt("CourseID",myMessage);
-                bundle.putStringArrayList("TestList",tests);
-                frag.setArguments(bundle);
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
+        l3.setOnClickListener(v -> {
+            CourseTestsHandler frag = new CourseTestsHandler();
+            ArrayList<String> topics = new ArrayList<>();
+            ArrayList<String> tests = new ArrayList<>(Arrays.asList("Test 1", "Test 2", "Test 3"));
+            switch (myMessage) {
+                case 1 :
+                    topics.add("Full Length Test(ALL TOPICS)");
+                    topics.add("Organic Chemistry");
+                    topics.add("Units & Dimensions");
+                    break;
+                case 2 :
+                    topics.add("Full Length Test(ALL TOPICS)");
+                    topics.add("Dynamic Programming");
+                    topics.add("OOPS (Object-Oriented)");
+                    break;
+                case 3 :
+                    topics.add("Full Length Test(ALL TOPICS)");
+                    topics.add("Polity");
+                    topics.add("Economy");
+                    break;
             }
+            bundle.putStringArrayList("TopicList",topics);
+            bundle.putInt("CourseID",myMessage);
+            bundle.putStringArrayList("TestList",tests);
+            frag.setArguments(bundle);
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,frag).commit();
         });
         return view;
     }

@@ -132,18 +132,15 @@ public class PerformanceFragment extends Fragment {
                 }
             }
         }
-        chart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ChartActivity.class);
-                if(!(exists())){
-                    intent.putExtra("Total",0);
-                } else {
-                    intent.putExtra("Total",Integer.parseInt(a));
-                }
-                intent.putExtra("CorrectList",marks);
-                startActivity(intent);
+        chart.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ChartActivity.class);
+            if(!(exists())){
+                intent.putExtra("Total",0);
+            } else {
+                intent.putExtra("Total",Integer.parseInt(a));
             }
+            intent.putExtra("CorrectList",marks);
+            startActivity(intent);
         });
         return view;
     }

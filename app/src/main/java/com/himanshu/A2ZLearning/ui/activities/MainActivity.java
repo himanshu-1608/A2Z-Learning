@@ -10,7 +10,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -42,7 +41,6 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final String DATAFILE = Res.sp1;
     DrawerLayout drawerLayout;
     CoordinatorLayout coordinatorLayout;
     Toolbar toolbar;
@@ -65,61 +63,49 @@ public class MainActivity extends AppCompatActivity {
         navView             = findViewById(R.id.navView);
         img1                = findViewById(R.id.imgInsta);
         img2                = findViewById(R.id.imgFB);
+        String DATAFILE = Res.sp1;
         sp = getSharedPreferences(DATAFILE,MODE_PRIVATE);
         altsp = getSharedPreferences(Res.sp2,MODE_PRIVATE);
 
         //setup toolbar
         setUpToolBar();
 
-        //setup imagelinks
-        img1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/him_ansh_1608")));
-            }
-        });
+        //setup image links
+        img1.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/himansh_1608/"))));
 
-        img2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/16.himanshu.08")));
-            }
-        });
+        img2.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/16.himanshu.08"))));
 
         //initial fragment setter
         fragmentSetter(new HomeFragment(),getResources().getString(R.string.app_name));
         navView.setCheckedItem(R.id.home);
 
         //set onclick for navigation menu
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                assert getSupportActionBar() != null;
-                switch(menuItem.getItemId()) {
-                    case R.id.home:
-                        fragmentSetter(new HomeFragment(),getResources().getString(R.string.app_name));
-                        break;
-                    case R.id.profile:
-                        fragmentSetter(new ProfileFragment(),"My Profile");
-                        break;
-                    case R.id.courses:
-                        fragmentSetter(new CoursesFragment(),"Courses");
-                        break;
-                    case R.id.perf_eval:
-                        fragmentSetter(new PerformanceFragment(),"My Performance");
-                        break;
-                    case R.id.devinfo:
-                        fragmentSetter(new DevInfoFragment(),"About Us");
-                        break;
-                    case R.id.helpsupport:
-                        fragmentSetter(new HelpSupportFragment(),"Help & Support");
-                        break;
-                    case R.id.logout:sendAlert();
-                        return true;
-                }
-                drawerLayout.closeDrawers();
-                return true;
+        navView.setNavigationItemSelectedListener(menuItem -> {
+            assert getSupportActionBar() != null;
+            switch(menuItem.getItemId()) {
+                case R.id.home:
+                    fragmentSetter(new HomeFragment(),getResources().getString(R.string.app_name));
+                    break;
+                case R.id.profile:
+                    fragmentSetter(new ProfileFragment(),"My Profile");
+                    break;
+                case R.id.courses:
+                    fragmentSetter(new CoursesFragment(),"Courses");
+                    break;
+                case R.id.perf_eval:
+                    fragmentSetter(new PerformanceFragment(),"My Performance");
+                    break;
+                case R.id.devinfo:
+                    fragmentSetter(new DevInfoFragment(),"About Us");
+                    break;
+                case R.id.helpsupport:
+                    fragmentSetter(new HelpSupportFragment(),"Help & Support");
+                    break;
+                case R.id.logout:sendAlert();
+                    return true;
             }
+            drawerLayout.closeDrawers();
+            return true;
         });
     }
 
@@ -128,20 +114,17 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("Log Out")
                 .setCancelable(false)
                 .setMessage("Are You sure want to log out?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        FirebaseAuth.getInstance().signOut();
-                        sp.edit().putBoolean("isLogged",false).apply();
-                        sp.edit().remove("UserName").apply();
-                        sp.edit().remove("UserID").apply();
-                        sp.edit().remove("UserPhone").apply();
-                        sp.edit().remove("UserPassword").apply();
-                        sp.edit().remove("UserEmail").apply();
-                        sp.edit().remove("UserName").apply();
-                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                        finish();
-                    }
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    FirebaseAuth.getInstance().signOut();
+                    sp.edit().putBoolean("isLogged",false).apply();
+                    sp.edit().remove("UserName").apply();
+                    sp.edit().remove("UserID").apply();
+                    sp.edit().remove("UserPhone").apply();
+                    sp.edit().remove("UserPassword").apply();
+                    sp.edit().remove("UserEmail").apply();
+                    sp.edit().remove("UserName").apply();
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    finish();
                 })
                 .setNegativeButton("Cancel",null);
         AlertDialog alert = builder.create();
@@ -187,17 +170,13 @@ public class MainActivity extends AppCompatActivity {
                 builder.setTitle("Quit App")
                         .setCancelable(false)
                         .setMessage("Are you sure want to quit the app?")
-                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                finishAffinity();
-                            }
-                        })
+                        .setPositiveButton("Ok", (dialog, which) -> finishAffinity())
                         .setNegativeButton("Cancel",null);
                 AlertDialog alert = builder.create();
                 alert.show();
             } else if(frag instanceof CoursesFragment || frag instanceof DevInfoFragment || frag instanceof HelpSupportFragment || frag instanceof PerformanceFragment || frag instanceof ProfileFragment) {
                 fragmentSetter(new HomeFragment(),getResources().getString(R.string.app_name));
+                navView.setCheckedItem(R.id.home);
             } else if(frag instanceof CourseDataHandler){
                 fragmentSetter(new CoursesFragment(),"Courses");
             } else if(frag instanceof CourseNotesHandler || frag instanceof CourseVideosHandler || frag instanceof CourseTestsHandler) {

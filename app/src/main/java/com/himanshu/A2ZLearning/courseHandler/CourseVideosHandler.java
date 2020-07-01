@@ -49,12 +49,7 @@ public class CourseVideosHandler extends Fragment {
 
         for(int i = 0 ; i < bgrp.length ; i++) {
             final int finalI = i;
-            bgrp[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v="+ links.get(finalI))));
-                }
-            });
+            bgrp[i].setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v="+ links.get(finalI)))));
         }
 
         return view;

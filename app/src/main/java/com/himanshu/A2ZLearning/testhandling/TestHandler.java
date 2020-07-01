@@ -28,12 +28,9 @@ public class TestHandler extends TestLayout {
             builder.setTitle("Quit App")
                     .setCancelable(false)
                     .setMessage("Are You Sure to quit the app?")
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finishAffinity();
-                            System.out.println("Exiting the app!!!");
-                        }
+                    .setPositiveButton("Ok", (dialog, which) -> {
+                        finishAffinity();
+                        System.out.println("Exiting the app!!!");
                     })
                     .setNegativeButton("Cancel",null);
 
@@ -61,47 +58,41 @@ public class TestHandler extends TestLayout {
         StartActivities(test,queCount,timeofExercise);
         allGone();
 
-        startup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startup.setVisibility(View.GONE);
-                endTest.setVisibility(View.VISIBLE);
-                teststate = true;
-                StringBuilder rawText = new StringBuilder();
-                BufferedReader reader = null;
-                try {
-                    assert filename != null;
-                    reader = new BufferedReader(new InputStreamReader(getAssets().open(filename)));
-                    String mLine;
-                    while((mLine = reader.readLine())!= null){
-                        rawText.append(mLine);
-                        rawText.append("qq");
-                    }
-                    setQuestions(rawText);
-                } catch (IOException e) {
-                    Toast.makeText(getBaseContext(),"Error reading file !", Toast.LENGTH_LONG).show();
-                } finally {
-                    if (reader != null) {
-                        try {
-                            reader.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    allCame();
-                    startTimer();
+        startup.setOnClickListener(v -> {
+            startup.setVisibility(View.GONE);
+            endTest.setVisibility(View.VISIBLE);
+            teststate = true;
+            StringBuilder rawText = new StringBuilder();
+            BufferedReader reader = null;
+            try {
+                assert filename != null;
+                reader = new BufferedReader(new InputStreamReader(getAssets().open(filename)));
+                String mLine;
+                while((mLine = reader.readLine())!= null){
+                    rawText.append(mLine);
+                    rawText.append("qq");
                 }
+                setQuestions(rawText);
+            } catch (IOException e) {
+                Toast.makeText(getBaseContext(),"Error reading file !", Toast.LENGTH_LONG).show();
+            } finally {
+                if (reader != null) {
+                    try {
+                        reader.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                allCame();
+                startTimer();
             }
         });
 
-        endTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                teststate = false;
-                showResults(filesent);
-                timer.cancel();
-                endTest.setVisibility(View.GONE);
-            }
+        endTest.setOnClickListener(v -> {
+            teststate = false;
+            showResults(filesent);
+            timer.cancel();
+            endTest.setVisibility(View.GONE);
         });
     }
 

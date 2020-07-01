@@ -27,12 +27,7 @@ public class DevInfoFragment extends Fragment {
         TextView gmail = view.findViewById(R.id.gmail);
         TextView suggest = view.findViewById(R.id.suggest);
 
-        git.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/himanshu-1608/A2Z-Learning")));
-            }
-        });
+        git.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/himanshu-1608/A2Z-Learning"))));
 
         gmail.setMovementMethod(LinkMovementMethod.getInstance());
         suggest.setMovementMethod(LinkMovementMethod.getInstance());

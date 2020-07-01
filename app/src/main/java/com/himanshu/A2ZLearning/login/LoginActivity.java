@@ -107,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                             } else if(Objects.equals(childs.getKey(), "UserPhone")) {
                                 sp.edit().putString("UserPhone",childs.getValue(String.class)).apply();
                             }
+                            sp.edit().putString("UserPassword",spass).apply();
                         }
                         return Transaction.success(mutableData);
                     }

@@ -30,31 +30,22 @@ public class CoursesFragment extends Fragment {
         LinearLayout c2 = view.findViewById(R.id.c2);
         LinearLayout c3 = view.findViewById(R.id.c3);
 
-        c1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CourseDataHandler fragInfo = new CourseDataHandler(1);
-                sp.edit().putInt("myMessage",1).apply();
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragInfo).commit();
-            }
+        c1.setOnClickListener(v -> {
+            CourseDataHandler fragInfo = new CourseDataHandler(1);
+            sp.edit().putInt("myMessage",1).apply();
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragInfo).commit();
         });
 
-        c2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CourseDataHandler fragInfo = new CourseDataHandler(2);
-                sp.edit().putInt("myMessage",2).apply();
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragInfo).commit();
-            }
+        c2.setOnClickListener(v -> {
+            CourseDataHandler fragInfo = new CourseDataHandler(2);
+            sp.edit().putInt("myMessage",2).apply();
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragInfo).commit();
         });
 
-        c3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CourseDataHandler fragInfo = new CourseDataHandler(3);
-                sp.edit().putInt("myMessage",3).apply();
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragInfo).commit();
-            }
+        c3.setOnClickListener(v -> {
+            CourseDataHandler fragInfo = new CourseDataHandler(3);
+            sp.edit().putInt("myMessage",3).apply();
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragInfo).commit();
         });
         return view;
     }
