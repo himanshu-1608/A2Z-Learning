@@ -7,16 +7,16 @@
 ![License](https://img.shields.io/github/license/himanshu-1608/A2Z-Learning?color=purple)
 ![Completion](https://img.shields.io/badge/Project%20Completion-~100%25-blue)
 
-Language used : Java + XML.
+Language used : Java.
 
 Hola People :raised_hands: !!
 
 Welcome to this app...
 
-The single point destination for all kinds of exam. Explore your topics of interest from course list.
+The single point destination for all kinds of exams. Explore your topics of interest from the course list.
 
 - ABOUT THIS APP
-  - This app is designed to fulfil basic needs of aspiring students preparing for various examinations.
+  - This app is designed to fulfill basic needs of aspiring students preparing for various examinations.
   - It contains **study material, notes, youtube tutorials and tests** for various courses.
 
 - WHAT YOU SEEK
@@ -34,5 +34,9 @@ The single point destination for all kinds of exam. Explore your topics of inter
   - Crack the test, grab your place :star2: 
   - We have your scorecard showing your crests and troughs, to evaluate your efforts so that you could analyse your weak portions.
 
+- SNAPSHOTS
+
+<img src="/Screenshots/LoginActivity.jpg" width="215px" height="420px"/> <img src="/Screenshots/Nav drawer.jpg" width="215px" height="420px"/> <img src="/Screenshots/Profile Pic & Details(firebase storage).jpg" width="215px" height="420px"/> <img src="/Screenshots/Demo bar graph performace in mock tests.jpg" width="215px" height="420px"/>
+<img src="/Screenshots/Demo Test.jpg" width="215px" height="420px"/> <img src="/Screenshots/Expandable List for Exams.jpg" width="215px" height="420px"/> <img src="/Screenshots/Study Material.jpg" width="215px" height="420px"/> <img src="/Screenshots/Demo Test History(Room DB).jpg" width="215px" height="420px"/>
 
 **HAPPY LEARNING PEEPS** :v: 
