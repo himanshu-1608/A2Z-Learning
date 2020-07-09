@@ -7,6 +7,8 @@
 ![License](https://img.shields.io/github/license/himanshu-1608/A2Z-Learning?color=purple)
 ![Completion](https://img.shields.io/badge/Project%20Completion-~100%25-blue)
 
+#### App Installation Link: https://drive.google.com/file/d/1glX0g_abdqJTocb_cpjiLDAxcxFh0xer/view?usp=sharing 
+
 - Technical Features:
   - Java Language (Lambda functions)
   - Login, Signup & Forgot password feature by Firebase Auth & RealTime DataBase
